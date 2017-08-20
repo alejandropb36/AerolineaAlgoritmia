@@ -25,6 +25,7 @@ namespace Airline
             this.flightTime = flightTime;
             this.cost = cost;
             this.destinationCity = destinationCity;
+
         }
 
         public void setOriginCity(char originCity)
