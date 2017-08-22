@@ -12,19 +12,21 @@ namespace Airline
         private string lastname;
         private int age;
         private int id;
-        // Vuelo
-        // Asiento
+        private int seatNumber;
+        private string flightRoute;
 
         public Passenger()
         {
         }
 
-        public Passenger(string name, string lastname, int age, int id)
+        public Passenger(string name, string lastname, int age, int id, int seatNumber, string flightRoute)
         {
             this.name = name;
             this.lastname = lastname;
             this.age = age;
             this.id = id;
+            this.seatNumber = seatNumber;
+            this.flightRoute = flightRoute;
         }
 
         public void setName(string name)
@@ -46,6 +48,16 @@ namespace Airline
         {
             this.id = id;
         }
+        
+        public void setSeatNumber(int seatNumber)
+        {
+            this.seatNumber = seatNumber;
+        }
+
+        public void setFlightRoute(string flightRoute)
+        {
+            this.flightRoute = flightRoute;
+        }
 
         public string getName()
         {
@@ -64,6 +76,16 @@ namespace Airline
         public int getId()
         {
             return id;
+        }
+
+        public int getSeatNumber()
+        {
+            return seatNumber;
+        }
+
+        public string getFlightRoute()
+        {
+            return flightRoute;
         }
     }
 }

@@ -41,9 +41,9 @@
             this.MainTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTitle.Location = new System.Drawing.Point(54, 22);
             this.MainTitle.Name = "MainTitle";
-            this.MainTitle.Size = new System.Drawing.Size(246, 39);
+            this.MainTitle.Size = new System.Drawing.Size(264, 39);
             this.MainTitle.TabIndex = 0;
-            this.MainTitle.Text = "Alkaeda Airline";
+            this.MainTitle.Text = "Al Qaeda Airline";
             this.MainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonReservation
@@ -54,6 +54,7 @@
             this.buttonReservation.TabIndex = 1;
             this.buttonReservation.Text = "Reservaciones";
             this.buttonReservation.UseVisualStyleBackColor = true;
+            this.buttonReservation.Click += new System.EventHandler(this.buttonReservation_Click);
             // 
             // buttonPassengers
             // 

@@ -13,19 +13,28 @@ namespace Airline
         private int flightTime;
         private int cost;
         private char destinationCity;
+        bool[] seating = new bool[18];
+        // lista de pasajeros
 
         public Flight()
         {
+            for (int i = 0; i < seating.Length; i++)
+            {
+                seating[i] = false;
+            }
         }
 
-        public Flight(char originCity, string route, int flightTime, int cost, char destinationCity)
+        public Flight(char originCity, int flightTime, int cost, char destinationCity)
         {
             this.originCity = originCity;
-            this.route = route;
+            this.route = "SK1" + originCity + destinationCity; 
             this.flightTime = flightTime;
             this.cost = cost;
             this.destinationCity = destinationCity;
-
+            for (int i = 0; i < seating.Length; i++)
+            {
+                seating[i] = false;
+            }
         }
 
         public void setOriginCity(char originCity)
