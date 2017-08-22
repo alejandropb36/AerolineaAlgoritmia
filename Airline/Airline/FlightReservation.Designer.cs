@@ -37,6 +37,7 @@
             this.labelAge4 = new System.Windows.Forms.Label();
             this.textBoxPassengerAge3 = new System.Windows.Forms.TextBox();
             this.labelYears5 = new System.Windows.Forms.Label();
+            this.buttonSelling1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxFlights1
@@ -115,11 +116,21 @@
             this.labelYears5.TabIndex = 8;
             this.labelYears5.Text = "años";
             // 
+            // buttonSelling1
+            // 
+            this.buttonSelling1.Location = new System.Drawing.Point(174, 216);
+            this.buttonSelling1.Name = "buttonSelling1";
+            this.buttonSelling1.Size = new System.Drawing.Size(75, 23);
+            this.buttonSelling1.TabIndex = 9;
+            this.buttonSelling1.Text = "Venta";
+            this.buttonSelling1.UseVisualStyleBackColor = true;
+            // 
             // FlightReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 318);
+            this.ClientSize = new System.Drawing.Size(471, 283);
+            this.Controls.Add(this.buttonSelling1);
             this.Controls.Add(this.labelYears5);
             this.Controls.Add(this.textBoxPassengerAge3);
             this.Controls.Add(this.labelAge4);
@@ -147,5 +158,6 @@
         private System.Windows.Forms.Label labelAge4;
         private System.Windows.Forms.TextBox textBoxPassengerAge3;
         private System.Windows.Forms.Label labelYears5;
+        private System.Windows.Forms.Button buttonSelling1;
     }
 }

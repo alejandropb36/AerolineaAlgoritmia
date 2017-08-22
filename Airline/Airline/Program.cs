@@ -88,8 +88,10 @@ namespace Airline
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
-            MainMenu mainMenu = new MainMenu(ref flightList);
+            MainMenu mainMenu = new MainMenu( flightList);
             mainMenu.ShowDialog();
+            
+            
         }
     }
 }
