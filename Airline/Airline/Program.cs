@@ -14,7 +14,7 @@ namespace Airline
         [STAThread]
         static void Main()
         {
-            List<Flight> flightList = new List<Flight>();
+            List<Flight> flights = new List<Flight>();
             Flight flight1 = new Flight('A', 50, 600, 'B');
             Flight flight2 = new Flight('A', 90, 1050, 'F');
             Flight flight3 = new Flight('A', 80, 1150, 'G');
@@ -50,45 +50,46 @@ namespace Airline
             Flight flight33 = new Flight('L', 60, 1550, 'E');
             Flight flight34 = new Flight('M', 40, 700, 'L');
 
-            flightList.Add(flight1);
-            flightList.Add(flight2);
-            flightList.Add(flight3);
-            flightList.Add(flight4);
-            flightList.Add(flight5);
-            flightList.Add(flight6);
-            flightList.Add(flight7);
-            flightList.Add(flight8);
-            flightList.Add(flight9);
-            flightList.Add(flight10);
-            flightList.Add(flight11);
-            flightList.Add(flight12);
-            flightList.Add(flight13);
-            flightList.Add(flight14);
-            flightList.Add(flight15);
-            flightList.Add(flight16);
-            flightList.Add(flight17);
-            flightList.Add(flight18);
-            flightList.Add(flight19);
-            flightList.Add(flight20);
-            flightList.Add(flight21);
-            flightList.Add(flight22);
-            flightList.Add(flight23);
-            flightList.Add(flight24);
-            flightList.Add(flight25);
-            flightList.Add(flight26);
-            flightList.Add(flight27);
-            flightList.Add(flight28);
-            flightList.Add(flight29);
-            flightList.Add(flight30);
-            flightList.Add(flight31);
-            flightList.Add(flight32);
-            flightList.Add(flight33);
-            flightList.Add(flight34);
+            flights.Add(flight1);
+            flights.Add(flight2);
+            flights.Add(flight3);
+            flights.Add(flight4);
+            flights.Add(flight5);
+            flights.Add(flight6);
+            flights.Add(flight7);
+            flights.Add(flight8);
+            flights.Add(flight9);
+            flights.Add(flight10);
+            flights.Add(flight11);
+            flights.Add(flight12);
+            flights.Add(flight13);
+            flights.Add(flight14);
+            flights.Add(flight15);
+            flights.Add(flight16);
+            flights.Add(flight17);
+            flights.Add(flight18);
+            flights.Add(flight19);
+            flights.Add(flight20);
+            flights.Add(flight21);
+            flights.Add(flight22);
+            flights.Add(flight23);
+            flights.Add(flight24);
+            flights.Add(flight25);
+            flights.Add(flight26);
+            flights.Add(flight27);
+            flights.Add(flight28);
+            flights.Add(flight29);
+            flights.Add(flight30);
+            flights.Add(flight31);
+            flights.Add(flight32);
+            flights.Add(flight33);
+            flights.Add(flight34);
+           
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
-            MainMenu mainMenu = new MainMenu(ref flightList);
+            MainMenu mainMenu = new MainMenu(ref flights);
             mainMenu.ShowDialog();
         }
     }

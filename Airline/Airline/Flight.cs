@@ -13,15 +13,13 @@ namespace Airline
         private int flightTime;
         private int cost;
         private char destinationCity;
-        bool[] seating = new bool[18];
+        //bool[] seating = new bool[18];
+
         // lista de pasajeros
+        Passenger[] passengers = new Passenger[18];
 
         public Flight()
         {
-            for (int i = 0; i < seating.Length; i++)
-            {
-                seating[i] = false;
-            }
         }
 
         public Flight(char originCity, int flightTime, int cost, char destinationCity)
@@ -31,10 +29,15 @@ namespace Airline
             this.flightTime = flightTime;
             this.cost = cost;
             this.destinationCity = destinationCity;
-            for (int i = 0; i < seating.Length; i++)
+           /*for (int i = 0; i < seating.Length; i++)
             {
                 seating[i] = false;
-            }
+            }*/
+        }
+
+        public override string ToString()
+        {
+            return route;
         }
 
         public void setOriginCity(char originCity)

@@ -12,9 +12,17 @@ namespace Airline
 {
     public partial class FlightReservation : Form
     {
-        public FlightReservation()
+        private List<Flight> flights;
+        public FlightReservation(ref List<Flight> flights)
         {
+            this.flights = flights;
             InitializeComponent();
+
+            foreach(Flight flight in flights)
+            {
+                comboBoxFlights1.Items.Add(flight);
+            }
+            
         }
     }
 }
