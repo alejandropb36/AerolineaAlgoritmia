@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airline
 {
-    public class Flight
+    class Flight
     {
         private char originCity;
         private string route;
