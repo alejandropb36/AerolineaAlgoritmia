@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airline
 {
-    class Passenger
+    public class Passenger
     {
         private string name;
         private string lastname;
