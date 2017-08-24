@@ -31,5 +31,11 @@ namespace Airline
             ViewsPassengers viewsPassengers = new ViewsPassengers();
             viewsPassengers.ShowDialog();
         }
+
+        private void buttonFlights_Click(object sender, EventArgs e)
+        {
+            ViewsFlights viewsFlights = new ViewsFlights();
+            viewsFlights.ShowDialog();
+        }
     }
 }

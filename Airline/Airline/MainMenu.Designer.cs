@@ -74,6 +74,7 @@
             this.buttonFlights.TabIndex = 3;
             this.buttonFlights.Text = "Vuelos";
             this.buttonFlights.UseVisualStyleBackColor = true;
+            this.buttonFlights.Click += new System.EventHandler(this.buttonFlights_Click);
             // 
             // MainMenu
             // 
