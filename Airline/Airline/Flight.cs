@@ -94,5 +94,14 @@ namespace Airline
             return destinationCity;
         }
 
+        public ref List<Passenger> getPassengers()
+        {
+            return ref passengers;
+        }
+
+        public ref bool[] getSeats()
+        {
+            return ref seating;
+        }
     }
 }

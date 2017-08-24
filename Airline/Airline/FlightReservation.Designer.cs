@@ -144,6 +144,7 @@
             this.buttonSell1.TabIndex = 9;
             this.buttonSell1.Text = "Venta";
             this.buttonSell1.UseVisualStyleBackColor = true;
+            this.buttonSell1.Click += new System.EventHandler(this.buttonSell1_Click);
             // 
             // pictureBoxSeats1
             // 
