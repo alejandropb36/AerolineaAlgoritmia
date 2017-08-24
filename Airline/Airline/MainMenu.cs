@@ -13,16 +13,18 @@ namespace Airline
     public partial class MainMenu : Form
     {
         private List<Flight> flights;
+        private List<Passenger> passengers;
 
-        public MainMenu(ref List<Flight> flights)
+        public MainMenu(ref List<Flight> flights,ref List<Passenger> passengers)
         {
             this.flights = flights;
+            this.passengers = passengers;
             InitializeComponent();
         }
         
         private void buttonReservation_Click(object sender, EventArgs e)
         {
-            FlightReservation flightReservation = new FlightReservation(ref flights);
+            FlightReservation flightReservation = new FlightReservation(ref flights, ref passengers);
             flightReservation.ShowDialog();
         }
 

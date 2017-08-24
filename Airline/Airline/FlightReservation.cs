@@ -13,8 +13,10 @@ namespace Airline
     public partial class FlightReservation : Form
     {
         private List<Flight> flights;
-        public FlightReservation(ref List<Flight> flights)
+        private List<Passenger> passengers;
+        public FlightReservation(ref List<Flight> flights, ref List<Passenger> passengers)
         {
+            this.passengers = passengers;
             this.flights = flights;
             InitializeComponent();
 

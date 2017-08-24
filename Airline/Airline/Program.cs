@@ -14,6 +14,7 @@ namespace Airline
         [STAThread]
         static void Main()
         {
+            List<Passenger> passengers = new List<Passenger>();
             List<Flight> flights = new List<Flight>();
             Flight flight1 = new Flight('A', 50, 600, 'B');
             Flight flight2 = new Flight('A', 90, 1050, 'F');
@@ -89,7 +90,7 @@ namespace Airline
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
-            MainMenu mainMenu = new MainMenu(ref flights);
+            MainMenu mainMenu = new MainMenu(ref flights,ref passengers);
             mainMenu.ShowDialog();
         }
     }
