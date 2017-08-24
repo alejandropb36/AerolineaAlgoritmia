@@ -25,5 +25,11 @@ namespace Airline
             FlightReservation flightReservation = new FlightReservation(ref flights);
             flightReservation.ShowDialog();
         }
+
+        private void buttonPassengers_Click(object sender, EventArgs e)
+        {
+            ViewsPassengers viewsPassengers = new ViewsPassengers();
+            viewsPassengers.ShowDialog();
+        }
     }
 }

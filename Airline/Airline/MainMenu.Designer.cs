@@ -64,6 +64,7 @@
             this.buttonPassengers.TabIndex = 2;
             this.buttonPassengers.Text = "Pasajeros";
             this.buttonPassengers.UseVisualStyleBackColor = true;
+            this.buttonPassengers.Click += new System.EventHandler(this.buttonPassengers_Click);
             // 
             // buttonFlights
             // 

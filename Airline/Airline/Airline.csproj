@@ -61,6 +61,12 @@
     <Compile Include="Passenger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewsPassengers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewsPassengers.Designer.cs">
+      <DependentUpon>ViewsPassengers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FlightReservation.resx">
       <DependentUpon>FlightReservation.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ViewsPassengers.resx">
+      <DependentUpon>ViewsPassengers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
