@@ -13,20 +13,22 @@ namespace Airline
         private int flightTime;
         private int cost;
         private char destinationCity;
-        private bool[] seating = new bool[18];
         private List<Passenger> passengers;
+        private bool[] seating;
 
         public Flight()
         {
+            seating = new bool[18];
             for (int i = 0; i < seating.Length; i++)
             {
-                seating[i] = false;
+                seating[i] = true;
             }
             passengers = new List<Passenger>();
         }
 
         public Flight(char originCity, int flightTime, int cost, char destinationCity)
         {
+            seating = new bool[18];
             this.originCity = originCity;
             this.route = "SK1" + originCity + destinationCity; 
             this.flightTime = flightTime;
@@ -34,7 +36,7 @@ namespace Airline
             this.destinationCity = destinationCity;
             for (int i = 0; i < seating.Length; i++)
             {
-                seating[i] = false;
+                seating[i] = true;
             }
             passengers = new List<Passenger>();
         }
@@ -69,6 +71,11 @@ namespace Airline
             this.destinationCity = destinationCity;
         }
 
+        public void setSeating(int i, bool status)
+        {
+            seating[i] = status;
+        }
+
         public char getOriginCity()
         {
             return originCity;
@@ -99,9 +106,9 @@ namespace Airline
             return ref passengers;
         }
 
-        public ref bool[] getSeats()
+        public bool getSeating(int i)
         {
-            return ref seating;
+            return seating[i];
         }
     }
 }
