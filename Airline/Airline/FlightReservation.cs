@@ -14,7 +14,7 @@ namespace Airline
     {
         private List<Flight> flights;
         private List<Passenger> passengers;
-        private int seat;
+        private int seatNumber;
         private bool sell;
 
         public FlightReservation(ref List<Flight> flights, ref List<Passenger> passengers)
@@ -22,7 +22,7 @@ namespace Airline
             this.passengers = passengers;
             this.flights = flights;
             InitializeComponent();
-            seat = -1;
+            seatNumber = -1;
             sell = false;
             foreach(Flight flight in flights)
             {
@@ -43,7 +43,7 @@ namespace Airline
 
         public void updateSeating()
         {
-            //prueba de asintos
+            //prueba de asientos
             flights[0].setSeating(0, false);
             flights[3].setSeating(3, false);
 
@@ -85,6 +85,96 @@ namespace Airline
             {
                 updateSeating();
             }
+        }
+
+        private void buttonSeat1_Click(object sender, EventArgs e)
+        {
+            seatNumber = 0;
+        }
+
+        private void buttonSeat2_Click(object sender, EventArgs e)
+        {
+            seatNumber = 1;
+        }
+
+        private void buttonSeat3_Click(object sender, EventArgs e)
+        {
+            seatNumber = 2;
+        }
+
+        private void buttonSeat4_Click(object sender, EventArgs e)
+        {
+            seatNumber = 3;
+        }
+
+        private void buttonSeat5_Click(object sender, EventArgs e)
+        {
+            seatNumber = 4;
+        }
+
+        private void buttonSeat6_Click(object sender, EventArgs e)
+        {
+            seatNumber = 5;
+        }
+
+        private void buttonSeat7_Click(object sender, EventArgs e)
+        {
+            seatNumber = 6;
+        }
+
+        private void buttonSeat8_Click(object sender, EventArgs e)
+        {
+            seatNumber = 7;
+        }
+
+        private void buttonSeat9_Click(object sender, EventArgs e)
+        {
+            seatNumber = 8;
+        }
+
+        private void buttonSeat10_Click(object sender, EventArgs e)
+        {
+            seatNumber = 9;
+        }
+
+        private void buttonSeat11_Click(object sender, EventArgs e)
+        {
+            seatNumber = 10;
+        }
+
+        private void buttonSeat12_Click(object sender, EventArgs e)
+        {
+            seatNumber = 11;
+        }
+
+        private void buttonSeat13_Click(object sender, EventArgs e)
+        {
+            seatNumber = 12;
+        }
+
+        private void buttonSeat14_Click(object sender, EventArgs e)
+        {
+            seatNumber = 13;
+        }
+
+        private void buttonSeat15_Click(object sender, EventArgs e)
+        {
+            seatNumber = 14;
+        }
+
+        private void buttonSeat16_Click(object sender, EventArgs e)
+        {
+            seatNumber = 15;
+        }
+
+        private void buttonSeat17_Click(object sender, EventArgs e)
+        {
+            seatNumber = 16;
+        }
+
+        private void buttonSeat18_Click(object sender, EventArgs e)
+        {
+            seatNumber = 17;
         }
     }
 }
