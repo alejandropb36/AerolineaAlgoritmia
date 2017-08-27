@@ -68,6 +68,7 @@
             this.comboBoxFlights1.Name = "comboBoxFlights1";
             this.comboBoxFlights1.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFlights1.TabIndex = 0;
+            this.comboBoxFlights1.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlights1_SelectedIndexChanged);
             // 
             // labelFlightsList1
             // 
