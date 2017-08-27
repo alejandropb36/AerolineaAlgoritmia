@@ -57,7 +57,7 @@
             this.buttonSeat16 = new System.Windows.Forms.Button();
             this.buttonSeat17 = new System.Windows.Forms.Button();
             this.buttonSeat18 = new System.Windows.Forms.Button();
-            this.labelFlightSelection6 = new System.Windows.Forms.Label();
+            this.labelSeatSelection6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeats1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -317,22 +317,22 @@
             this.buttonSeat18.Text = "18";
             this.buttonSeat18.UseVisualStyleBackColor = true;
             // 
-            // labelFlightSelection6
+            // labelSeatSelection6
             // 
-            this.labelFlightSelection6.AutoSize = true;
-            this.labelFlightSelection6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFlightSelection6.Location = new System.Drawing.Point(506, 124);
-            this.labelFlightSelection6.Name = "labelFlightSelection6";
-            this.labelFlightSelection6.Size = new System.Drawing.Size(150, 20);
-            this.labelFlightSelection6.TabIndex = 29;
-            this.labelFlightSelection6.Text = "Selecciona un vuelo";
+            this.labelSeatSelection6.AutoSize = true;
+            this.labelSeatSelection6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSeatSelection6.Location = new System.Drawing.Point(506, 124);
+            this.labelSeatSelection6.Name = "labelSeatSelection6";
+            this.labelSeatSelection6.Size = new System.Drawing.Size(165, 20);
+            this.labelSeatSelection6.TabIndex = 29;
+            this.labelSeatSelection6.Text = "Selecciona un asiento";
             // 
             // FlightReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 393);
-            this.Controls.Add(this.labelFlightSelection6);
+            this.Controls.Add(this.labelSeatSelection6);
             this.Controls.Add(this.buttonSeat18);
             this.Controls.Add(this.buttonSeat17);
             this.Controls.Add(this.buttonSeat16);
@@ -401,6 +401,6 @@
         private System.Windows.Forms.Button buttonSeat16;
         private System.Windows.Forms.Button buttonSeat17;
         private System.Windows.Forms.Button buttonSeat18;
-        private System.Windows.Forms.Label labelFlightSelection6;
+        private System.Windows.Forms.Label labelSeatSelection6;
     }
 }
