@@ -158,12 +158,13 @@
             // 
             // buttonSeat1
             // 
+            this.buttonSeat1.BackColor = System.Drawing.SystemColors.Control;
             this.buttonSeat1.Location = new System.Drawing.Point(431, 167);
             this.buttonSeat1.Name = "buttonSeat1";
             this.buttonSeat1.Size = new System.Drawing.Size(27, 23);
             this.buttonSeat1.TabIndex = 11;
             this.buttonSeat1.Text = "1";
-            this.buttonSeat1.UseVisualStyleBackColor = true;
+            this.buttonSeat1.UseVisualStyleBackColor = false;
             this.buttonSeat1.Click += new System.EventHandler(this.buttonSeat1_Click);
             // 
             // buttonSeat2

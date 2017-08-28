@@ -35,17 +35,11 @@ namespace Airline
             return sell;
         }
 
-        private void buttonSell1_Click(object sender, EventArgs e)
-        {
-            sell = true;
-            this.Close();
-        }
-
         public void updateSeating()
         {
             //prueba de asientos
-            flights[0].setSeating(0, false);
-            flights[3].setSeating(3, false);
+            //flights[0].setSeating(0, false);
+            //flights[3].setSeating(3, false);
 
             List<Button> seatingButtons = new List<Button>(); ;
             int iterator = 0;
@@ -72,9 +66,16 @@ namespace Airline
             foreach (Button buttonIterator in seatingButtons)
             {
                 if (flights[comboBoxFlights1.SelectedIndex].getSeating(iterator) == false)
+                {
                     buttonIterator.Enabled = false;
+                    buttonIterator.BackColor = Color.IndianRed;
+                }
                 else
+                {
                     buttonIterator.Enabled = true;
+                    buttonIterator.BackColor = Color.LightGreen;
+                }
+                    
                 iterator++;
             }
         }
@@ -175,6 +176,56 @@ namespace Airline
         private void buttonSeat18_Click(object sender, EventArgs e)
         {
             seatNumber = 17;
+        }
+
+
+        private void buttonSell1_Click(object sender, EventArgs e)
+        {
+            string name, lastname, route, id;
+            int age;
+            Passenger passenger;
+            bool ageFlag;
+            if (comboBoxFlights1.SelectedIndex >= 0)
+            {
+                if (textBoxPassengerName1.Text != "")
+                {
+                    if (textBoxPassengerLastName2.Text != "")
+                    {
+                        if(textBoxPassengerAge3.Text != "")
+                        {
+                            ageFlag = int.TryParse(textBoxPassengerAge3.Text, out age);
+                            if (ageFlag)
+                            {
+                                if (seatNumber > -1)
+                                {
+                                    name = textBoxPassengerName1.Text;
+                                    lastname = textBoxPassengerLastName2.Text;
+                                    route = flights[comboBoxFlights1.SelectedIndex].getRoute();
+                                    flights[comboBoxFlights1.SelectedIndex].setSeating(seatNumber, false);
+                                    id = name[0] + lastname[0] + route + seatNumber;
+                                    passenger = new Passenger(name, lastname, age, id, seatNumber, route);
+                                    passengers.Add(passenger);
+                                    flights[comboBoxFlights1.SelectedIndex].getPassengers().Add(passenger);
+                                    sell = true;
+                                    this.Close();
+                                }
+                                else
+                                    MessageBox.Show("Sellecione un asiento");
+                            }
+                            else
+                                MessageBox.Show("Introduzca una edad valida!");
+                        }
+                        else
+                            MessageBox.Show("Introduzca una edad");
+                    }
+                    else
+                        MessageBox.Show("Introduzca un apellido");
+                }
+                else
+                    MessageBox.Show("Introduzca un nombre!");
+            }
+            else
+                MessageBox.Show("Seleccione un vuelo!");
         }
     }
 }

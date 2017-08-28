@@ -11,7 +11,7 @@ namespace Airline
         private string name;
         private string lastname;
         private int age;
-        private int id;
+        private string id;
         private int seatNumber;
         private string flightRoute;
 
@@ -19,7 +19,7 @@ namespace Airline
         {
         }
 
-        public Passenger(string name, string lastname, int age, int id, int seatNumber, string flightRoute)
+        public Passenger(string name, string lastname, int age, string id, int seatNumber, string flightRoute)
         {
             this.name = name;
             this.lastname = lastname;
@@ -44,7 +44,7 @@ namespace Airline
             this.age = age;
         }
 
-        public void setId(int id)
+        public void setId(string id)
         {
             this.id = id;
         }
@@ -73,7 +73,7 @@ namespace Airline
         {
             return age;
         }
-        public int getId()
+        public string getId()
         {
             return id;
         }
