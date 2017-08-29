@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.listViewPassengers1 = new System.Windows.Forms.ListView();
+            this.columnHeader1ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2Route = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5Age = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6SeatNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelPassengers1 = new System.Windows.Forms.Label();
             this.textBoxID1 = new System.Windows.Forms.TextBox();
             this.labelDelete2 = new System.Windows.Forms.Label();
@@ -41,16 +47,49 @@
             // 
             // listViewPassengers1
             // 
+            this.listViewPassengers1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.listViewPassengers1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1ID,
+            this.columnHeader2Route,
+            this.columnHeader3Name,
+            this.columnHeader4LastName,
+            this.columnHeader5Age,
+            this.columnHeader6SeatNumber});
+            this.listViewPassengers1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listViewPassengers1.Location = new System.Drawing.Point(32, 45);
             this.listViewPassengers1.Name = "listViewPassengers1";
-            this.listViewPassengers1.Size = new System.Drawing.Size(156, 217);
+            this.listViewPassengers1.Size = new System.Drawing.Size(314, 217);
             this.listViewPassengers1.TabIndex = 0;
             this.listViewPassengers1.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1ID
+            // 
+            this.columnHeader1ID.Text = "ID";
+            // 
+            // columnHeader2Route
+            // 
+            this.columnHeader2Route.Text = "Ruta";
+            // 
+            // columnHeader3Name
+            // 
+            this.columnHeader3Name.Text = "Nombre";
+            // 
+            // columnHeader4LastName
+            // 
+            this.columnHeader4LastName.Text = "Apellido";
+            // 
+            // columnHeader5Age
+            // 
+            this.columnHeader5Age.Text = "Edad";
+            // 
+            // columnHeader6SeatNumber
+            // 
+            this.columnHeader6SeatNumber.Text = "Nº asiento";
             // 
             // labelPassengers1
             // 
             this.labelPassengers1.AutoSize = true;
-            this.labelPassengers1.Location = new System.Drawing.Point(70, 29);
+            this.labelPassengers1.Location = new System.Drawing.Point(152, 29);
             this.labelPassengers1.Name = "labelPassengers1";
             this.labelPassengers1.Size = new System.Drawing.Size(53, 13);
             this.labelPassengers1.TabIndex = 1;
@@ -58,7 +97,7 @@
             // 
             // textBoxID1
             // 
-            this.textBoxID1.Location = new System.Drawing.Point(246, 104);
+            this.textBoxID1.Location = new System.Drawing.Point(392, 110);
             this.textBoxID1.Name = "textBoxID1";
             this.textBoxID1.Size = new System.Drawing.Size(100, 20);
             this.textBoxID1.TabIndex = 2;
@@ -66,7 +105,7 @@
             // labelDelete2
             // 
             this.labelDelete2.AutoSize = true;
-            this.labelDelete2.Location = new System.Drawing.Point(216, 77);
+            this.labelDelete2.Location = new System.Drawing.Point(362, 83);
             this.labelDelete2.Name = "labelDelete2";
             this.labelDelete2.Size = new System.Drawing.Size(130, 13);
             this.labelDelete2.TabIndex = 3;
@@ -76,7 +115,7 @@
             // labelID3
             // 
             this.labelID3.AutoSize = true;
-            this.labelID3.Location = new System.Drawing.Point(216, 111);
+            this.labelID3.Location = new System.Drawing.Point(362, 117);
             this.labelID3.Name = "labelID3";
             this.labelID3.Size = new System.Drawing.Size(24, 13);
             this.labelID3.TabIndex = 4;
@@ -84,7 +123,7 @@
             // 
             // buttonDelete1
             // 
-            this.buttonDelete1.Location = new System.Drawing.Point(300, 186);
+            this.buttonDelete1.Location = new System.Drawing.Point(446, 192);
             this.buttonDelete1.Name = "buttonDelete1";
             this.buttonDelete1.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete1.TabIndex = 5;
@@ -93,7 +132,7 @@
             // 
             // buttonSearch2
             // 
-            this.buttonSearch2.Location = new System.Drawing.Point(219, 186);
+            this.buttonSearch2.Location = new System.Drawing.Point(365, 192);
             this.buttonSearch2.Name = "buttonSearch2";
             this.buttonSearch2.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch2.TabIndex = 6;
@@ -103,7 +142,7 @@
             // comboBoxFlights1
             // 
             this.comboBoxFlights1.FormattingEnabled = true;
-            this.comboBoxFlights1.Location = new System.Drawing.Point(246, 144);
+            this.comboBoxFlights1.Location = new System.Drawing.Point(392, 150);
             this.comboBoxFlights1.Name = "comboBoxFlights1";
             this.comboBoxFlights1.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFlights1.TabIndex = 7;
@@ -111,7 +150,7 @@
             // labelFlights1
             // 
             this.labelFlights1.AutoSize = true;
-            this.labelFlights1.Location = new System.Drawing.Point(206, 147);
+            this.labelFlights1.Location = new System.Drawing.Point(352, 153);
             this.labelFlights1.Name = "labelFlights1";
             this.labelFlights1.Size = new System.Drawing.Size(37, 13);
             this.labelFlights1.TabIndex = 8;
@@ -121,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 326);
+            this.ClientSize = new System.Drawing.Size(538, 326);
             this.Controls.Add(this.labelFlights1);
             this.Controls.Add(this.comboBoxFlights1);
             this.Controls.Add(this.buttonSearch2);
@@ -149,5 +188,11 @@
         private System.Windows.Forms.Button buttonSearch2;
         private System.Windows.Forms.ComboBox comboBoxFlights1;
         private System.Windows.Forms.Label labelFlights1;
+        private System.Windows.Forms.ColumnHeader columnHeader1ID;
+        private System.Windows.Forms.ColumnHeader columnHeader2Route;
+        private System.Windows.Forms.ColumnHeader columnHeader3Name;
+        private System.Windows.Forms.ColumnHeader columnHeader4LastName;
+        private System.Windows.Forms.ColumnHeader columnHeader5Age;
+        private System.Windows.Forms.ColumnHeader columnHeader6SeatNumber;
     }
 }
