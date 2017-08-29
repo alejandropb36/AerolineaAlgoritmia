@@ -19,9 +19,9 @@ namespace Airline
 
         public FlightReservation(ref List<Flight> flights, ref List<Passenger> passengers)
         {
+            InitializeComponent();
             this.passengers = passengers;
             this.flights = flights;
-            InitializeComponent();
             seatNumber = -1;
             sell = false;
             foreach(Flight flight in flights)

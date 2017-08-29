@@ -30,7 +30,7 @@ namespace Airline
 
         private void buttonPassengers_Click(object sender, EventArgs e)
         {
-            ViewsPassengers viewsPassengers = new ViewsPassengers();
+            ViewsPassengers viewsPassengers = new ViewsPassengers(ref flights, ref passengers);
             viewsPassengers.ShowDialog();
         }
 
