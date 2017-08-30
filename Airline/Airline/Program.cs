@@ -90,7 +90,7 @@ namespace Airline
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
-            MainMenu mainMenu = new MainMenu(ref flights,ref passengers);
+            MainMenu mainMenu = new MainMenu(flights,passengers);
             mainMenu.ShowDialog();
         }
     }

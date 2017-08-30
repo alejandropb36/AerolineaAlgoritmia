@@ -15,7 +15,7 @@ namespace Airline
         private List<Flight> flights;
         private List<Passenger> passengers;
 
-        public MainMenu(ref List<Flight> flights,ref List<Passenger> passengers)
+        public MainMenu(List<Flight> flights,List<Passenger> passengers)
         {
             this.flights = flights;
             this.passengers = passengers;
@@ -24,13 +24,13 @@ namespace Airline
         
         private void buttonReservation_Click(object sender, EventArgs e)
         {
-            FlightReservation flightReservation = new FlightReservation(ref flights, ref passengers);
+            FlightReservation flightReservation = new FlightReservation(flights,passengers);
             flightReservation.ShowDialog();
         }
 
         private void buttonPassengers_Click(object sender, EventArgs e)
         {
-            ViewsPassengers viewsPassengers = new ViewsPassengers(ref flights, ref passengers);
+            ViewsPassengers viewsPassengers = new ViewsPassengers(flights,passengers);
             viewsPassengers.ShowDialog();
         }
 

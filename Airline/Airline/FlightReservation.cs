@@ -17,7 +17,7 @@ namespace Airline
         private int seatNumber;
         private bool sell;
 
-        public FlightReservation(ref List<Flight> flights, ref List<Passenger> passengers)
+        public FlightReservation(List<Flight> flights,List<Passenger> passengers)
         {
             InitializeComponent();
             this.passengers = passengers;
@@ -202,11 +202,15 @@ namespace Airline
                                     lastname = textBoxPassengerLastName2.Text;
                                     route = flights[comboBoxFlights1.SelectedIndex].getRoute();
                                     flights[comboBoxFlights1.SelectedIndex].setSeating(seatNumber, false);
-                                    id = name[0] + lastname[0] + route + seatNumber;
+                                    id = Convert.ToString(name[0]);
+                                    id += Convert.ToString(lastname[0]);
+                                    id += route;
+                                    id += Convert.ToString(seatNumber);
                                     passenger = new Passenger(name, lastname, age, id, seatNumber, route);
                                     passengers.Add(passenger);
                                     flights[comboBoxFlights1.SelectedIndex].getPassengers().Add(passenger);
                                     sell = true;
+                                    MessageBox.Show("El ID de pasajero es: " + id);
                                     this.Close();
                                 }
                                 else

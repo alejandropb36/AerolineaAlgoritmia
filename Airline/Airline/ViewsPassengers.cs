@@ -14,7 +14,7 @@ namespace Airline
     {
         private List<Flight> flights;
         private List<Passenger> passengers;
-        public ViewsPassengers(ref List<Flight> flights, ref List<Passenger> passengers)
+        public ViewsPassengers(List<Flight> flights,List<Passenger> passengers)
         {
             InitializeComponent();
             this.flights = flights;
@@ -39,7 +39,7 @@ namespace Airline
                 arrString[2] = passenger.getName();
                 arrString[3] = passenger.getLastname();
                 arrString[4] = Convert.ToString(passenger.getAge());
-                arrString[5] = Convert.ToString(passenger.getSeatNumber());
+                arrString[5] = Convert.ToString(passenger.getSeatNumber() + 1);
                 ListViewItem item = new ListViewItem(arrString);
                 listViewPassengers1.Items.Add(item);
             }
