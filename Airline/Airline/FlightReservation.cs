@@ -205,7 +205,7 @@ namespace Airline
                                     id = Convert.ToString(name[0]);
                                     id += Convert.ToString(lastname[0]);
                                     id += route;
-                                    id += Convert.ToString(seatNumber);
+                                    id += Convert.ToString(seatNumber + 1);
                                     passenger = new Passenger(name, lastname, age, id, seatNumber, route);
                                     passengers.Add(passenger);
                                     flights[comboBoxFlights1.SelectedIndex].getPassengers().Add(passenger);
