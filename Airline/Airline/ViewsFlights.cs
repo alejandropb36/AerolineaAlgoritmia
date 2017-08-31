@@ -12,9 +12,33 @@ namespace Airline
 {
     public partial class ViewsFlights : Form
     {
-        public ViewsFlights()
+        private List<Flight> flights;
+
+        public ViewsFlights(List<Flight> flights)
         {
             InitializeComponent();
+            this.flights = flights;
+            updateViewsFlghts();
+        }
+
+        public void updateViewsFlghts()
+        {
+            listViewFlights1.Items.Clear();
+            string[] arrString = new string[5];
+
+            foreach (Flight flight in flights)
+            {
+                arrString[0] = flight.getRoute();
+                arrString[1] = flight.getOriginCity().ToString();
+                arrString[2] = flight.getDestinationCity().ToString();
+                arrString[3] = flight.getFlightTime().ToString();
+                arrString[4] = flight.getCost().ToString();
+                ListViewItem item = new ListViewItem(arrString);
+                listViewFlights1.Items.Add(item);
+            }
+
         }
     }
+
+   
 }
