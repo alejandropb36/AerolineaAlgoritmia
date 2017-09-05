@@ -91,91 +91,109 @@ namespace Airline
         private void buttonSeat1_Click(object sender, EventArgs e)
         {
             seatNumber = 0;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat2_Click(object sender, EventArgs e)
         {
             seatNumber = 1;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat3_Click(object sender, EventArgs e)
         {
             seatNumber = 2;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat4_Click(object sender, EventArgs e)
         {
             seatNumber = 3;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat5_Click(object sender, EventArgs e)
         {
             seatNumber = 4;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat6_Click(object sender, EventArgs e)
         {
             seatNumber = 5;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat7_Click(object sender, EventArgs e)
         {
             seatNumber = 6;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat8_Click(object sender, EventArgs e)
         {
             seatNumber = 7;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat9_Click(object sender, EventArgs e)
         {
             seatNumber = 8;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat10_Click(object sender, EventArgs e)
         {
             seatNumber = 9;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat11_Click(object sender, EventArgs e)
         {
             seatNumber = 10;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat12_Click(object sender, EventArgs e)
         {
             seatNumber = 11;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat13_Click(object sender, EventArgs e)
         {
             seatNumber = 12;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat14_Click(object sender, EventArgs e)
         {
             seatNumber = 13;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat15_Click(object sender, EventArgs e)
         {
             seatNumber = 14;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat16_Click(object sender, EventArgs e)
         {
             seatNumber = 15;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat17_Click(object sender, EventArgs e)
         {
             seatNumber = 16;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
         private void buttonSeat18_Click(object sender, EventArgs e)
         {
             seatNumber = 17;
+            labelSeatNumber.Text = (seatNumber + 1).ToString();
         }
 
 

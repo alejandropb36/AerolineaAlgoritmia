@@ -58,6 +58,8 @@
             this.buttonSeat17 = new System.Windows.Forms.Button();
             this.buttonSeat18 = new System.Windows.Forms.Button();
             this.labelSeatSelection6 = new System.Windows.Forms.Label();
+            this.labelSeat = new System.Windows.Forms.Label();
+            this.labelSeatNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeats1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -347,11 +349,30 @@
             this.labelSeatSelection6.TabIndex = 29;
             this.labelSeatSelection6.Text = "Selecciona un asiento";
             // 
+            // labelSeat
+            // 
+            this.labelSeat.AutoSize = true;
+            this.labelSeat.Location = new System.Drawing.Point(39, 271);
+            this.labelSeat.Name = "labelSeat";
+            this.labelSeat.Size = new System.Drawing.Size(45, 13);
+            this.labelSeat.TabIndex = 30;
+            this.labelSeat.Text = "Asiento:";
+            // 
+            // labelSeatNumber
+            // 
+            this.labelSeatNumber.AutoSize = true;
+            this.labelSeatNumber.Location = new System.Drawing.Point(127, 270);
+            this.labelSeatNumber.Name = "labelSeatNumber";
+            this.labelSeatNumber.Size = new System.Drawing.Size(0, 13);
+            this.labelSeatNumber.TabIndex = 31;
+            // 
             // FlightReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 393);
+            this.Controls.Add(this.labelSeatNumber);
+            this.Controls.Add(this.labelSeat);
             this.Controls.Add(this.labelSeatSelection6);
             this.Controls.Add(this.buttonSeat18);
             this.Controls.Add(this.buttonSeat17);
@@ -422,5 +443,7 @@
         private System.Windows.Forms.Button buttonSeat17;
         private System.Windows.Forms.Button buttonSeat18;
         private System.Windows.Forms.Label labelSeatSelection6;
+        private System.Windows.Forms.Label labelSeat;
+        private System.Windows.Forms.Label labelSeatNumber;
     }
 }
