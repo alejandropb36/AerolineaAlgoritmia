@@ -17,6 +17,7 @@ namespace Airline
         private int seatNumber;
         private bool sell;
 
+
         public FlightReservation(List<Flight> flights,List<Passenger> passengers)
         {
             InitializeComponent();
