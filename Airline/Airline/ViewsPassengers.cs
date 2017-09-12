@@ -13,12 +13,10 @@ namespace Airline
     public partial class ViewsPassengers : Form
     {
         private List<Flight> flights;
-        private List<Passenger> passengers;
-        public ViewsPassengers(List<Flight> flights,List<Passenger> passengers)
+        public ViewsPassengers(List<Flight> flights)
         {
             InitializeComponent();
             this.flights = flights;
-            this.passengers = passengers;
             updateViewsPassengers();
         }
 

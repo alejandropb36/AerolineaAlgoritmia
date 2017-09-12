@@ -52,6 +52,7 @@
     <Compile Include="FlightReservation.Designer.cs">
       <DependentUpon>FlightReservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FlightsList.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
