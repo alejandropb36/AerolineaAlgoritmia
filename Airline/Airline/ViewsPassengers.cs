@@ -12,20 +12,16 @@ namespace Airline
 {
     public partial class ViewsPassengers : Form
     {
-        private List<Flight> flights;
-        public ViewsPassengers(List<Flight> flights)
+        FlightsList flights;
+        public ViewsPassengers(FlightsList flights)
         {
             InitializeComponent();
             this.flights = flights;
-            updateViewsPassengers();
+            viewsPassengersUpdate();
         }
+        
 
-        private void labelDelete2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void updateViewsPassengers()
+        public void viewsPassengersUpdate()
         {
             listViewPassengers1.Items.Clear();
             string[] arrString = new string[6];

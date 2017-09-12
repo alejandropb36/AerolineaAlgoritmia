@@ -8,23 +8,23 @@ namespace Airline
 {
     public class FlightsList : List<Flight>
     {
-        public FlightsList buscaCoincidencias(string dato , int idex)
+        public FlightsList searchMatches(string data , int option)
         {
             FlightsList filterFlightsList = new FlightsList();
 
-            switch (idex)
+            switch (option)
             {
                 case 1:
                     {
                         for (int i = 0; i < this.Count; i++)
                         {
                             int j;
-                            for (j = 0; j < dato.Length; j++)
+                            for (j = 0; j < data.Length; j++)
                             {
-                                if (dato[j] != this[i].getRoute()[j])
+                                if (data[j] != this[i].getRoute()[j])
                                     break;
                             }
-                            if(j == dato.Length)
+                            if(j == data.Length)
                                 filterFlightsList.Add(this[i]);
 
                         }
@@ -36,7 +36,7 @@ namespace Airline
                     {
                         for (int i = 0; i < this.Count; i++)
                         {
-                            if (dato == this[i].getOriginCity().ToString())
+                            if (data == this[i].getOriginCity().ToString())
                                 filterFlightsList.Add(this[i]);
                         }
                         break;
@@ -46,7 +46,7 @@ namespace Airline
                     {
                         for (int i = 0; i < this.Count; i++)
                         {
-                            if (dato == this[i].getDestinationCity().ToString())
+                            if (data == this[i].getDestinationCity().ToString())
                                 filterFlightsList.Add(this[i]);
                         }
                         break;

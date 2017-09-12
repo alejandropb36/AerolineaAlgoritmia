@@ -14,7 +14,7 @@ namespace Airline
         [STAThread]
         static void Main()
         {
-            List<Flight> flights = new List<Flight>();
+            FlightsList flights = new FlightsList();
             Flight flight1 = new Flight('A', 50, 600, 'B');
             Flight flight2 = new Flight('A', 90, 1050, 'F');
             Flight flight3 = new Flight('A', 80, 1150, 'G');

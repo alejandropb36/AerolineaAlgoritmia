@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxFlights1 = new System.Windows.Forms.ComboBox();
-            this.labelFlightsList1 = new System.Windows.Forms.Label();
-            this.textBoxPassengerName1 = new System.Windows.Forms.TextBox();
-            this.textBoxPassengerLastName2 = new System.Windows.Forms.TextBox();
-            this.labelName2 = new System.Windows.Forms.Label();
-            this.labelLastName3 = new System.Windows.Forms.Label();
-            this.labelAge4 = new System.Windows.Forms.Label();
-            this.textBoxPassengerAge3 = new System.Windows.Forms.TextBox();
+            this.comboBoxFlights = new System.Windows.Forms.ComboBox();
+            this.labelFlightsList = new System.Windows.Forms.Label();
+            this.textBoxPassengerName = new System.Windows.Forms.TextBox();
+            this.textBoxPassengerLastName = new System.Windows.Forms.TextBox();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelAge = new System.Windows.Forms.Label();
+            this.textBoxPassengerAge = new System.Windows.Forms.TextBox();
             this.labelYears5 = new System.Windows.Forms.Label();
-            this.buttonSell1 = new System.Windows.Forms.Button();
+            this.sellButton = new System.Windows.Forms.Button();
             this.pictureBoxSeats1 = new System.Windows.Forms.PictureBox();
-            this.buttonSeat1 = new System.Windows.Forms.Button();
+            this.seatButton1 = new System.Windows.Forms.Button();
             this.buttonSeat2 = new System.Windows.Forms.Button();
             this.buttonSeat3 = new System.Windows.Forms.Button();
             this.buttonSeat4 = new System.Windows.Forms.Button();
@@ -57,78 +57,78 @@
             this.buttonSeat16 = new System.Windows.Forms.Button();
             this.buttonSeat17 = new System.Windows.Forms.Button();
             this.buttonSeat18 = new System.Windows.Forms.Button();
-            this.labelSeatSelection6 = new System.Windows.Forms.Label();
+            this.seatSelectionLabel = new System.Windows.Forms.Label();
             this.labelSeat = new System.Windows.Forms.Label();
             this.labelSeatNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeats1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBoxFlights1
+            // comboBoxFlights
             // 
-            this.comboBoxFlights1.FormattingEnabled = true;
-            this.comboBoxFlights1.Location = new System.Drawing.Point(174, 74);
-            this.comboBoxFlights1.Name = "comboBoxFlights1";
-            this.comboBoxFlights1.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxFlights1.TabIndex = 0;
-            this.comboBoxFlights1.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlights1_SelectedIndexChanged);
+            this.comboBoxFlights.FormattingEnabled = true;
+            this.comboBoxFlights.Location = new System.Drawing.Point(174, 74);
+            this.comboBoxFlights.Name = "comboBoxFlights";
+            this.comboBoxFlights.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFlights.TabIndex = 0;
+            this.comboBoxFlights.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlights1_SelectedIndexChanged);
             // 
-            // labelFlightsList1
+            // labelFlightsList
             // 
-            this.labelFlightsList1.AutoSize = true;
-            this.labelFlightsList1.Location = new System.Drawing.Point(36, 82);
-            this.labelFlightsList1.Name = "labelFlightsList1";
-            this.labelFlightsList1.Size = new System.Drawing.Size(104, 13);
-            this.labelFlightsList1.TabIndex = 1;
-            this.labelFlightsList1.Text = "Selecciona un vuelo";
+            this.labelFlightsList.AutoSize = true;
+            this.labelFlightsList.Location = new System.Drawing.Point(36, 82);
+            this.labelFlightsList.Name = "labelFlightsList";
+            this.labelFlightsList.Size = new System.Drawing.Size(104, 13);
+            this.labelFlightsList.TabIndex = 1;
+            this.labelFlightsList.Text = "Selecciona un vuelo";
             // 
-            // textBoxPassengerName1
+            // textBoxPassengerName
             // 
-            this.textBoxPassengerName1.Location = new System.Drawing.Point(127, 124);
-            this.textBoxPassengerName1.Name = "textBoxPassengerName1";
-            this.textBoxPassengerName1.Size = new System.Drawing.Size(228, 20);
-            this.textBoxPassengerName1.TabIndex = 2;
-            this.textBoxPassengerName1.WordWrap = false;
+            this.textBoxPassengerName.Location = new System.Drawing.Point(127, 124);
+            this.textBoxPassengerName.Name = "textBoxPassengerName";
+            this.textBoxPassengerName.Size = new System.Drawing.Size(228, 20);
+            this.textBoxPassengerName.TabIndex = 2;
+            this.textBoxPassengerName.WordWrap = false;
             // 
-            // textBoxPassengerLastName2
+            // textBoxPassengerLastName
             // 
-            this.textBoxPassengerLastName2.Location = new System.Drawing.Point(127, 165);
-            this.textBoxPassengerLastName2.Name = "textBoxPassengerLastName2";
-            this.textBoxPassengerLastName2.Size = new System.Drawing.Size(228, 20);
-            this.textBoxPassengerLastName2.TabIndex = 3;
+            this.textBoxPassengerLastName.Location = new System.Drawing.Point(127, 165);
+            this.textBoxPassengerLastName.Name = "textBoxPassengerLastName";
+            this.textBoxPassengerLastName.Size = new System.Drawing.Size(228, 20);
+            this.textBoxPassengerLastName.TabIndex = 3;
             // 
-            // labelName2
+            // labelName
             // 
-            this.labelName2.AutoSize = true;
-            this.labelName2.Location = new System.Drawing.Point(36, 124);
-            this.labelName2.Name = "labelName2";
-            this.labelName2.Size = new System.Drawing.Size(50, 13);
-            this.labelName2.TabIndex = 4;
-            this.labelName2.Text = "Nombre: ";
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(36, 124);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(50, 13);
+            this.labelName.TabIndex = 4;
+            this.labelName.Text = "Nombre: ";
             // 
-            // labelLastName3
+            // labelLastName
             // 
-            this.labelLastName3.AutoSize = true;
-            this.labelLastName3.Location = new System.Drawing.Point(36, 172);
-            this.labelLastName3.Name = "labelLastName3";
-            this.labelLastName3.Size = new System.Drawing.Size(50, 13);
-            this.labelLastName3.TabIndex = 5;
-            this.labelLastName3.Text = "Apellido: ";
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Location = new System.Drawing.Point(36, 172);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(50, 13);
+            this.labelLastName.TabIndex = 5;
+            this.labelLastName.Text = "Apellido: ";
             // 
-            // labelAge4
+            // labelAge
             // 
-            this.labelAge4.AutoSize = true;
-            this.labelAge4.Location = new System.Drawing.Point(36, 224);
-            this.labelAge4.Name = "labelAge4";
-            this.labelAge4.Size = new System.Drawing.Size(38, 13);
-            this.labelAge4.TabIndex = 6;
-            this.labelAge4.Text = "Edad: ";
+            this.labelAge.AutoSize = true;
+            this.labelAge.Location = new System.Drawing.Point(36, 224);
+            this.labelAge.Name = "labelAge";
+            this.labelAge.Size = new System.Drawing.Size(38, 13);
+            this.labelAge.TabIndex = 6;
+            this.labelAge.Text = "Edad: ";
             // 
-            // textBoxPassengerAge3
+            // textBoxPassengerAge
             // 
-            this.textBoxPassengerAge3.Location = new System.Drawing.Point(127, 217);
-            this.textBoxPassengerAge3.Name = "textBoxPassengerAge3";
-            this.textBoxPassengerAge3.Size = new System.Drawing.Size(58, 20);
-            this.textBoxPassengerAge3.TabIndex = 7;
+            this.textBoxPassengerAge.Location = new System.Drawing.Point(127, 217);
+            this.textBoxPassengerAge.Name = "textBoxPassengerAge";
+            this.textBoxPassengerAge.Size = new System.Drawing.Size(58, 20);
+            this.textBoxPassengerAge.TabIndex = 7;
             // 
             // labelYears5
             // 
@@ -139,15 +139,15 @@
             this.labelYears5.TabIndex = 8;
             this.labelYears5.Text = "años";
             // 
-            // buttonSell1
+            // sellButton
             // 
-            this.buttonSell1.Location = new System.Drawing.Point(174, 315);
-            this.buttonSell1.Name = "buttonSell1";
-            this.buttonSell1.Size = new System.Drawing.Size(75, 23);
-            this.buttonSell1.TabIndex = 9;
-            this.buttonSell1.Text = "Venta";
-            this.buttonSell1.UseVisualStyleBackColor = true;
-            this.buttonSell1.Click += new System.EventHandler(this.buttonSell1_Click);
+            this.sellButton.Location = new System.Drawing.Point(174, 315);
+            this.sellButton.Name = "sellButton";
+            this.sellButton.Size = new System.Drawing.Size(75, 23);
+            this.sellButton.TabIndex = 9;
+            this.sellButton.Text = "Venta";
+            this.sellButton.UseVisualStyleBackColor = true;
+            this.sellButton.Click += new System.EventHandler(this.buttonSell1_Click);
             // 
             // pictureBoxSeats1
             // 
@@ -158,16 +158,16 @@
             this.pictureBoxSeats1.TabIndex = 10;
             this.pictureBoxSeats1.TabStop = false;
             // 
-            // buttonSeat1
+            // seatButton1
             // 
-            this.buttonSeat1.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonSeat1.Location = new System.Drawing.Point(431, 167);
-            this.buttonSeat1.Name = "buttonSeat1";
-            this.buttonSeat1.Size = new System.Drawing.Size(27, 23);
-            this.buttonSeat1.TabIndex = 11;
-            this.buttonSeat1.Text = "1";
-            this.buttonSeat1.UseVisualStyleBackColor = false;
-            this.buttonSeat1.Click += new System.EventHandler(this.buttonSeat1_Click);
+            this.seatButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.seatButton1.Location = new System.Drawing.Point(431, 167);
+            this.seatButton1.Name = "seatButton1";
+            this.seatButton1.Size = new System.Drawing.Size(27, 23);
+            this.seatButton1.TabIndex = 11;
+            this.seatButton1.Text = "1";
+            this.seatButton1.UseVisualStyleBackColor = false;
+            this.seatButton1.Click += new System.EventHandler(this.buttonSeat1_Click);
             // 
             // buttonSeat2
             // 
@@ -339,15 +339,15 @@
             this.buttonSeat18.UseVisualStyleBackColor = true;
             this.buttonSeat18.Click += new System.EventHandler(this.buttonSeat18_Click);
             // 
-            // labelSeatSelection6
+            // seatSelectionLabel
             // 
-            this.labelSeatSelection6.AutoSize = true;
-            this.labelSeatSelection6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSeatSelection6.Location = new System.Drawing.Point(506, 124);
-            this.labelSeatSelection6.Name = "labelSeatSelection6";
-            this.labelSeatSelection6.Size = new System.Drawing.Size(165, 20);
-            this.labelSeatSelection6.TabIndex = 29;
-            this.labelSeatSelection6.Text = "Selecciona un asiento";
+            this.seatSelectionLabel.AutoSize = true;
+            this.seatSelectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seatSelectionLabel.Location = new System.Drawing.Point(506, 124);
+            this.seatSelectionLabel.Name = "seatSelectionLabel";
+            this.seatSelectionLabel.Size = new System.Drawing.Size(165, 20);
+            this.seatSelectionLabel.TabIndex = 29;
+            this.seatSelectionLabel.Text = "Selecciona un asiento";
             // 
             // labelSeat
             // 
@@ -373,7 +373,7 @@
             this.ClientSize = new System.Drawing.Size(799, 393);
             this.Controls.Add(this.labelSeatNumber);
             this.Controls.Add(this.labelSeat);
-            this.Controls.Add(this.labelSeatSelection6);
+            this.Controls.Add(this.seatSelectionLabel);
             this.Controls.Add(this.buttonSeat18);
             this.Controls.Add(this.buttonSeat17);
             this.Controls.Add(this.buttonSeat16);
@@ -391,18 +391,18 @@
             this.Controls.Add(this.buttonSeat4);
             this.Controls.Add(this.buttonSeat3);
             this.Controls.Add(this.buttonSeat2);
-            this.Controls.Add(this.buttonSeat1);
+            this.Controls.Add(this.seatButton1);
             this.Controls.Add(this.pictureBoxSeats1);
-            this.Controls.Add(this.buttonSell1);
+            this.Controls.Add(this.sellButton);
             this.Controls.Add(this.labelYears5);
-            this.Controls.Add(this.textBoxPassengerAge3);
-            this.Controls.Add(this.labelAge4);
-            this.Controls.Add(this.labelLastName3);
-            this.Controls.Add(this.labelName2);
-            this.Controls.Add(this.textBoxPassengerLastName2);
-            this.Controls.Add(this.textBoxPassengerName1);
-            this.Controls.Add(this.labelFlightsList1);
-            this.Controls.Add(this.comboBoxFlights1);
+            this.Controls.Add(this.textBoxPassengerAge);
+            this.Controls.Add(this.labelAge);
+            this.Controls.Add(this.labelLastName);
+            this.Controls.Add(this.labelName);
+            this.Controls.Add(this.textBoxPassengerLastName);
+            this.Controls.Add(this.textBoxPassengerName);
+            this.Controls.Add(this.labelFlightsList);
+            this.Controls.Add(this.comboBoxFlights);
             this.Name = "FlightReservation";
             this.Text = "FlightReservation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeats1)).EndInit();
@@ -413,18 +413,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxFlights1;
-        private System.Windows.Forms.Label labelFlightsList1;
-        private System.Windows.Forms.TextBox textBoxPassengerName1;
-        private System.Windows.Forms.TextBox textBoxPassengerLastName2;
-        private System.Windows.Forms.Label labelName2;
-        private System.Windows.Forms.Label labelLastName3;
-        private System.Windows.Forms.Label labelAge4;
-        private System.Windows.Forms.TextBox textBoxPassengerAge3;
+        private System.Windows.Forms.ComboBox comboBoxFlights;
+        private System.Windows.Forms.Label labelFlightsList;
+        private System.Windows.Forms.TextBox textBoxPassengerName;
+        private System.Windows.Forms.TextBox textBoxPassengerLastName;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.Label labelAge;
+        private System.Windows.Forms.TextBox textBoxPassengerAge;
         private System.Windows.Forms.Label labelYears5;
-        private System.Windows.Forms.Button buttonSell1;
+        private System.Windows.Forms.Button sellButton;
         private System.Windows.Forms.PictureBox pictureBoxSeats1;
-        private System.Windows.Forms.Button buttonSeat1;
+        private System.Windows.Forms.Button seatButton1;
         private System.Windows.Forms.Button buttonSeat2;
         private System.Windows.Forms.Button buttonSeat3;
         private System.Windows.Forms.Button buttonSeat4;
@@ -442,7 +442,7 @@
         private System.Windows.Forms.Button buttonSeat16;
         private System.Windows.Forms.Button buttonSeat17;
         private System.Windows.Forms.Button buttonSeat18;
-        private System.Windows.Forms.Label labelSeatSelection6;
+        private System.Windows.Forms.Label seatSelectionLabel;
         private System.Windows.Forms.Label labelSeat;
         private System.Windows.Forms.Label labelSeatNumber;
     }

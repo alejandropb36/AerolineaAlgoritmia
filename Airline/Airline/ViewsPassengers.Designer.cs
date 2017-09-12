@@ -116,7 +116,6 @@
             this.labelDelete2.Size = new System.Drawing.Size(130, 13);
             this.labelDelete2.TabIndex = 3;
             this.labelDelete2.Text = "Eliminar o buscar pasajero";
-            this.labelDelete2.Click += new System.EventHandler(this.labelDelete2_Click);
             // 
             // labelID3
             // 

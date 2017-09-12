@@ -12,9 +12,9 @@ namespace Airline
 {
     public partial class MainMenu : Form
     {
-        private List<Flight> flights;
+        FlightsList flights;
 
-        public MainMenu(List<Flight> flights)
+        public MainMenu(FlightsList flights)
         {
             this.flights = flights;
             InitializeComponent();
