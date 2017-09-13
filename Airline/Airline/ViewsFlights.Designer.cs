@@ -28,91 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewFlights1 = new System.Windows.Forms.ListView();
+            this.listViewFlights = new System.Windows.Forms.ListView();
             this.columnHeaderRoute = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.labelFlights1 = new System.Windows.Forms.Label();
-            this.labelSearch2 = new System.Windows.Forms.Label();
-            this.labelRoute3 = new System.Windows.Forms.Label();
-            this.textBoxRoute1 = new System.Windows.Forms.TextBox();
-            this.buttonSearch1 = new System.Windows.Forms.Button();
-            this.buttonDelete2 = new System.Windows.Forms.Button();
             this.columnHeaderOrigin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDistination = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelFlights = new System.Windows.Forms.Label();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.radioButtonRoute = new System.Windows.Forms.RadioButton();
+            this.radioButtonOrigin = new System.Windows.Forms.RadioButton();
+            this.radioButtonDestination = new System.Windows.Forms.RadioButton();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.labelData = new System.Windows.Forms.Label();
+            this.labelSearchType = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listViewFlights1
+            // listViewFlights
             // 
-            this.listViewFlights1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewFlights.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderRoute,
             this.columnHeaderOrigin,
             this.columnHeaderDistination,
             this.columnHeaderTime,
             this.columnHeaderCost});
-            this.listViewFlights1.Location = new System.Drawing.Point(12, 77);
-            this.listViewFlights1.Name = "listViewFlights1";
-            this.listViewFlights1.Size = new System.Drawing.Size(360, 266);
-            this.listViewFlights1.TabIndex = 0;
-            this.listViewFlights1.UseCompatibleStateImageBehavior = false;
-            this.listViewFlights1.View = System.Windows.Forms.View.Details;
+            this.listViewFlights.Location = new System.Drawing.Point(12, 50);
+            this.listViewFlights.Name = "listViewFlights";
+            this.listViewFlights.Size = new System.Drawing.Size(360, 293);
+            this.listViewFlights.TabIndex = 0;
+            this.listViewFlights.UseCompatibleStateImageBehavior = false;
+            this.listViewFlights.View = System.Windows.Forms.View.Details;
             // 
             // columnHeaderRoute
             // 
             this.columnHeaderRoute.Text = "Ruta";
             this.columnHeaderRoute.Width = 85;
-            // 
-            // labelFlights1
-            // 
-            this.labelFlights1.AutoSize = true;
-            this.labelFlights1.Location = new System.Drawing.Point(107, 43);
-            this.labelFlights1.Name = "labelFlights1";
-            this.labelFlights1.Size = new System.Drawing.Size(39, 13);
-            this.labelFlights1.TabIndex = 1;
-            this.labelFlights1.Text = "Vuelos";
-            // 
-            // labelSearch2
-            // 
-            this.labelSearch2.AutoSize = true;
-            this.labelSearch2.Location = new System.Drawing.Point(435, 122);
-            this.labelSearch2.Name = "labelSearch2";
-            this.labelSearch2.Size = new System.Drawing.Size(121, 13);
-            this.labelSearch2.TabIndex = 2;
-            this.labelSearch2.Text = "Buscar o eliminar vuelos";
-            // 
-            // labelRoute3
-            // 
-            this.labelRoute3.AutoSize = true;
-            this.labelRoute3.Location = new System.Drawing.Point(420, 163);
-            this.labelRoute3.Name = "labelRoute3";
-            this.labelRoute3.Size = new System.Drawing.Size(36, 13);
-            this.labelRoute3.TabIndex = 3;
-            this.labelRoute3.Text = "Ruta: ";
-            // 
-            // textBoxRoute1
-            // 
-            this.textBoxRoute1.Location = new System.Drawing.Point(462, 156);
-            this.textBoxRoute1.Name = "textBoxRoute1";
-            this.textBoxRoute1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRoute1.TabIndex = 4;
-            // 
-            // buttonSearch1
-            // 
-            this.buttonSearch1.Location = new System.Drawing.Point(423, 191);
-            this.buttonSearch1.Name = "buttonSearch1";
-            this.buttonSearch1.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch1.TabIndex = 5;
-            this.buttonSearch1.Text = "Buscar";
-            this.buttonSearch1.UseVisualStyleBackColor = true;
-            // 
-            // buttonDelete2
-            // 
-            this.buttonDelete2.Location = new System.Drawing.Point(505, 190);
-            this.buttonDelete2.Name = "buttonDelete2";
-            this.buttonDelete2.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete2.TabIndex = 6;
-            this.buttonDelete2.Text = "Eliminar";
-            this.buttonDelete2.UseVisualStyleBackColor = true;
             // 
             // columnHeaderOrigin
             // 
@@ -131,18 +82,109 @@
             this.columnHeaderCost.Text = "Costo";
             this.columnHeaderCost.Width = 90;
             // 
+            // labelFlights
+            // 
+            this.labelFlights.AutoSize = true;
+            this.labelFlights.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFlights.Location = new System.Drawing.Point(148, 27);
+            this.labelFlights.Name = "labelFlights";
+            this.labelFlights.Size = new System.Drawing.Size(58, 20);
+            this.labelFlights.TabIndex = 1;
+            this.labelFlights.Text = "Vuelos";
+            // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(446, 50);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(55, 13);
+            this.labelSearch.TabIndex = 2;
+            this.labelSearch.Text = "Busqueda";
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(506, 301);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 6;
+            this.buttonDelete.Text = "Eliminar";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRoute
+            // 
+            this.radioButtonRoute.AutoSize = true;
+            this.radioButtonRoute.Checked = true;
+            this.radioButtonRoute.Location = new System.Drawing.Point(476, 79);
+            this.radioButtonRoute.Name = "radioButtonRoute";
+            this.radioButtonRoute.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonRoute.TabIndex = 7;
+            this.radioButtonRoute.TabStop = true;
+            this.radioButtonRoute.Text = "Ruta";
+            this.radioButtonRoute.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOrigin
+            // 
+            this.radioButtonOrigin.AutoSize = true;
+            this.radioButtonOrigin.Location = new System.Drawing.Point(476, 102);
+            this.radioButtonOrigin.Name = "radioButtonOrigin";
+            this.radioButtonOrigin.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonOrigin.TabIndex = 8;
+            this.radioButtonOrigin.TabStop = true;
+            this.radioButtonOrigin.Text = "Origen";
+            this.radioButtonOrigin.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDestination
+            // 
+            this.radioButtonDestination.AutoSize = true;
+            this.radioButtonDestination.Location = new System.Drawing.Point(476, 125);
+            this.radioButtonDestination.Name = "radioButtonDestination";
+            this.radioButtonDestination.Size = new System.Drawing.Size(61, 17);
+            this.radioButtonDestination.TabIndex = 9;
+            this.radioButtonDestination.TabStop = true;
+            this.radioButtonDestination.Text = "Destino";
+            this.radioButtonDestination.UseVisualStyleBackColor = true;
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(476, 148);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(85, 20);
+            this.textBoxSearch.TabIndex = 10;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            // 
+            // labelData
+            // 
+            this.labelData.AutoSize = true;
+            this.labelData.Location = new System.Drawing.Point(388, 151);
+            this.labelData.Name = "labelData";
+            this.labelData.Size = new System.Drawing.Size(82, 13);
+            this.labelData.TabIndex = 11;
+            this.labelData.Text = "Datos a buscar:";
+            // 
+            // labelSearchType
+            // 
+            this.labelSearchType.AutoSize = true;
+            this.labelSearchType.Location = new System.Drawing.Point(378, 104);
+            this.labelSearchType.Name = "labelSearchType";
+            this.labelSearchType.Size = new System.Drawing.Size(96, 13);
+            this.labelSearchType.TabIndex = 12;
+            this.labelSearchType.Text = "Tipo de busqueda:";
+            // 
             // ViewsFlights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 355);
-            this.Controls.Add(this.buttonDelete2);
-            this.Controls.Add(this.buttonSearch1);
-            this.Controls.Add(this.textBoxRoute1);
-            this.Controls.Add(this.labelRoute3);
-            this.Controls.Add(this.labelSearch2);
-            this.Controls.Add(this.labelFlights1);
-            this.Controls.Add(this.listViewFlights1);
+            this.Controls.Add(this.labelSearchType);
+            this.Controls.Add(this.labelData);
+            this.Controls.Add(this.textBoxSearch);
+            this.Controls.Add(this.radioButtonDestination);
+            this.Controls.Add(this.radioButtonOrigin);
+            this.Controls.Add(this.radioButtonRoute);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.labelSearch);
+            this.Controls.Add(this.labelFlights);
+            this.Controls.Add(this.listViewFlights);
             this.Name = "ViewsFlights";
             this.Text = "ViewsFlights";
             this.ResumeLayout(false);
@@ -152,17 +194,20 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewFlights1;
-        private System.Windows.Forms.Label labelFlights1;
-        private System.Windows.Forms.Label labelSearch2;
-        private System.Windows.Forms.Label labelRoute3;
-        private System.Windows.Forms.TextBox textBoxRoute1;
-        private System.Windows.Forms.Button buttonSearch1;
-        private System.Windows.Forms.Button buttonDelete2;
+        private System.Windows.Forms.ListView listViewFlights;
+        private System.Windows.Forms.Label labelFlights;
+        private System.Windows.Forms.Label labelSearch;
+        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.ColumnHeader columnHeaderRoute;
         private System.Windows.Forms.ColumnHeader columnHeaderOrigin;
         private System.Windows.Forms.ColumnHeader columnHeaderDistination;
         private System.Windows.Forms.ColumnHeader columnHeaderTime;
         private System.Windows.Forms.ColumnHeader columnHeaderCost;
+        private System.Windows.Forms.RadioButton radioButtonRoute;
+        private System.Windows.Forms.RadioButton radioButtonOrigin;
+        private System.Windows.Forms.RadioButton radioButtonDestination;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Label labelData;
+        private System.Windows.Forms.Label labelSearchType;
     }
 }

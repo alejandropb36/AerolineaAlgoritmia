@@ -18,15 +18,15 @@ namespace Airline
         {
             InitializeComponent();
             this.flights = flights;
-            viewsFlghtsUpdate();
+            viewsFlghtsUpdate(flights);
         }
 
-        public void viewsFlghtsUpdate()
+        public void viewsFlghtsUpdate(FlightsList flightsList)
         {
-            listViewFlights1.Items.Clear();
+            listViewFlights.Items.Clear();
             string[] arrString = new string[5];
 
-            foreach (Flight flight in flights)
+            foreach (Flight flight in flightsList)
             {
                 arrString[0] = flight.getRoute();
                 arrString[1] = flight.getOriginCity().ToString();
@@ -34,9 +34,23 @@ namespace Airline
                 arrString[3] = flight.getFlightTime().ToString();
                 arrString[4] = flight.getCost().ToString();
                 ListViewItem item = new ListViewItem(arrString);
-                listViewFlights1.Items.Add(item);
+                listViewFlights.Items.Add(item);
             }
 
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            FlightsList filterFlightsList;
+            int option = 0;
+            if (radioButtonRoute.Checked)
+                option = 1;
+            else if (radioButtonOrigin.Checked)
+                option = 2;
+            else
+                option = 3;
+            filterFlightsList = flights.searchMatches(textBoxSearch.Text, option);
+            viewsFlghtsUpdate(filterFlightsList);
         }
     }
 

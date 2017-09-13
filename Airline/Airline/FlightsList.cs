@@ -10,6 +10,7 @@ namespace Airline
     {
         public FlightsList searchMatches(string data , int option)
         {
+            const int routeLenght= 5;
             FlightsList filterFlightsList = new FlightsList();
 
             switch (option)
@@ -19,12 +20,12 @@ namespace Airline
                         for (int i = 0; i < this.Count; i++)
                         {
                             int j;
-                            for (j = 0; j < data.Length; j++)
+                            for (j = 0; j < routeLenght; j++)
                             {
                                 if (data[j] != this[i].getRoute()[j])
                                     break;
                             }
-                            if(j == data.Length)
+                            if(j == routeLenght)
                                 filterFlightsList.Add(this[i]);
 
                         }

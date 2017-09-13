@@ -23,19 +23,22 @@ namespace Airline
 
         public void viewsPassengersUpdate()
         {
-            listViewPassengers1.Items.Clear();
+            listViewPassengers.Items.Clear();
             string[] arrString = new string[6];
             
-            foreach (Passenger passenger in passengers)
+            foreach (Flight flight in flights)
             {
-                arrString[0] = passenger.getId();
-                arrString[1] = passenger.getFlightRoute();
-                arrString[2] = passenger.getName();
-                arrString[3] = passenger.getLastname();
-                arrString[4] = Convert.ToString(passenger.getAge());
-                arrString[5] = Convert.ToString(passenger.getSeatNumber() + 1);
-                ListViewItem item = new ListViewItem(arrString);
-                listViewPassengers1.Items.Add(item);
+                foreach(Passenger passenger in flight.getPassengers())
+                {
+                    arrString[0] = passenger.getId();
+                    arrString[1] = passenger.getFlightRoute();
+                    arrString[2] = passenger.getName();
+                    arrString[3] = passenger.getLastname();
+                    arrString[4] = Convert.ToString(passenger.getAge());
+                    arrString[5] = Convert.ToString(passenger.getSeatNumber() + 1);
+                    ListViewItem item = new ListViewItem(arrString);
+                    listViewPassengers.Items.Add(item);
+                }
             }
 
         }

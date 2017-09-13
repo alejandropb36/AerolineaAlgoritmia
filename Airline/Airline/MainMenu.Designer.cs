@@ -28,53 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainTitle = new System.Windows.Forms.Label();
-            this.buttonReservation = new System.Windows.Forms.Button();
-            this.buttonPassengers = new System.Windows.Forms.Button();
-            this.buttonFlights = new System.Windows.Forms.Button();
+            this.mainTitleLabel = new System.Windows.Forms.Label();
+            this.reservationButton = new System.Windows.Forms.Button();
+            this.passengersButton = new System.Windows.Forms.Button();
+            this.flightsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // MainTitle
+            // mainTitleLabel
             // 
-            this.MainTitle.AllowDrop = true;
-            this.MainTitle.AutoSize = true;
-            this.MainTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainTitle.Location = new System.Drawing.Point(54, 22);
-            this.MainTitle.Name = "MainTitle";
-            this.MainTitle.Size = new System.Drawing.Size(264, 39);
-            this.MainTitle.TabIndex = 0;
-            this.MainTitle.Text = "Al Qaeda Airline";
-            this.MainTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mainTitleLabel.AllowDrop = true;
+            this.mainTitleLabel.AutoSize = true;
+            this.mainTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainTitleLabel.Location = new System.Drawing.Point(54, 22);
+            this.mainTitleLabel.Name = "mainTitleLabel";
+            this.mainTitleLabel.Size = new System.Drawing.Size(264, 39);
+            this.mainTitleLabel.TabIndex = 0;
+            this.mainTitleLabel.Text = "Al Qaeda Airline";
+            this.mainTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonReservation
+            // reservationButton
             // 
-            this.buttonReservation.Location = new System.Drawing.Point(76, 75);
-            this.buttonReservation.Name = "buttonReservation";
-            this.buttonReservation.Size = new System.Drawing.Size(210, 36);
-            this.buttonReservation.TabIndex = 1;
-            this.buttonReservation.Text = "Reservaciones";
-            this.buttonReservation.UseVisualStyleBackColor = true;
-            this.buttonReservation.Click += new System.EventHandler(this.buttonReservation_Click);
+            this.reservationButton.Location = new System.Drawing.Point(76, 75);
+            this.reservationButton.Name = "reservationButton";
+            this.reservationButton.Size = new System.Drawing.Size(210, 36);
+            this.reservationButton.TabIndex = 1;
+            this.reservationButton.Text = "Reservaciones";
+            this.reservationButton.UseVisualStyleBackColor = true;
+            this.reservationButton.Click += new System.EventHandler(this.reservationButton_Click);
             // 
-            // buttonPassengers
+            // passengersButton
             // 
-            this.buttonPassengers.Location = new System.Drawing.Point(76, 130);
-            this.buttonPassengers.Name = "buttonPassengers";
-            this.buttonPassengers.Size = new System.Drawing.Size(210, 36);
-            this.buttonPassengers.TabIndex = 2;
-            this.buttonPassengers.Text = "Pasajeros";
-            this.buttonPassengers.UseVisualStyleBackColor = true;
-            this.buttonPassengers.Click += new System.EventHandler(this.buttonPassengers_Click);
+            this.passengersButton.Location = new System.Drawing.Point(76, 130);
+            this.passengersButton.Name = "passengersButton";
+            this.passengersButton.Size = new System.Drawing.Size(210, 36);
+            this.passengersButton.TabIndex = 2;
+            this.passengersButton.Text = "Pasajeros";
+            this.passengersButton.UseVisualStyleBackColor = true;
+            this.passengersButton.Click += new System.EventHandler(this.passengersButton_Click);
             // 
-            // buttonFlights
+            // flightsButton
             // 
-            this.buttonFlights.Location = new System.Drawing.Point(76, 182);
-            this.buttonFlights.Name = "buttonFlights";
-            this.buttonFlights.Size = new System.Drawing.Size(210, 36);
-            this.buttonFlights.TabIndex = 3;
-            this.buttonFlights.Text = "Vuelos";
-            this.buttonFlights.UseVisualStyleBackColor = true;
-            this.buttonFlights.Click += new System.EventHandler(this.buttonFlights_Click);
+            this.flightsButton.Location = new System.Drawing.Point(76, 182);
+            this.flightsButton.Name = "flightsButton";
+            this.flightsButton.Size = new System.Drawing.Size(210, 36);
+            this.flightsButton.TabIndex = 3;
+            this.flightsButton.Text = "Vuelos";
+            this.flightsButton.UseVisualStyleBackColor = true;
+            this.flightsButton.Click += new System.EventHandler(this.flightsButton_Click);
             // 
             // MainMenu
             // 
@@ -83,10 +83,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 323);
-            this.Controls.Add(this.buttonFlights);
-            this.Controls.Add(this.buttonPassengers);
-            this.Controls.Add(this.buttonReservation);
-            this.Controls.Add(this.MainTitle);
+            this.Controls.Add(this.flightsButton);
+            this.Controls.Add(this.passengersButton);
+            this.Controls.Add(this.reservationButton);
+            this.Controls.Add(this.mainTitleLabel);
             this.Name = "MainMenu";
             this.Text = "Main menu";
             this.ResumeLayout(false);
@@ -96,10 +96,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label MainTitle;
-        private System.Windows.Forms.Button buttonReservation;
-        private System.Windows.Forms.Button buttonPassengers;
-        private System.Windows.Forms.Button buttonFlights;
+        private System.Windows.Forms.Label mainTitleLabel;
+        private System.Windows.Forms.Button reservationButton;
+        private System.Windows.Forms.Button passengersButton;
+        private System.Windows.Forms.Button flightsButton;
     }
 }
 

@@ -19,20 +19,20 @@ namespace Airline
             this.flights = flights;
             InitializeComponent();
         }
-        
-        private void buttonReservation_Click(object sender, EventArgs e)
+
+        private void reservationButton_Click(object sender, EventArgs e)
         {
             FlightReservation flightReservation = new FlightReservation(flights);
             flightReservation.ShowDialog();
         }
 
-        private void buttonPassengers_Click(object sender, EventArgs e)
+        private void passengersButton_Click(object sender, EventArgs e)
         {
             ViewsPassengers viewsPassengers = new ViewsPassengers(flights);
             viewsPassengers.ShowDialog();
         }
 
-        private void buttonFlights_Click(object sender, EventArgs e)
+        private void flightsButton_Click(object sender, EventArgs e)
         {
             ViewsFlights viewsFlights = new ViewsFlights(flights);
             viewsFlights.ShowDialog();

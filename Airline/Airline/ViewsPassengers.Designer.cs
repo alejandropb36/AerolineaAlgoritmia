@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewPassengers1 = new System.Windows.Forms.ListView();
+            this.listViewPassengers = new System.Windows.Forms.ListView();
             this.columnHeader1ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2Route = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5Age = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6SeatNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.labelPassengers1 = new System.Windows.Forms.Label();
-            this.textBoxID1 = new System.Windows.Forms.TextBox();
-            this.labelDelete2 = new System.Windows.Forms.Label();
+            this.labelPassengers = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.labelDelete = new System.Windows.Forms.Label();
             this.labelID3 = new System.Windows.Forms.Label();
-            this.buttonDelete1 = new System.Windows.Forms.Button();
-            this.buttonSearch2 = new System.Windows.Forms.Button();
-            this.comboBoxFlights1 = new System.Windows.Forms.ComboBox();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.comboBoxFlights = new System.Windows.Forms.ComboBox();
             this.labelFlights1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listViewPassengers1
+            // listViewPassengers
             // 
-            this.listViewPassengers1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.listViewPassengers1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewPassengers.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.listViewPassengers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1ID,
             this.columnHeader2Route,
             this.columnHeader3Name,
             this.columnHeader4LastName,
             this.columnHeader5Age,
             this.columnHeader6SeatNumber});
-            this.listViewPassengers1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listViewPassengers1.Location = new System.Drawing.Point(32, 45);
-            this.listViewPassengers1.Name = "listViewPassengers1";
-            this.listViewPassengers1.Size = new System.Drawing.Size(424, 269);
-            this.listViewPassengers1.TabIndex = 0;
-            this.listViewPassengers1.UseCompatibleStateImageBehavior = false;
-            this.listViewPassengers1.View = System.Windows.Forms.View.Details;
+            this.listViewPassengers.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.listViewPassengers.Location = new System.Drawing.Point(32, 45);
+            this.listViewPassengers.Name = "listViewPassengers";
+            this.listViewPassengers.Size = new System.Drawing.Size(424, 269);
+            this.listViewPassengers.TabIndex = 0;
+            this.listViewPassengers.UseCompatibleStateImageBehavior = false;
+            this.listViewPassengers.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1ID
             // 
@@ -91,31 +91,31 @@
             // 
             this.columnHeader6SeatNumber.Text = "Nº asiento";
             // 
-            // labelPassengers1
+            // labelPassengers
             // 
-            this.labelPassengers1.AutoSize = true;
-            this.labelPassengers1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassengers1.Location = new System.Drawing.Point(161, 9);
-            this.labelPassengers1.Name = "labelPassengers1";
-            this.labelPassengers1.Size = new System.Drawing.Size(135, 31);
-            this.labelPassengers1.TabIndex = 1;
-            this.labelPassengers1.Text = "Pasajeros";
+            this.labelPassengers.AutoSize = true;
+            this.labelPassengers.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassengers.Location = new System.Drawing.Point(161, 9);
+            this.labelPassengers.Name = "labelPassengers";
+            this.labelPassengers.Size = new System.Drawing.Size(135, 31);
+            this.labelPassengers.TabIndex = 1;
+            this.labelPassengers.Text = "Pasajeros";
             // 
-            // textBoxID1
+            // textBoxID
             // 
-            this.textBoxID1.Location = new System.Drawing.Point(519, 113);
-            this.textBoxID1.Name = "textBoxID1";
-            this.textBoxID1.Size = new System.Drawing.Size(100, 20);
-            this.textBoxID1.TabIndex = 2;
+            this.textBoxID.Location = new System.Drawing.Point(519, 113);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxID.TabIndex = 2;
             // 
-            // labelDelete2
+            // labelDelete
             // 
-            this.labelDelete2.AutoSize = true;
-            this.labelDelete2.Location = new System.Drawing.Point(489, 86);
-            this.labelDelete2.Name = "labelDelete2";
-            this.labelDelete2.Size = new System.Drawing.Size(130, 13);
-            this.labelDelete2.TabIndex = 3;
-            this.labelDelete2.Text = "Eliminar o buscar pasajero";
+            this.labelDelete.AutoSize = true;
+            this.labelDelete.Location = new System.Drawing.Point(489, 86);
+            this.labelDelete.Name = "labelDelete";
+            this.labelDelete.Size = new System.Drawing.Size(130, 13);
+            this.labelDelete.TabIndex = 3;
+            this.labelDelete.Text = "Eliminar o buscar pasajero";
             // 
             // labelID3
             // 
@@ -126,31 +126,31 @@
             this.labelID3.TabIndex = 4;
             this.labelID3.Text = "ID: ";
             // 
-            // buttonDelete1
+            // buttonDelete
             // 
-            this.buttonDelete1.Location = new System.Drawing.Point(573, 195);
-            this.buttonDelete1.Name = "buttonDelete1";
-            this.buttonDelete1.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete1.TabIndex = 5;
-            this.buttonDelete1.Text = "Eliminaro";
-            this.buttonDelete1.UseVisualStyleBackColor = true;
+            this.buttonDelete.Location = new System.Drawing.Point(573, 195);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.TabIndex = 5;
+            this.buttonDelete.Text = "Eliminaro";
+            this.buttonDelete.UseVisualStyleBackColor = true;
             // 
-            // buttonSearch2
+            // buttonSearch
             // 
-            this.buttonSearch2.Location = new System.Drawing.Point(492, 195);
-            this.buttonSearch2.Name = "buttonSearch2";
-            this.buttonSearch2.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch2.TabIndex = 6;
-            this.buttonSearch2.Text = "Buscar";
-            this.buttonSearch2.UseVisualStyleBackColor = true;
+            this.buttonSearch.Location = new System.Drawing.Point(492, 195);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 6;
+            this.buttonSearch.Text = "Buscar";
+            this.buttonSearch.UseVisualStyleBackColor = true;
             // 
-            // comboBoxFlights1
+            // comboBoxFlights
             // 
-            this.comboBoxFlights1.FormattingEnabled = true;
-            this.comboBoxFlights1.Location = new System.Drawing.Point(519, 153);
-            this.comboBoxFlights1.Name = "comboBoxFlights1";
-            this.comboBoxFlights1.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxFlights1.TabIndex = 7;
+            this.comboBoxFlights.FormattingEnabled = true;
+            this.comboBoxFlights.Location = new System.Drawing.Point(519, 153);
+            this.comboBoxFlights.Name = "comboBoxFlights";
+            this.comboBoxFlights.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFlights.TabIndex = 7;
             // 
             // labelFlights1
             // 
@@ -167,14 +167,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 326);
             this.Controls.Add(this.labelFlights1);
-            this.Controls.Add(this.comboBoxFlights1);
-            this.Controls.Add(this.buttonSearch2);
-            this.Controls.Add(this.buttonDelete1);
+            this.Controls.Add(this.comboBoxFlights);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelID3);
-            this.Controls.Add(this.labelDelete2);
-            this.Controls.Add(this.textBoxID1);
-            this.Controls.Add(this.labelPassengers1);
-            this.Controls.Add(this.listViewPassengers1);
+            this.Controls.Add(this.labelDelete);
+            this.Controls.Add(this.textBoxID);
+            this.Controls.Add(this.labelPassengers);
+            this.Controls.Add(this.listViewPassengers);
             this.Name = "ViewsPassengers";
             this.Text = "ViewsPassengers";
             this.ResumeLayout(false);
@@ -184,14 +184,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listViewPassengers1;
-        private System.Windows.Forms.Label labelPassengers1;
-        private System.Windows.Forms.TextBox textBoxID1;
-        private System.Windows.Forms.Label labelDelete2;
+        private System.Windows.Forms.ListView listViewPassengers;
+        private System.Windows.Forms.Label labelPassengers;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Label labelDelete;
         private System.Windows.Forms.Label labelID3;
-        private System.Windows.Forms.Button buttonDelete1;
-        private System.Windows.Forms.Button buttonSearch2;
-        private System.Windows.Forms.ComboBox comboBoxFlights1;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.ComboBox comboBoxFlights;
         private System.Windows.Forms.Label labelFlights1;
         private System.Windows.Forms.ColumnHeader columnHeader1ID;
         private System.Windows.Forms.ColumnHeader columnHeader2Route;
