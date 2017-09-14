@@ -13,6 +13,7 @@ namespace Airline
     public partial class ViewsFlights : Form
     {
         FlightsList flights;
+        FlightsList filterFlightsList;
 
         public ViewsFlights(FlightsList flights)
         {
@@ -45,7 +46,6 @@ namespace Airline
                 viewsFlghtsUpdate(flights);
             else
             {
-                FlightsList filterFlightsList;
                 int option = 0;
                 if (radioButtonRoute.Checked)
                     option = 1;
@@ -130,6 +130,26 @@ namespace Airline
             else
                 MessageBox.Show("Introduzca un Origen", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            string route;
+            if(textBoxDelete.Text != "")
+            {
+                route = textBoxDelete.Text;
+                if(route.Length == 5) // 5 es tamano de ruta
+                {
+
+                }
+                else
+                    MessageBox.Show("Ruta no valida", "Advertencia",
+                        MessageBoxButtons.OK)
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -122,6 +122,7 @@
             this.buttonDelete.TabIndex = 6;
             this.buttonDelete.Text = "Eliminar";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // radioButtonRoute
             // 
