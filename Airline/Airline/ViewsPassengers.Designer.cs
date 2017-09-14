@@ -37,7 +37,7 @@
             this.columnHeader6SeatNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelPassengers = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
-            this.labelDelete = new System.Windows.Forms.Label();
+            this.labelSearch = new System.Windows.Forms.Label();
             this.labelID3 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -103,24 +103,24 @@
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(519, 113);
+            this.textBoxID.Location = new System.Drawing.Point(519, 117);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(100, 20);
             this.textBoxID.TabIndex = 2;
             // 
-            // labelDelete
+            // labelSearch
             // 
-            this.labelDelete.AutoSize = true;
-            this.labelDelete.Location = new System.Drawing.Point(489, 86);
-            this.labelDelete.Name = "labelDelete";
-            this.labelDelete.Size = new System.Drawing.Size(130, 13);
-            this.labelDelete.TabIndex = 3;
-            this.labelDelete.Text = "Eliminar o buscar pasajero";
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(527, 45);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(83, 13);
+            this.labelSearch.TabIndex = 3;
+            this.labelSearch.Text = "Buscar pasajero";
             // 
             // labelID3
             // 
             this.labelID3.AutoSize = true;
-            this.labelID3.Location = new System.Drawing.Point(489, 120);
+            this.labelID3.Location = new System.Drawing.Point(527, 70);
             this.labelID3.Name = "labelID3";
             this.labelID3.Size = new System.Drawing.Size(24, 13);
             this.labelID3.TabIndex = 4;
@@ -171,7 +171,7 @@
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelID3);
-            this.Controls.Add(this.labelDelete);
+            this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.labelPassengers);
             this.Controls.Add(this.listViewPassengers);
@@ -187,7 +187,7 @@
         private System.Windows.Forms.ListView listViewPassengers;
         private System.Windows.Forms.Label labelPassengers;
         private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.Label labelDelete;
+        private System.Windows.Forms.Label labelSearch;
         private System.Windows.Forms.Label labelID3;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonSearch;
