@@ -53,6 +53,9 @@
             this.labelCost = new System.Windows.Forms.Label();
             this.textBoxCost = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.labelDelete = new System.Windows.Forms.Label();
+            this.labelRoute = new System.Windows.Forms.Label();
+            this.textBoxDelete = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listViewFlights
@@ -65,7 +68,7 @@
             this.columnHeaderCost});
             this.listViewFlights.Location = new System.Drawing.Point(12, 50);
             this.listViewFlights.Name = "listViewFlights";
-            this.listViewFlights.Size = new System.Drawing.Size(360, 360);
+            this.listViewFlights.Size = new System.Drawing.Size(360, 423);
             this.listViewFlights.TabIndex = 0;
             this.listViewFlights.UseCompatibleStateImageBehavior = false;
             this.listViewFlights.View = System.Windows.Forms.View.Details;
@@ -113,7 +116,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(410, 387);
+            this.buttonDelete.Location = new System.Drawing.Point(438, 425);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 6;
@@ -263,11 +266,39 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // labelDelete
+            // 
+            this.labelDelete.AutoSize = true;
+            this.labelDelete.Location = new System.Drawing.Point(457, 361);
+            this.labelDelete.Name = "labelDelete";
+            this.labelDelete.Size = new System.Drawing.Size(43, 13);
+            this.labelDelete.TabIndex = 23;
+            this.labelDelete.Text = "Eliminar";
+            // 
+            // labelRoute
+            // 
+            this.labelRoute.AutoSize = true;
+            this.labelRoute.Location = new System.Drawing.Point(417, 392);
+            this.labelRoute.Name = "labelRoute";
+            this.labelRoute.Size = new System.Drawing.Size(33, 13);
+            this.labelRoute.TabIndex = 24;
+            this.labelRoute.Text = "Ruta:";
+            // 
+            // textBoxDelete
+            // 
+            this.textBoxDelete.Location = new System.Drawing.Point(456, 389);
+            this.textBoxDelete.Name = "textBoxDelete";
+            this.textBoxDelete.Size = new System.Drawing.Size(85, 20);
+            this.textBoxDelete.TabIndex = 25;
+            // 
             // ViewsFlights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 441);
+            this.ClientSize = new System.Drawing.Size(565, 485);
+            this.Controls.Add(this.textBoxDelete);
+            this.Controls.Add(this.labelRoute);
+            this.Controls.Add(this.labelDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxCost);
             this.Controls.Add(this.labelCost);
@@ -322,5 +353,8 @@
         private System.Windows.Forms.Label labelCost;
         private System.Windows.Forms.TextBox textBoxCost;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Label labelDelete;
+        private System.Windows.Forms.Label labelRoute;
+        private System.Windows.Forms.TextBox textBoxDelete;
     }
 }

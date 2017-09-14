@@ -8,12 +8,12 @@ namespace Airline
 {
     public class Passenger
     {
-        private string name;
-        private string lastname;
-        private int age;
-        private string id;
-        private int seatNumber;
-        private string flightRoute;
+        string name;
+        string lastname;
+        int age;
+        string id;
+        int seatNumber;
+        string flightRoute;
 
         public Passenger()
         {

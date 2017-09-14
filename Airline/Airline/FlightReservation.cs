@@ -232,23 +232,23 @@ namespace Airline
                             }
                             else
                                 MessageBox.Show("Introduzca una edad valida!", "Advertencia",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         else
                             MessageBox.Show("Introduzca una edad", "Advertencia",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                         MessageBox.Show("Introduzca un apellido", "Advertencia",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                     MessageBox.Show("Introduzca un nombre!", "Advertencia",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
                 MessageBox.Show("Seleccione un vuelo!", "Advertencia",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }
