@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airline
 {
+    [Serializable]
     public class Flight
     {
         string originCity;

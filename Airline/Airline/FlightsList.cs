@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Airline
 {
+    [Serializable]
     public class FlightsList : List<Flight>
     {
         public FlightsList searchMatches(string data , int option)
