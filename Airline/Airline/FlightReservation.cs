@@ -219,12 +219,10 @@ namespace Airline
                                     lastname = textBoxPassengerLastName.Text;
                                     route = flights[comboBoxFlights.SelectedIndex].getRoute();
                                     flights[comboBoxFlights.SelectedIndex].setSeating(seatNumber, false);
-                                    id = route;
-                                    id += Convert.ToString(seatNumber + 1);
-                                    passenger = new Passenger(name, lastname, age, id, seatNumber, route);
+                                    passenger = new Passenger(name, lastname, age, seatNumber, route);
                                     flights[comboBoxFlights.SelectedIndex].getPassengers().Add(passenger);
                                     sell = true;
-                                    MessageBox.Show("El ID de pasajero es: " + id, "ID", 
+                                    MessageBox.Show("El ID de pasajero es: " + passenger.getId(), "ID", 
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Close();
                                 }

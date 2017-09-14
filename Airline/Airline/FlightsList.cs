@@ -10,7 +10,7 @@ namespace Airline
     {
         public FlightsList searchMatches(string data , int option)
         {
-            const int routeLenght= 5;
+            const int routeLenght = 5;
             FlightsList filterFlightsList = new FlightsList();
 
             switch (option)
@@ -20,19 +20,17 @@ namespace Airline
                         for (int i = 0; i < this.Count; i++)
                         {
                             int j;
-                            for (j = 0; j < routeLenght; j++)
+                            for (j = 0; j < data.Length && j < routeLenght; j++)
                             {
                                 if (data[j] != this[i].getRoute()[j])
                                     break;
                             }
-                            if(j == routeLenght)
+                            if(j == data.Length)
                                 filterFlightsList.Add(this[i]);
 
                         }
                         break;
                     }
-
-
                 case 2:
                     {
                         for (int i = 0; i < this.Count; i++)
@@ -42,7 +40,6 @@ namespace Airline
                         }
                         break;
                     }
-
                 case 3:
                     {
                         for (int i = 0; i < this.Count; i++)
@@ -58,6 +55,15 @@ namespace Airline
 
 
             return filterFlightsList;
+        }
+
+        public bool flightExistence(string route)
+        {
+            bool existence = false;
+            for (int i = 0; i < this.Count; i++)
+                if (route == this[i].getRoute())
+                    existence = true;
+            return existence;
         }
     }
 }

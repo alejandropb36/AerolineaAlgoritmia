@@ -8,13 +8,13 @@ namespace Airline
 {
     public class Flight
     {
-        private char originCity;
-        private string route;
-        private int flightTime;
-        private int cost;
-        private char destinationCity;
-        private List<Passenger> passengers;
-        private bool[] seating;
+        string originCity;
+        string route;
+        int flightTime;
+        int cost;
+        string destinationCity;
+        List<Passenger> passengers;
+        bool[] seating;
 
         public Flight()
         {
@@ -26,14 +26,14 @@ namespace Airline
             passengers = new List<Passenger>();
         }
 
-        public Flight(char originCity, int flightTime, int cost, char destinationCity)
+        public Flight(string originCity, string destinationCity, int flightTime, int cost)
         {
             seating = new bool[18];
             this.originCity = originCity;
-            this.route = "SK1" + originCity + destinationCity; 
-            this.flightTime = flightTime;
-            this.cost = cost;
             this.destinationCity = destinationCity;
+            this.flightTime = flightTime;
+            this.cost = cost;;
+            this.route = "SK1" + originCity + destinationCity;
             for (int i = 0; i < seating.Length; i++)
             {
                 seating[i] = true;
@@ -46,14 +46,14 @@ namespace Airline
             return route;
         }
 
-        public void setOriginCity(char originCity)
+        public void setOriginCity(string originCity)
         {
             this.originCity = originCity;
         }
 
-        public void setRoute(string route)
+        public void setDestinationCity(string destinationCity)
         {
-            this.route = route;
+            this.destinationCity = destinationCity;
         }
 
         public void setFlightTime(int flightTime)
@@ -66,9 +66,9 @@ namespace Airline
             this.cost = cost;
         }
 
-        public void setDestinationCity(char destinationCity)
+        public void setRoute(string route)
         {
-            this.destinationCity = destinationCity;
+            this.route = route;
         }
 
         public void setSeating(int i, bool status)
@@ -76,14 +76,14 @@ namespace Airline
             seating[i] = status;
         }
 
-        public char getOriginCity()
+        public string getOriginCity()
         {
             return originCity;
         }
 
-        public string getRoute()
+        public string getDestinationCity()
         {
-            return route;
+            return destinationCity;
         }
 
         public int getFlightTime()
@@ -96,9 +96,9 @@ namespace Airline
             return cost;
         }
 
-        public char getDestinationCity()
+        public string getRoute()
         {
-            return destinationCity;
+            return route;
         }
 
         public ref List<Passenger> getPassengers()

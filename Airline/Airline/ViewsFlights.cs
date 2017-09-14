@@ -41,18 +41,95 @@ namespace Airline
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            FlightsList filterFlightsList;
-            int option = 0;
-            if (radioButtonRoute.Checked)
-                option = 1;
-            else if (radioButtonOrigin.Checked)
-                option = 2;
+            if(textBoxSearch.Text == "")
+                viewsFlghtsUpdate(flights);
             else
-                option = 3;
-            filterFlightsList = flights.searchMatches(textBoxSearch.Text, option);
-            viewsFlghtsUpdate(filterFlightsList);
+            {
+                FlightsList filterFlightsList;
+                int option = 0;
+                if (radioButtonRoute.Checked)
+                    option = 1;
+                else if (radioButtonOrigin.Checked)
+                    option = 2;
+                else
+                    option = 3;
+                filterFlightsList = flights.searchMatches(textBoxSearch.Text, option);
+                viewsFlghtsUpdate(filterFlightsList);
+            }
+            
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            Flight newflight;
+            string route;
+            bool parseInt;
+            int time, cost;
+            if (textBoxOrigin.Text != "")
+            {
+                if (textBoxOrigin.Text.Length == 1)
+                {
+                    if (textBoxDestination.Text != "")
+                    {
+                        if (textBoxDestination.Text.Length == 1)
+                        {
+                            if (textBoxTime.Text != "")
+                            {
+                                parseInt = int.TryParse(textBoxTime.Text, out time);
+                                if(parseInt)
+                                {
+                                    if (textBoxCost.Text != "")
+                                    {
+                                        parseInt = int.TryParse(textBoxCost.Text, out cost);
+                                        if (parseInt)
+                                        {
+                                            route = "SK1" + textBoxOrigin.Text + textBoxDestination.Text;
+                                            if(!flights.flightExistence(route))
+                                            {
+                                                newflight = new Flight(textBoxOrigin.Text, textBoxDestination.Text, time, cost);
+                                                flights.Add(newflight);
+                                                MessageBox.Show("Vuelo agregado exitosamente", "Informacion",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                textBoxOrigin.Text = "";
+                                                textBoxDestination.Text = "";
+                                                textBoxTime.Text = "";
+                                                textBoxCost.Text = "";
+                                            }
+                                            else
+                                                MessageBox.Show("El vuelo ya existe", "Error",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                        else
+                                            MessageBox.Show("Introduzca un costo valido", "Advertencia",
+                                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    }
+                                    else
+                                        MessageBox.Show("Introduzca el costo", "Advertencia",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                                else
+                                    MessageBox.Show("Introduzca un timepo valido", "Advertencia",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else
+                                MessageBox.Show("Introduzca el Tiempo", "Advertencia",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else
+                            MessageBox.Show("Destino no valido", "Advertencia",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                        MessageBox.Show("Introduzca un Destino", "Advertencia",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                    MessageBox.Show("Origen no valido", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+                MessageBox.Show("Introduzca un Origen", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
-
-   
 }

@@ -19,14 +19,14 @@ namespace Airline
         {
         }
 
-        public Passenger(string name, string lastname, int age, string id, int seatNumber, string flightRoute)
+        public Passenger(string name, string lastname, int age, int seatNumber, string flightRoute)
         {
             this.name = name;
             this.lastname = lastname;
             this.age = age;
-            this.id = id;
             this.seatNumber = seatNumber;
             this.flightRoute = flightRoute;
+            id = flightRoute + (seatNumber + 1).ToString();
         }
 
         public void setName(string name)
