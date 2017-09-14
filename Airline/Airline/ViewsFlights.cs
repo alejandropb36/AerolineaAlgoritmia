@@ -30,8 +30,8 @@ namespace Airline
             foreach (Flight flight in flightsList)
             {
                 arrString[0] = flight.getRoute();
-                arrString[1] = flight.getOriginCity().ToString();
-                arrString[2] = flight.getDestinationCity().ToString();
+                arrString[1] = flight.getOriginCity();
+                arrString[2] = flight.getDestinationCity();
                 arrString[3] = flight.getFlightTime().ToString();
                 arrString[4] = flight.getCost().ToString();
                 ListViewItem item = new ListViewItem(arrString);
@@ -152,6 +152,7 @@ namespace Airline
             }
             else
             {
+                //Console.WriteLine(listViewFlights.SelectedItems.ToString());
                 MessageBox.Show("Escribe una ruta", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
