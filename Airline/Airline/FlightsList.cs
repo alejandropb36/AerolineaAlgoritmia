@@ -66,5 +66,19 @@ namespace Airline
                     existence = true;
             return existence;
         }
+
+        public bool flightDelete(string route)
+        {
+            bool delete = false;
+            for(int i = 0; i < this.Count; i++)
+            {
+                if (route == this[i].getRoute())
+                {
+                    this.RemoveAt(i);
+                    delete = true;
+                }
+            }
+            return delete;
+        }
     }
 }

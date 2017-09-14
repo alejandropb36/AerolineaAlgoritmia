@@ -94,6 +94,7 @@ namespace Airline
                                                 textBoxDestination.Text = "";
                                                 textBoxTime.Text = "";
                                                 textBoxCost.Text = "";
+                                                viewsFlghtsUpdate(flights);
                                             }
                                             else
                                                 MessageBox.Show("El vuelo ya existe", "Error",
@@ -138,17 +139,21 @@ namespace Airline
             if(textBoxDelete.Text != "")
             {
                 route = textBoxDelete.Text;
-                if(route.Length == 5) // 5 es tamano de ruta
+                if (flights.flightDelete(route))
                 {
-
+                    MessageBox.Show("El vuelo se elimino correctamente", "Informacion",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBoxDelete.Text = "";
+                    viewsFlghtsUpdate(flights);
                 }
                 else
-                    MessageBox.Show("Ruta no valida", "Advertencia",
-                        MessageBoxButtons.OK)
+                    MessageBox.Show("El vuelo no existe", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-
+                MessageBox.Show("Escribe una ruta", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
