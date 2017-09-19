@@ -101,11 +101,7 @@ namespace Airline
                                     break;
                             }
                             if (j == data.Length)
-                            {
                                 filterFlightsList.Add(this[i]);
-
-                            }
-                                
 
                         }
                         break;
