@@ -36,13 +36,10 @@
             this.columnHeader5Age = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6SeatNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelPassengers = new System.Windows.Forms.Label();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelSearch = new System.Windows.Forms.Label();
-            this.labelID3 = new System.Windows.Forms.Label();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.comboBoxFlights = new System.Windows.Forms.ComboBox();
-            this.labelFlights1 = new System.Windows.Forms.Label();
+            this.radioButtonID = new System.Windows.Forms.RadioButton();
+            this.radioButtonRoute = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listViewPassengers
@@ -101,13 +98,6 @@
             this.labelPassengers.TabIndex = 1;
             this.labelPassengers.Text = "Pasajeros";
             // 
-            // textBoxID
-            // 
-            this.textBoxID.Location = new System.Drawing.Point(519, 117);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(100, 20);
-            this.textBoxID.TabIndex = 2;
-            // 
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
@@ -117,62 +107,44 @@
             this.labelSearch.TabIndex = 3;
             this.labelSearch.Text = "Buscar pasajero";
             // 
-            // labelID3
+            // radioButtonID
             // 
-            this.labelID3.AutoSize = true;
-            this.labelID3.Location = new System.Drawing.Point(527, 70);
-            this.labelID3.Name = "labelID3";
-            this.labelID3.Size = new System.Drawing.Size(24, 13);
-            this.labelID3.TabIndex = 4;
-            this.labelID3.Text = "ID: ";
+            this.radioButtonID.AutoSize = true;
+            this.radioButtonID.Checked = true;
+            this.radioButtonID.Location = new System.Drawing.Point(557, 70);
+            this.radioButtonID.Name = "radioButtonID";
+            this.radioButtonID.Size = new System.Drawing.Size(36, 17);
+            this.radioButtonID.TabIndex = 5;
+            this.radioButtonID.TabStop = true;
+            this.radioButtonID.Text = "ID";
+            this.radioButtonID.UseVisualStyleBackColor = true;
             // 
-            // buttonDelete
+            // radioButtonRoute
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(573, 195);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
-            this.buttonDelete.TabIndex = 5;
-            this.buttonDelete.Text = "Eliminaro";
-            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.radioButtonRoute.AutoSize = true;
+            this.radioButtonRoute.Location = new System.Drawing.Point(557, 93);
+            this.radioButtonRoute.Name = "radioButtonRoute";
+            this.radioButtonRoute.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonRoute.TabIndex = 6;
+            this.radioButtonRoute.Text = "Ruta";
+            this.radioButtonRoute.UseVisualStyleBackColor = true;
             // 
-            // buttonSearch
+            // textBox1
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(492, 195);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 6;
-            this.buttonSearch.Text = "Buscar";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxFlights
-            // 
-            this.comboBoxFlights.FormattingEnabled = true;
-            this.comboBoxFlights.Location = new System.Drawing.Point(519, 153);
-            this.comboBoxFlights.Name = "comboBoxFlights";
-            this.comboBoxFlights.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxFlights.TabIndex = 7;
-            // 
-            // labelFlights1
-            // 
-            this.labelFlights1.AutoSize = true;
-            this.labelFlights1.Location = new System.Drawing.Point(479, 156);
-            this.labelFlights1.Name = "labelFlights1";
-            this.labelFlights1.Size = new System.Drawing.Size(37, 13);
-            this.labelFlights1.TabIndex = 8;
-            this.labelFlights1.Text = "Vuelo:";
+            this.textBox1.Location = new System.Drawing.Point(530, 138);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 7;
             // 
             // ViewsPassengers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 326);
-            this.Controls.Add(this.labelFlights1);
-            this.Controls.Add(this.comboBoxFlights);
-            this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.labelID3);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.radioButtonRoute);
+            this.Controls.Add(this.radioButtonID);
             this.Controls.Add(this.labelSearch);
-            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.labelPassengers);
             this.Controls.Add(this.listViewPassengers);
             this.Name = "ViewsPassengers";
@@ -186,18 +158,15 @@
 
         private System.Windows.Forms.ListView listViewPassengers;
         private System.Windows.Forms.Label labelPassengers;
-        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelSearch;
-        private System.Windows.Forms.Label labelID3;
-        private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.ComboBox comboBoxFlights;
-        private System.Windows.Forms.Label labelFlights1;
         private System.Windows.Forms.ColumnHeader columnHeader1ID;
         private System.Windows.Forms.ColumnHeader columnHeader2Route;
         private System.Windows.Forms.ColumnHeader columnHeader3Name;
         private System.Windows.Forms.ColumnHeader columnHeader4LastName;
         private System.Windows.Forms.ColumnHeader columnHeader5Age;
         private System.Windows.Forms.ColumnHeader columnHeader6SeatNumber;
+        private System.Windows.Forms.RadioButton radioButtonID;
+        private System.Windows.Forms.RadioButton radioButtonRoute;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
