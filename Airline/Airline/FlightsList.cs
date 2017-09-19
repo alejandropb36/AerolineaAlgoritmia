@@ -80,5 +80,59 @@ namespace Airline
             }
             return delete;
         }
+
+        public List<Passenger> searchMatchesPassenger(string data, int option)
+        {
+            List<Passenger> filterPassengersList = new List<Passenger>();
+            const int routeLenght = 5;
+            const int idLenght = 6;
+            string route;
+            int seat;
+            switch (option)
+            {
+                case 1:
+                    {
+                        for (int i = 0; i < this.Count; i++)
+                        {
+                            int j;
+                            for (j = 0; j < data.Length && j < routeLenght; j++)
+                            {
+                                if (data[j] != this[i].getRoute()[j])
+                                    break;
+                            }
+                            if (j == data.Length)
+                            {
+                                filterFlightsList.Add(this[i]);
+
+                            }
+                                
+
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        for (int i = 0; i < this.Count; i++)
+                        {
+                            if (data == this[i].getOriginCity().ToString())
+                                filterFlightsList.Add(this[i]);
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        for (int i = 0; i < this.Count; i++)
+                        {
+                            if (data == this[i].getDestinationCity().ToString())
+                                filterFlightsList.Add(this[i]);
+                        }
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            return filterPassengersList;
+        }
     }
 }

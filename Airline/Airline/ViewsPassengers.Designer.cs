@@ -40,6 +40,7 @@
             this.radioButtonID = new System.Windows.Forms.RadioButton();
             this.radioButtonRoute = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.radioButtonName = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // listViewPassengers
@@ -136,11 +137,22 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 7;
             // 
+            // radioButtonName
+            // 
+            this.radioButtonName.AutoSize = true;
+            this.radioButtonName.Location = new System.Drawing.Point(557, 115);
+            this.radioButtonName.Name = "radioButtonName";
+            this.radioButtonName.Size = new System.Drawing.Size(62, 17);
+            this.radioButtonName.TabIndex = 8;
+            this.radioButtonName.Text = "Nombre";
+            this.radioButtonName.UseVisualStyleBackColor = true;
+            // 
             // ViewsPassengers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 326);
+            this.Controls.Add(this.radioButtonName);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.radioButtonRoute);
             this.Controls.Add(this.radioButtonID);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.RadioButton radioButtonID;
         private System.Windows.Forms.RadioButton radioButtonRoute;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton radioButtonName;
     }
 }

@@ -14,7 +14,7 @@ namespace Airline
         int flightTime;
         int cost;
         string destinationCity;
-        PassengersList passengers;
+        List<Passenger> passengers;
         bool[] seating;
 
         public Flight()
@@ -24,7 +24,7 @@ namespace Airline
             {
                 seating[i] = true;
             }
-            passengers = new PassengersList();
+            passengers = new List<Passenger>();
         }
 
         public Flight(string originCity, string destinationCity, int flightTime, int cost)
@@ -39,7 +39,7 @@ namespace Airline
             {
                 seating[i] = true;
             }
-            passengers = new PassengersList();
+            passengers = new List<Passenger>();
         }
 
         public override string ToString()
@@ -102,7 +102,7 @@ namespace Airline
             return route;
         }
 
-        public ref PassengersList getPassengers()
+        public ref List<Passenger> getPassengers()
         {
             return ref passengers;
         }
