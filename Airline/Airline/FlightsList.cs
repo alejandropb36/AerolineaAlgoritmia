@@ -11,7 +11,6 @@ namespace Airline
     {
         public FlightsList searchMatches(string data , int option)
         {
-            const int routeLenght = 5;
             FlightsList filterFlightsList = new FlightsList();
 
             switch (option)
@@ -21,7 +20,7 @@ namespace Airline
                         for (int i = 0; i < this.Count; i++)
                         {
                             int j;
-                            for (j = 0; j < data.Length && j < routeLenght; j++)
+                            for (j = 0; j < data.Length && j < this[i].getRoute().Length; j++)
                             {
                                 if (data[j] != this[i].getRoute()[j])
                                     break;
@@ -84,34 +83,42 @@ namespace Airline
         public List<Passenger> searchMatchesPassenger(string data, int option)
         {
             List<Passenger> filterPassengersList = new List<Passenger>();
-            const int routeLenght = 5;
-            const int idLenght = 6;
-            string route;
-            int seat;
             switch (option)
             {
                 case 1:
                     {
                         for (int i = 0; i < this.Count; i++)
                         {
-                            int j;
-                            for (j = 0; j < data.Length && j < routeLenght; j++)
+                            foreach(Passenger passenger in this[i].getPassengers())
                             {
-                                if (data[j] != this[i].getRoute()[j])
-                                    break;
+                                int j;
+                                for (j = 0; j < data.Length && j < passenger.getId().Length; j++)
+                                {
+                                    if (data[j] != passenger.getId()[j])
+                                        break;
+                                }
+                                if (j == data.Length)
+                                    filterPassengersList.Add(passenger);
                             }
-                            if (j == data.Length)
-                                filterFlightsList.Add(this[i]);
-
                         }
                         break;
                     }
                 case 2:
                     {
+
                         for (int i = 0; i < this.Count; i++)
                         {
-                            if (data == this[i].getOriginCity().ToString())
-                                filterFlightsList.Add(this[i]);
+                            foreach (Passenger passenger in this[i].getPassengers())
+                            {
+                                int j;
+                                for (j = 0; j < data.Length && j < passenger.getFlightRoute().Length; j++)
+                                {
+                                    if (data[j] != passenger.getFlightRoute()[j])
+                                        break;
+                                }
+                                if (j == data.Length)
+                                    filterPassengersList.Add(passenger);
+                            }
                         }
                         break;
                     }
@@ -119,8 +126,11 @@ namespace Airline
                     {
                         for (int i = 0; i < this.Count; i++)
                         {
-                            if (data == this[i].getDestinationCity().ToString())
-                                filterFlightsList.Add(this[i]);
+                            foreach(Passenger passenger in this[i].getPassengers())
+                            {
+                                if (data == passenger.getName())
+                                    filterPassengersList.Add(passenger);
+                            }
                         }
                         break;
                     }
@@ -129,6 +139,29 @@ namespace Airline
             }
 
             return filterPassengersList;
+        }
+
+        public bool passengerDelete(string id)
+        {
+            bool delete = false;
+
+            for (int i = 0; i < this.Count; i++)
+            {
+                int j = 0;
+                foreach(Passenger passenger in this[i].getPassengers())
+                {
+                    if(id == passenger.getId())
+                    {
+                        this[i].getSeating()[passenger.getSeatNumber()] = true;
+                        this[i].getPassengers().RemoveAt(j);
+                        delete = true;
+                        break;
+                    }
+
+                    j++;
+                }
+            }
+            return delete;
         }
     }
 }

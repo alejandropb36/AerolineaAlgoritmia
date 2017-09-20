@@ -107,9 +107,9 @@ namespace Airline
             return ref passengers;
         }
 
-        public bool getSeating(int i)
+        public bool[] getSeating()
         {
-            return seating[i];
+            return seating;
         }
     }
 }

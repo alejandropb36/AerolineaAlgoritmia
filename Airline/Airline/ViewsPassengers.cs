@@ -17,11 +17,11 @@ namespace Airline
         {
             InitializeComponent();
             this.flights = flights;
-            viewsPassengersUpdate();
+            viewsPassengersUpdate(flights);
         }
         
 
-        public void viewsPassengersUpdate()
+        public void viewsPassengersUpdate(FlightsList flights)
         {
             listViewPassengers.Items.Clear();
             string[] arrString = new string[6];
@@ -41,6 +41,66 @@ namespace Airline
                 }
             }
 
+        }
+
+        public void viewsPassengersUpdate2(List<Passenger> filterPassengers)
+        {
+            listViewPassengers.Items.Clear();
+            string[] arrString = new string[6];
+                foreach (Passenger passenger in filterPassengers)
+                {
+                    arrString[0] = passenger.getId();
+                    arrString[1] = passenger.getFlightRoute();
+                    arrString[2] = passenger.getName();
+                    arrString[3] = passenger.getLastname();
+                    arrString[4] = Convert.ToString(passenger.getAge());
+                    arrString[5] = Convert.ToString(passenger.getSeatNumber() + 1);
+                    ListViewItem item = new ListViewItem(arrString);
+                    listViewPassengers.Items.Add(item);
+                }
+
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            List<Passenger> filterPassengers = new List<Passenger>();
+            if (textBoxSearch.Text == "")
+                viewsPassengersUpdate(flights);
+            else
+            {
+                int option = 0;
+                if (radioButtonID.Checked)
+                    option = 1;
+                else if (radioButtonRoute.Checked)
+                    option = 2;
+                else
+                    option = 3;
+                filterPassengers = flights.searchMatchesPassenger(textBoxSearch.Text, option);
+                viewsPassengersUpdate2(filterPassengers);
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (textBoxDelete.Text != "")
+            {
+                if (flights.passengerDelete(textBoxDelete.Text))
+                {
+                    MessageBox.Show("El pasajero se elimino correctamente", "Informacion",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBoxDelete.Text = "";
+                    viewsPassengersUpdate(flights);
+                }
+                else
+                    MessageBox.Show("El pasajero no existe", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Console.WriteLine(listViewFlights.SelectedItems.ToString());
+                MessageBox.Show("Escribe un ID", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

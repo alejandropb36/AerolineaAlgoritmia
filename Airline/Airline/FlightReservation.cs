@@ -64,7 +64,7 @@ namespace Airline
 
             foreach (Button buttonIterator in seatingButtons)
             {
-                if (flights[comboBoxFlights.SelectedIndex].getSeating(iterator) == false)
+                if (flights[comboBoxFlights.SelectedIndex].getSeating()[iterator] == false)
                 {
                     buttonIterator.Enabled = false;
                     buttonIterator.BackColor = Color.IndianRed;
