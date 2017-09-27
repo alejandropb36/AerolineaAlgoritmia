@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.mainTitleLabel = new System.Windows.Forms.Label();
-            this.reservationButton = new System.Windows.Forms.Button();
             this.passengersButton = new System.Windows.Forms.Button();
             this.flightsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -46,19 +45,9 @@
             this.mainTitleLabel.Text = "Al Qaeda Airline";
             this.mainTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // reservationButton
-            // 
-            this.reservationButton.Location = new System.Drawing.Point(76, 75);
-            this.reservationButton.Name = "reservationButton";
-            this.reservationButton.Size = new System.Drawing.Size(210, 36);
-            this.reservationButton.TabIndex = 1;
-            this.reservationButton.Text = "Reservaciones";
-            this.reservationButton.UseVisualStyleBackColor = true;
-            this.reservationButton.Click += new System.EventHandler(this.reservationButton_Click);
-            // 
             // passengersButton
             // 
-            this.passengersButton.Location = new System.Drawing.Point(76, 130);
+            this.passengersButton.Location = new System.Drawing.Point(76, 173);
             this.passengersButton.Name = "passengersButton";
             this.passengersButton.Size = new System.Drawing.Size(210, 36);
             this.passengersButton.TabIndex = 2;
@@ -68,7 +57,7 @@
             // 
             // flightsButton
             // 
-            this.flightsButton.Location = new System.Drawing.Point(76, 182);
+            this.flightsButton.Location = new System.Drawing.Point(76, 109);
             this.flightsButton.Name = "flightsButton";
             this.flightsButton.Size = new System.Drawing.Size(210, 36);
             this.flightsButton.TabIndex = 3;
@@ -85,7 +74,6 @@
             this.ClientSize = new System.Drawing.Size(362, 323);
             this.Controls.Add(this.flightsButton);
             this.Controls.Add(this.passengersButton);
-            this.Controls.Add(this.reservationButton);
             this.Controls.Add(this.mainTitleLabel);
             this.Name = "MainMenu";
             this.Text = "Main menu";
@@ -97,7 +85,6 @@
         #endregion
 
         private System.Windows.Forms.Label mainTitleLabel;
-        private System.Windows.Forms.Button reservationButton;
         private System.Windows.Forms.Button passengersButton;
         private System.Windows.Forms.Button flightsButton;
     }

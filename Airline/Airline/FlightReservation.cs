@@ -15,18 +15,18 @@ namespace Airline
         FlightsList flights;
         int seatNumber;
         bool sell;
+        string route;
 
 
-        public FlightReservation(FlightsList flights)
+        public FlightReservation(FlightsList flights,string route)
         {
             InitializeComponent();
             this.flights = flights;
             seatNumber = -1;
             sell = false;
-            foreach(Flight flight in flights)
-            {
-                comboBoxFlights.Items.Add(flight);
-            }
+            this.route = route;
+            labelRoute.Text = route;
+            seatsUpdate();
         }
 
         public bool getSell()
@@ -43,7 +43,7 @@ namespace Airline
             List<Button> seatingButtons = new List<Button>(); ;
             int iterator = 0;
 
-            seatingButtons.Add(seatButton1);
+            seatingButtons.Add(buttonSeat1);
             seatingButtons.Add(buttonSeat2);
             seatingButtons.Add(buttonSeat3);
             seatingButtons.Add(buttonSeat4);
@@ -64,7 +64,7 @@ namespace Airline
 
             foreach (Button buttonIterator in seatingButtons)
             {
-                if (flights[comboBoxFlights.SelectedIndex].getSeating()[iterator] == false)
+                if (flights[flights.getFlightIndex(route)].getSeating()[iterator] == false)
                 {
                     buttonIterator.Enabled = false;
                     buttonIterator.BackColor = Color.IndianRed;
@@ -76,14 +76,6 @@ namespace Airline
                 }
                     
                 iterator++;
-            }
-        }
-
-        private void comboBoxFlights1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(comboBoxFlights.SelectedIndex >= 0)
-            {
-                seatsUpdate();
             }
         }
 
@@ -198,57 +190,53 @@ namespace Airline
 
         private void buttonSell1_Click(object sender, EventArgs e)
         {
-            string name, lastname, route, id;
+            string name, lastname, route1, id;
             int age;
             Passenger passenger;
             bool ageFlag;
-            if (comboBoxFlights.SelectedIndex >= 0)
+            
+            if (textBoxPassengerName.Text != "")
             {
-                if (textBoxPassengerName.Text != "")
+                if (textBoxPassengerLastName.Text != "")
                 {
-                    if (textBoxPassengerLastName.Text != "")
+                    if(textBoxPassengerAge.Text != "")
                     {
-                        if(textBoxPassengerAge.Text != "")
+                        ageFlag = int.TryParse(textBoxPassengerAge.Text, out age);
+                        if (ageFlag)
                         {
-                            ageFlag = int.TryParse(textBoxPassengerAge.Text, out age);
-                            if (ageFlag)
+                            if (seatNumber > -1)
                             {
-                                if (seatNumber > -1)
-                                {
-                                    name = textBoxPassengerName.Text;
-                                    lastname = textBoxPassengerLastName.Text;
-                                    route = flights[comboBoxFlights.SelectedIndex].getRoute();
-                                    flights[comboBoxFlights.SelectedIndex].setSeating(seatNumber, false);
-                                    passenger = new Passenger(name, lastname, age, seatNumber, route);
-                                    flights[comboBoxFlights.SelectedIndex].getPassengers().Add(passenger);
-                                    sell = true;
-                                    MessageBox.Show("El ID de pasajero es: " + passenger.getId(), "ID", 
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    this.Close();
-                                }
-                                else
-                                    MessageBox.Show("Sellecione un asiento", "Advertencia",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                name = textBoxPassengerName.Text;
+                                lastname = textBoxPassengerLastName.Text;
+                                route1 = flights[flights.getFlightIndex(route)].getRoute();
+                                flights[flights.getFlightIndex(route)].setSeating(seatNumber, false);
+                                passenger = new Passenger(name, lastname, age, seatNumber, route1);
+                                flights[flights.getFlightIndex(route)].getPassengers().Add(passenger);
+                                sell = true;
+                                MessageBox.Show("El ID de pasajero es: " + passenger.getId(), "ID", 
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
                             }
                             else
-                                MessageBox.Show("Introduzca una edad valida!", "Advertencia",
+                                MessageBox.Show("Sellecione un asiento", "Advertencia",
                                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         else
-                            MessageBox.Show("Introduzca una edad", "Advertencia",
+                            MessageBox.Show("Introduzca una edad valida!", "Advertencia",
                                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
-                        MessageBox.Show("Introduzca un apellido", "Advertencia",
+                        MessageBox.Show("Introduzca una edad", "Advertencia",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
-                    MessageBox.Show("Introduzca un nombre!", "Advertencia",
+                    MessageBox.Show("Introduzca un apellido", "Advertencia",
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
-                MessageBox.Show("Seleccione un vuelo!", "Advertencia",
+                MessageBox.Show("Introduzca un nombre!", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            
         }
     }
 }

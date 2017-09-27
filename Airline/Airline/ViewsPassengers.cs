@@ -82,23 +82,27 @@ namespace Airline
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (textBoxDelete.Text != "")
+            string id;
+            if (listViewPassengers.SelectedItems.Count > 0)
             {
-                if (flights.passengerDelete(textBoxDelete.Text))
+                foreach (ListViewItem item in listViewPassengers.SelectedItems)
                 {
-                    MessageBox.Show("El pasajero se elimino correctamente", "Informacion",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    textBoxDelete.Text = "";
-                    viewsPassengersUpdate(flights);
+                    id = item.Text;
+                    if (flights.passengerDelete(id))
+                    {
+                        MessageBox.Show("El pasajero se elimino correctamente", "Informacion",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        viewsPassengersUpdate(flights);
+                    }
+                    else
+                        MessageBox.Show("El pasajero no existe", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show("El pasajero no existe", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 //Console.WriteLine(listViewFlights.SelectedItems.ToString());
-                MessageBox.Show("Escribe un ID", "Advertencia",
+                MessageBox.Show("Seleccione un pasajero", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }

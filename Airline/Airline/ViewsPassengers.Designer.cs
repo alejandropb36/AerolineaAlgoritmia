@@ -41,10 +41,8 @@
             this.radioButtonRoute = new System.Windows.Forms.RadioButton();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.radioButtonName = new System.Windows.Forms.RadioButton();
-            this.labelDelete = new System.Windows.Forms.Label();
-            this.textBoxDelete = new System.Windows.Forms.TextBox();
+            this.labelSelection = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.labelID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewPassengers
@@ -152,25 +150,18 @@
             this.radioButtonName.Text = "Nombre";
             this.radioButtonName.UseVisualStyleBackColor = true;
             // 
-            // labelDelete
+            // labelSelection
             // 
-            this.labelDelete.AutoSize = true;
-            this.labelDelete.Location = new System.Drawing.Point(527, 195);
-            this.labelDelete.Name = "labelDelete";
-            this.labelDelete.Size = new System.Drawing.Size(86, 13);
-            this.labelDelete.TabIndex = 9;
-            this.labelDelete.Text = "Eliminar pasajero";
-            // 
-            // textBoxDelete
-            // 
-            this.textBoxDelete.Location = new System.Drawing.Point(557, 228);
-            this.textBoxDelete.Name = "textBoxDelete";
-            this.textBoxDelete.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDelete.TabIndex = 10;
+            this.labelSelection.AutoSize = true;
+            this.labelSelection.Location = new System.Drawing.Point(527, 195);
+            this.labelSelection.Name = "labelSelection";
+            this.labelSelection.Size = new System.Drawing.Size(103, 13);
+            this.labelSelection.TabIndex = 9;
+            this.labelSelection.Text = "Selecciona pasajero";
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(530, 267);
+            this.buttonDelete.Location = new System.Drawing.Point(535, 232);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 11;
@@ -178,24 +169,13 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // labelID
-            // 
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(527, 231);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(21, 13);
-            this.labelID.TabIndex = 12;
-            this.labelID.Text = "ID:";
-            // 
             // ViewsPassengers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 326);
-            this.Controls.Add(this.labelID);
             this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.textBoxDelete);
-            this.Controls.Add(this.labelDelete);
+            this.Controls.Add(this.labelSelection);
             this.Controls.Add(this.radioButtonName);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.radioButtonRoute);
@@ -225,9 +205,7 @@
         private System.Windows.Forms.RadioButton radioButtonRoute;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.RadioButton radioButtonName;
-        private System.Windows.Forms.Label labelDelete;
-        private System.Windows.Forms.TextBox textBoxDelete;
+        private System.Windows.Forms.Label labelSelection;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Label labelID;
     }
 }

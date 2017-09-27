@@ -20,11 +20,7 @@ namespace Airline
             InitializeComponent();
         }
 
-        private void reservationButton_Click(object sender, EventArgs e)
-        {
-            FlightReservation flightReservation = new FlightReservation(flights);
-            flightReservation.ShowDialog();
-        }
+        
 
         private void passengersButton_Click(object sender, EventArgs e)
         {

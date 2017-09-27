@@ -53,9 +53,8 @@
             this.labelCost = new System.Windows.Forms.Label();
             this.textBoxCost = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.labelDelete = new System.Windows.Forms.Label();
-            this.labelRoute = new System.Windows.Forms.Label();
-            this.textBoxDelete = new System.Windows.Forms.TextBox();
+            this.labelSelectFlgiht = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewFlights
@@ -116,7 +115,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(438, 425);
+            this.buttonDelete.Location = new System.Drawing.Point(383, 387);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 6;
@@ -267,39 +266,32 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // labelDelete
+            // labelSelectFlgiht
             // 
-            this.labelDelete.AutoSize = true;
-            this.labelDelete.Location = new System.Drawing.Point(457, 361);
-            this.labelDelete.Name = "labelDelete";
-            this.labelDelete.Size = new System.Drawing.Size(43, 13);
-            this.labelDelete.TabIndex = 23;
-            this.labelDelete.Text = "Eliminar";
+            this.labelSelectFlgiht.AutoSize = true;
+            this.labelSelectFlgiht.Location = new System.Drawing.Point(433, 361);
+            this.labelSelectFlgiht.Name = "labelSelectFlgiht";
+            this.labelSelectFlgiht.Size = new System.Drawing.Size(104, 13);
+            this.labelSelectFlgiht.TabIndex = 23;
+            this.labelSelectFlgiht.Text = "Selecciona un vuelo";
             // 
-            // labelRoute
+            // button1
             // 
-            this.labelRoute.AutoSize = true;
-            this.labelRoute.Location = new System.Drawing.Point(417, 392);
-            this.labelRoute.Name = "labelRoute";
-            this.labelRoute.Size = new System.Drawing.Size(33, 13);
-            this.labelRoute.TabIndex = 24;
-            this.labelRoute.Text = "Ruta:";
-            // 
-            // textBoxDelete
-            // 
-            this.textBoxDelete.Location = new System.Drawing.Point(456, 389);
-            this.textBoxDelete.Name = "textBoxDelete";
-            this.textBoxDelete.Size = new System.Drawing.Size(85, 20);
-            this.textBoxDelete.TabIndex = 25;
+            this.button1.Location = new System.Drawing.Point(476, 387);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 33);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Reservar Boloeto";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ViewsFlights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 485);
-            this.Controls.Add(this.textBoxDelete);
-            this.Controls.Add(this.labelRoute);
-            this.Controls.Add(this.labelDelete);
+            this.ClientSize = new System.Drawing.Size(603, 485);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelSelectFlgiht);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxCost);
             this.Controls.Add(this.labelCost);
@@ -354,8 +346,7 @@
         private System.Windows.Forms.Label labelCost;
         private System.Windows.Forms.TextBox textBoxCost;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Label labelDelete;
-        private System.Windows.Forms.Label labelRoute;
-        private System.Windows.Forms.TextBox textBoxDelete;
+        private System.Windows.Forms.Label labelSelectFlgiht;
+        private System.Windows.Forms.Button button1;
     }
 }

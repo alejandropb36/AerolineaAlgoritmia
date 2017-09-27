@@ -163,5 +163,18 @@ namespace Airline
             }
             return delete;
         }
+
+        public int getFlightIndex(string route)
+        {
+            int index = -1;
+
+            for(int i = 0; i < this.Count; i++)
+            {
+                if (route == this[i].getRoute())
+                    index = i;
+            }
+
+            return index;
+        }
     }
 }

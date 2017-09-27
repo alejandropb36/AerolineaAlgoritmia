@@ -143,24 +143,49 @@ namespace Airline
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             string route;
-            if(textBoxDelete.Text != "")
+            if(listViewFlights.SelectedItems.Count > 0)
             {
-                route = textBoxDelete.Text;
-                if (flights.flightDelete(route))
+                foreach (ListViewItem item in listViewFlights.SelectedItems)
                 {
-                    MessageBox.Show("El vuelo se elimino correctamente", "Informacion",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    textBoxDelete.Text = "";
-                    viewsFlghtsUpdate(flights);
+                    route = item.Text;
+                    if (flights.flightDelete(route))
+                    {
+                        MessageBox.Show("El vuelo se elimino correctamente", "Informacion",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        viewsFlghtsUpdate(flights);
+                    }
+                    else
+                        MessageBox.Show("El vuelo no existe", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Console.WriteLine(deleteRoute);
                 }
-                else
-                    MessageBox.Show("El vuelo no existe", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 //Console.WriteLine(listViewFlights.SelectedItems.ToString());
-                MessageBox.Show("Escribe una ruta", "Advertencia",
+                MessageBox.Show("Seleccione un vuelo", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string route;
+            if (listViewFlights.SelectedItems.Count > 0)
+            {
+                foreach (ListViewItem item in listViewFlights.SelectedItems)
+                {
+                    route = item.Text;
+                    FlightReservation flightReservation = new FlightReservation(flights,route);
+                    flightReservation.ShowDialog();
+                    if (flightReservation.getSell())
+                        this.Close();
+                }
+            }
+            else
+            {
+                //Console.WriteLine(listViewFlights.SelectedItems.ToString());
+                MessageBox.Show("Seleccione un vuelo", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }

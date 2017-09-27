@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxFlights = new System.Windows.Forms.ComboBox();
-            this.labelFlightsList = new System.Windows.Forms.Label();
+            this.labelRouteFlight = new System.Windows.Forms.Label();
             this.textBoxPassengerName = new System.Windows.Forms.TextBox();
             this.textBoxPassengerLastName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
@@ -39,7 +38,7 @@
             this.labelYears5 = new System.Windows.Forms.Label();
             this.sellButton = new System.Windows.Forms.Button();
             this.pictureBoxSeats1 = new System.Windows.Forms.PictureBox();
-            this.seatButton1 = new System.Windows.Forms.Button();
+            this.buttonSeat1 = new System.Windows.Forms.Button();
             this.buttonSeat2 = new System.Windows.Forms.Button();
             this.buttonSeat3 = new System.Windows.Forms.Button();
             this.buttonSeat4 = new System.Windows.Forms.Button();
@@ -60,26 +59,18 @@
             this.seatSelectionLabel = new System.Windows.Forms.Label();
             this.labelSeat = new System.Windows.Forms.Label();
             this.labelSeatNumber = new System.Windows.Forms.Label();
+            this.labelRoute = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeats1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBoxFlights
+            // labelRouteFlight
             // 
-            this.comboBoxFlights.FormattingEnabled = true;
-            this.comboBoxFlights.Location = new System.Drawing.Point(174, 74);
-            this.comboBoxFlights.Name = "comboBoxFlights";
-            this.comboBoxFlights.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxFlights.TabIndex = 0;
-            this.comboBoxFlights.SelectedIndexChanged += new System.EventHandler(this.comboBoxFlights1_SelectedIndexChanged);
-            // 
-            // labelFlightsList
-            // 
-            this.labelFlightsList.AutoSize = true;
-            this.labelFlightsList.Location = new System.Drawing.Point(36, 82);
-            this.labelFlightsList.Name = "labelFlightsList";
-            this.labelFlightsList.Size = new System.Drawing.Size(104, 13);
-            this.labelFlightsList.TabIndex = 1;
-            this.labelFlightsList.Text = "Selecciona un vuelo";
+            this.labelRouteFlight.AutoSize = true;
+            this.labelRouteFlight.Location = new System.Drawing.Point(36, 82);
+            this.labelRouteFlight.Name = "labelRouteFlight";
+            this.labelRouteFlight.Size = new System.Drawing.Size(40, 13);
+            this.labelRouteFlight.TabIndex = 1;
+            this.labelRouteFlight.Text = "Vuelo: ";
             // 
             // textBoxPassengerName
             // 
@@ -158,16 +149,16 @@
             this.pictureBoxSeats1.TabIndex = 10;
             this.pictureBoxSeats1.TabStop = false;
             // 
-            // seatButton1
+            // buttonSeat1
             // 
-            this.seatButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.seatButton1.Location = new System.Drawing.Point(431, 167);
-            this.seatButton1.Name = "seatButton1";
-            this.seatButton1.Size = new System.Drawing.Size(27, 23);
-            this.seatButton1.TabIndex = 11;
-            this.seatButton1.Text = "1";
-            this.seatButton1.UseVisualStyleBackColor = false;
-            this.seatButton1.Click += new System.EventHandler(this.buttonSeat1_Click);
+            this.buttonSeat1.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonSeat1.Location = new System.Drawing.Point(431, 167);
+            this.buttonSeat1.Name = "buttonSeat1";
+            this.buttonSeat1.Size = new System.Drawing.Size(27, 23);
+            this.buttonSeat1.TabIndex = 11;
+            this.buttonSeat1.Text = "1";
+            this.buttonSeat1.UseVisualStyleBackColor = false;
+            this.buttonSeat1.Click += new System.EventHandler(this.buttonSeat1_Click);
             // 
             // buttonSeat2
             // 
@@ -366,11 +357,20 @@
             this.labelSeatNumber.Size = new System.Drawing.Size(0, 13);
             this.labelSeatNumber.TabIndex = 31;
             // 
+            // labelRoute
+            // 
+            this.labelRoute.AutoSize = true;
+            this.labelRoute.Location = new System.Drawing.Point(124, 82);
+            this.labelRoute.Name = "labelRoute";
+            this.labelRoute.Size = new System.Drawing.Size(0, 13);
+            this.labelRoute.TabIndex = 32;
+            // 
             // FlightReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 393);
+            this.Controls.Add(this.labelRoute);
             this.Controls.Add(this.labelSeatNumber);
             this.Controls.Add(this.labelSeat);
             this.Controls.Add(this.seatSelectionLabel);
@@ -391,7 +391,7 @@
             this.Controls.Add(this.buttonSeat4);
             this.Controls.Add(this.buttonSeat3);
             this.Controls.Add(this.buttonSeat2);
-            this.Controls.Add(this.seatButton1);
+            this.Controls.Add(this.buttonSeat1);
             this.Controls.Add(this.pictureBoxSeats1);
             this.Controls.Add(this.sellButton);
             this.Controls.Add(this.labelYears5);
@@ -401,8 +401,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.textBoxPassengerLastName);
             this.Controls.Add(this.textBoxPassengerName);
-            this.Controls.Add(this.labelFlightsList);
-            this.Controls.Add(this.comboBoxFlights);
+            this.Controls.Add(this.labelRouteFlight);
             this.Name = "FlightReservation";
             this.Text = "FlightReservation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSeats1)).EndInit();
@@ -412,9 +411,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBoxFlights;
-        private System.Windows.Forms.Label labelFlightsList;
+        private System.Windows.Forms.Label labelRouteFlight;
         private System.Windows.Forms.TextBox textBoxPassengerName;
         private System.Windows.Forms.TextBox textBoxPassengerLastName;
         private System.Windows.Forms.Label labelName;
@@ -424,7 +421,7 @@
         private System.Windows.Forms.Label labelYears5;
         private System.Windows.Forms.Button sellButton;
         private System.Windows.Forms.PictureBox pictureBoxSeats1;
-        private System.Windows.Forms.Button seatButton1;
+        private System.Windows.Forms.Button buttonSeat1;
         private System.Windows.Forms.Button buttonSeat2;
         private System.Windows.Forms.Button buttonSeat3;
         private System.Windows.Forms.Button buttonSeat4;
@@ -445,5 +442,6 @@
         private System.Windows.Forms.Label seatSelectionLabel;
         private System.Windows.Forms.Label labelSeat;
         private System.Windows.Forms.Label labelSeatNumber;
+        private System.Windows.Forms.Label labelRoute;
     }
 }
