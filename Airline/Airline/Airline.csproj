@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adjacent.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="FlightReservation.cs">
       <SubType>Form</SubType>
@@ -53,12 +54,14 @@
       <DependentUpon>FlightReservation.cs</DependentUpon>
     </Compile>
     <Compile Include="FlightsList.cs" />
+    <Compile Include="Graph.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Node.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
