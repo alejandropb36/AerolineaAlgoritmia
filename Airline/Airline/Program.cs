@@ -99,6 +99,8 @@ namespace Airline
                 flights.Add(flight34);
             }
 
+            Graph graph = new Graph(flights);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
