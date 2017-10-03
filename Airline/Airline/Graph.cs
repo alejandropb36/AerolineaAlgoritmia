@@ -42,8 +42,8 @@ namespace Airline
                 if (!excistence)
                 {
                     string city = flight.getDestinationCity();
-                    Node node = new Node(city);
-                    nodeList.Add(node);
+                    Node node2 = new Node(city);
+                    nodeList.Add(node2);
                 }
             }
             // Crea Adjacent
@@ -55,7 +55,7 @@ namespace Airline
                     {
                         foreach(Node nAux in nodeList)
                         {
-                            if(n.getCity() == flight.getDestinationCity())
+                            if(nAux.getCity() == flight.getDestinationCity())
                             {
                                 Adjacent adjacent = new Adjacent(nAux);
                                 n.insertAdjacent(adjacent);
@@ -65,6 +65,8 @@ namespace Airline
                 }
             }
         }
+
+
     }
     //inserat Arista
     //inserta nodo
