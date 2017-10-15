@@ -15,8 +15,9 @@ namespace Airline
         [STAThread]
         static void Main()
         {
-
+            List<City> cities = new List<City>();
             FlightsList flights = new FlightsList();
+
             if(File.Exists("Flights.bin"))
             {
                 using (Stream s = File.Open("Flights.bin", FileMode.Open))

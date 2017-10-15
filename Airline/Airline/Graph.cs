@@ -9,9 +9,11 @@ namespace Airline
     public class Graph
     {
         List<Node> nodeList;
+        FlightsList flightsList;
 
         public Graph(FlightsList flights)
         {
+            this.flightsList = flights;
             nodeList = new List<Node>();
             bool excistence = false;
 
