@@ -78,7 +78,7 @@ namespace Airline
             }
         }
 
-        public void addNode(Flight flight)
+        public void addRoute(Flight flight)
         {
             bool excistence = false;
             foreach (Node n in nodeList)
@@ -111,10 +111,7 @@ namespace Airline
                 Node node2 = new Node(city);
                 nodeList.Add(node2);
             }
-        }
 
-        public void addArista(Flight flight)
-        {
             foreach (Node n in nodeList)
             {
                 if (flight.getOriginCity() == n.getCity().getName())
