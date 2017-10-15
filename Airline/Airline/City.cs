@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Airline
 {
+    [Serializable]
     public class City
     {
         string name;
         int x, y;
 
-        City(string name, int x, int y)
+        public City(string name)
+        {
+            this.name = name;
+        }
+
+        public City(string name, int x, int y)
         {
             this.name = name;
             this.x = x;

@@ -28,7 +28,7 @@ namespace Airline
                 }
                 if (!excistence)
                 {
-                    City city = new City(flight.getOriginCity(), /*positions*/)
+                    City city = new City(flight.getOriginCity());
                     Node node = new Node(city);
                     nodeList.Add(node);
                 }
@@ -44,7 +44,7 @@ namespace Airline
                 }
                 if (!excistence)
                 {
-                    City city = new City(flight.getOriginCity(), /*positions*/)
+                    City city = new City(flight.getOriginCity());
                     Node node2 = new Node(city);
                     nodeList.Add(node2);
                 }
@@ -61,7 +61,7 @@ namespace Airline
                         {
                             if(nAux.getCity().getName() == flight.getDestinationCity())
                             {
-                                Adjacent adjacent = new Adjacent(nAux);
+                                Adjacent adjacent = new Adjacent(nAux,flight.getCost(),flight.getFlightTime());
                                 n.insertAdjacent(adjacent);
                             }
                         }
@@ -70,14 +70,15 @@ namespace Airline
             }
         }
 
-        public void addNode(FlightsList flights)
+        public void addNode(Node node)
         {
-            
+            nodeList.Add(node);
         }
 
-        public void addArista(FlightsList flights)
+        public void addArista(Node origin, Node destination, int cost, int time)
         {
-
+            Adjacent adjancent = new Adjacent(destination, cost, time);
+            origin.insertAdjacent(adjancent);
         }
 
 
@@ -87,7 +88,7 @@ namespace Airline
     //inserat Arista
     //inserta nodo
     // contraparte
-
+    [Serializable]
     public class Node
     {
         // class City Recomenadion del profe para posicion x y a la hora dibujar
@@ -110,8 +111,13 @@ namespace Airline
         {
             adjacenceList.Add(adjacent);
         }
-    }
 
+        //public List<Adjacent> getAdjacentList()
+        //{
+        //    return adjacenceList;
+        //}
+    }
+    [Serializable]
     public class Adjacent
     {
         // Podriamos hacer un tipo de dato para las ponderaciones
@@ -119,9 +125,11 @@ namespace Airline
         int time;
         Node node;
 
-        public Adjacent(Node node)
+        public Adjacent(Node node, int cost, int time)
         {
             this.node = node;
+            this.cost = cost;
+            this.time = time;
         }
     }
 
