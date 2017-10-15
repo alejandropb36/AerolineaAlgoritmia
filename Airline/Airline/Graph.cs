@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace Airline
 {
+    [Serializable]
     public class Graph
     {
         List<Node> nodeList;
-        FlightsList flightsList;
+        //FlightsList flights;
+
+        public Graph()
+        {
+            nodeList = new List<Node>();
+        }
 
         public Graph(FlightsList flights)
         {
-            this.flightsList = flights;
+           // this.flights = flights;
             nodeList = new List<Node>();
             bool excistence = false;
 
@@ -72,15 +78,57 @@ namespace Airline
             }
         }
 
-        public void addNode(Node node)
+        public void addNode(Flight flight)
         {
-            nodeList.Add(node);
+            bool excistence = false;
+            foreach (Node n in nodeList)
+            {
+                if (n.getCity().getName() == flight.getOriginCity())
+                {
+                    excistence = true;
+                    break;
+                }
+            }
+            if (!excistence)
+            {
+                City city = new City(flight.getOriginCity());
+                Node node = new Node(city);
+                nodeList.Add(node);
+            }
+
+            excistence = false;
+            foreach (Node n in nodeList)
+            {
+                if (n.getCity().getName() == flight.getDestinationCity())
+                {
+                    excistence = true;
+                    break;
+                }
+            }
+            if (!excistence)
+            {
+                City city = new City(flight.getOriginCity());
+                Node node2 = new Node(city);
+                nodeList.Add(node2);
+            }
         }
 
-        public void addArista(Node origin, Node destination, int cost, int time)
+        public void addArista(Flight flight)
         {
-            Adjacent adjancent = new Adjacent(destination, cost, time);
-            origin.insertAdjacent(adjancent);
+            foreach (Node n in nodeList)
+            {
+                if (flight.getOriginCity() == n.getCity().getName())
+                {
+                    foreach (Node nAux in nodeList)
+                    {
+                        if (nAux.getCity().getName() == flight.getDestinationCity())
+                        {
+                            Adjacent adjacent = new Adjacent(nAux, flight.getCost(), flight.getFlightTime());
+                            n.insertAdjacent(adjacent);
+                        }
+                    }
+                }
+            }
         }
 
 
