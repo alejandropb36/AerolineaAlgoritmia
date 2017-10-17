@@ -78,7 +78,7 @@ namespace Airline
             }
         }
 
-        public void addRoute(Flight flight)
+        public void addRoute(Flight flight, int x1, int y1, int x2, int y2)
         {
             bool excistence = false;
             foreach (Node n in nodeList)
@@ -91,8 +91,8 @@ namespace Airline
             }
             if (!excistence)
             {
-                City city = new City(flight.getOriginCity());
-                Node node = new Node(city);
+                City city = new City(flight.getOriginCity(), x1, y1);
+                Node node = new Node(city); 
                 nodeList.Add(node);
             }
 
@@ -107,7 +107,7 @@ namespace Airline
             }
             if (!excistence)
             {
-                City city = new City(flight.getOriginCity());
+                City city = new City(flight.getOriginCity(), x2, y2);
                 Node node2 = new Node(city);
                 nodeList.Add(node2);
             }
@@ -126,6 +126,27 @@ namespace Airline
                     }
                 }
             }
+        }
+
+        public bool excistenceCity(string name)
+        {
+            foreach(Node n in nodeList)
+            {
+                if (n.getCity().getName() == name)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public void removeRoute(Flight flight)
+        {
+
+        }
+
+        public List<Node> getNodeList()
+        {
+            return nodeList;
         }
 
 
@@ -159,11 +180,12 @@ namespace Airline
             adjacenceList.Add(adjacent);
         }
 
-        //public List<Adjacent> getAdjacentList()
-        //{
-        //    return adjacenceList;
-        //}
+        public List<Adjacent> getAdjacentList()
+        {
+            return adjacenceList;
+        }
     }
+
     [Serializable]
     public class Adjacent
     {
@@ -177,6 +199,11 @@ namespace Airline
             this.node = node;
             this.cost = cost;
             this.time = time;
+        }
+
+        public Node getNode()
+        {
+            return node;
         }
     }
 

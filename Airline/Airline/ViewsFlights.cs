@@ -14,11 +14,13 @@ namespace Airline
     {
         FlightsList flights;
         FlightsList filterFlightsList;
+        Graph graph;
 
-        public ViewsFlights(FlightsList flights)
+        public ViewsFlights(FlightsList flights, Graph graph)
         {
             InitializeComponent();
             this.flights = flights;
+            this.graph = graph;
             viewsFlghtsUpdate(flights);
         }
 
@@ -65,6 +67,8 @@ namespace Airline
             string route;
             bool parseInt;
             int time, cost;
+            int x1, y1, x2, y2;
+            x1 = y1 = x2 = y2 = 0;
             if (textBoxOrigin.Text != "")
             {
                 if (textBoxOrigin.Text.Length == 1)
@@ -90,6 +94,20 @@ namespace Airline
                                                 {
                                                     newflight = new Flight(textBoxOrigin.Text, textBoxDestination.Text, time, cost);
                                                     flights.Add(newflight);
+                                                    GraphForm graphForm = new GraphForm(true, graph);
+                                                    if (!graph.excistenceCity(textBoxOrigin.Text))
+                                                    {
+                                                        graphForm.ShowDialog();
+                                                        x1 = graphForm.getX();
+                                                        y1 = graphForm.getY();
+                                                    }
+                                                    if(!graph.excistenceCity(textBoxDestination.Text))
+                                                    {
+                                                        graphForm.ShowDialog();
+                                                        x2 = graphForm.getX();
+                                                        y2 = graphForm.getY();
+                                                    }
+                                                    graph.addRoute(newflight, x1, y1, x2, y2);
                                                     MessageBox.Show("Vuelo agregado exitosamente", "Informacion",
                                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                     textBoxOrigin.Text = "";

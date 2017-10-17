@@ -29,24 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphForm));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMap = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelMap
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(12, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(938, 540);
-            this.panel1.TabIndex = 0;
+            this.panelMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMap.BackgroundImage")));
+            this.panelMap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelMap.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panelMap.Location = new System.Drawing.Point(12, 23);
+            this.panelMap.Name = "panelMap";
+            this.panelMap.Size = new System.Drawing.Size(938, 540);
+            this.panelMap.TabIndex = 0;
+            this.panelMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelMap_MouseClick);
             // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 592);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMap);
             this.Name = "GraphForm";
             this.Text = "GraphForm";
             this.ResumeLayout(false);
@@ -55,6 +57,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMap;
     }
 }

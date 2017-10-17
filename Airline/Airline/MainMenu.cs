@@ -13,9 +13,10 @@ namespace Airline
     public partial class MainMenu : Form
     {
         FlightsList flights;
-
-        public MainMenu(FlightsList flights)
+        Graph graph;
+        public MainMenu(FlightsList flights, Graph graph)
         {
+            this.graph = graph;
             this.flights = flights;
             InitializeComponent();
         }
@@ -30,8 +31,14 @@ namespace Airline
 
         private void flightsButton_Click(object sender, EventArgs e)
         {
-            ViewsFlights viewsFlights = new ViewsFlights(flights);
+            ViewsFlights viewsFlights = new ViewsFlights(flights, graph);
             viewsFlights.ShowDialog();
+        }
+
+        private void buttonGraph_Click(object sender, EventArgs e)
+        {
+            GraphForm graphForm = new GraphForm(false,graph);
+            graphForm.ShowDialog();
         }
     }
 }

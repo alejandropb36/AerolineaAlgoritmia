@@ -31,6 +31,7 @@
             this.mainTitleLabel = new System.Windows.Forms.Label();
             this.passengersButton = new System.Windows.Forms.Button();
             this.flightsButton = new System.Windows.Forms.Button();
+            this.buttonGraph = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainTitleLabel
@@ -65,6 +66,16 @@
             this.flightsButton.UseVisualStyleBackColor = true;
             this.flightsButton.Click += new System.EventHandler(this.flightsButton_Click);
             // 
+            // buttonGraph
+            // 
+            this.buttonGraph.Location = new System.Drawing.Point(76, 236);
+            this.buttonGraph.Name = "buttonGraph";
+            this.buttonGraph.Size = new System.Drawing.Size(210, 36);
+            this.buttonGraph.TabIndex = 4;
+            this.buttonGraph.Text = "Grafo";
+            this.buttonGraph.UseVisualStyleBackColor = true;
+            this.buttonGraph.Click += new System.EventHandler(this.buttonGraph_Click);
+            // 
             // MainMenu
             // 
             this.AccessibleDescription = "";
@@ -72,6 +83,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 323);
+            this.Controls.Add(this.buttonGraph);
             this.Controls.Add(this.flightsButton);
             this.Controls.Add(this.passengersButton);
             this.Controls.Add(this.mainTitleLabel);
@@ -87,6 +99,7 @@
         private System.Windows.Forms.Label mainTitleLabel;
         private System.Windows.Forms.Button passengersButton;
         private System.Windows.Forms.Button flightsButton;
+        private System.Windows.Forms.Button buttonGraph;
     }
 }
 
