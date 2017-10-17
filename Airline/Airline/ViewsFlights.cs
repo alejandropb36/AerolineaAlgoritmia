@@ -97,12 +97,16 @@ namespace Airline
                                                     GraphForm graphForm = new GraphForm(true, graph);
                                                     if (!graph.excistenceCity(textBoxOrigin.Text))
                                                     {
+                                                        MessageBox.Show("Ciudad Origen", "Informacion",
+                                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         graphForm.ShowDialog();
                                                         x1 = graphForm.getX();
                                                         y1 = graphForm.getY();
                                                     }
                                                     if(!graph.excistenceCity(textBoxDestination.Text))
                                                     {
+                                                        MessageBox.Show("Ciudad Destino", "Informacion",
+                                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                         graphForm.ShowDialog();
                                                         x2 = graphForm.getX();
                                                         y2 = graphForm.getY();

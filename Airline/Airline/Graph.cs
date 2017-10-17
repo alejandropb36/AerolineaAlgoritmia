@@ -108,7 +108,7 @@ namespace Airline
             }
             if (!excistence)
             {
-                City city = new City(flight.getOriginCity(), x2, y2);
+                City city = new City(flight.getDestinationCity(), x2, y2);
                 Node node2 = new Node(city);
                 nodeList.Add(node2);
             }
