@@ -117,22 +117,14 @@ namespace Airline
             {
                 if (node.getCity().getName() == flight.getOriginCity())
                 {
-                    for (int i = 0; i < nodeList.Count; i++)
+                    foreach (Node nodeAux in nodeList)
                     {
-                        if(nodeList[i].getCity().getName() == flight.getDestinationCity())
+                        if (nodeAux.getCity().getName() == flight.getDestinationCity())
                         {
-                            Adjacent adjacent = new Adjacent(nodeList[i], flight.getCost(), flight.getFlightTime());
+                            Adjacent adjacent = new Adjacent(nodeAux, flight.getCost(), flight.getFlightTime());
                             node.insertAdjacent(adjacent);
                         }
                     }
-                    //foreach (Node nodeAux in nodeList)
-                    //{
-                    //    if (nodeAux.getCity().getName() == flight.getDestinationCity())
-                    //    {
-                    //        Adjacent adjacent = new Adjacent(nodeAux, flight.getCost(), flight.getFlightTime());
-                    //        node.insertAdjacent(adjacent);
-                    //    }
-                    //}
                 }
             }
         }
