@@ -36,6 +36,7 @@ namespace Airline
             foreach (Node n in graph.getNodeList())
             {
                 panelMap.CreateGraphics().DrawEllipse(pen1, n.getCity().getX(), n.getCity().getY(), 20, 20);
+                //panelMap.CreateGraphics().DrawString(n.getCity().getName(),,, n.getCity().getX(), n.getCity().getY());
             }
             AdjustableArrowCap bigArrow = new AdjustableArrowCap(4, 8);
 
@@ -66,6 +67,11 @@ namespace Airline
         public int getX()
         {
             return positionX;
+        }
+
+        private void GraphForm_Paint(object sender, PaintEventArgs e)
+        {
+            initializeGraph();
         }
 
         public int getY()

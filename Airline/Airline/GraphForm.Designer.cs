@@ -51,6 +51,7 @@
             this.Controls.Add(this.panelMap);
             this.Name = "GraphForm";
             this.Text = "GraphForm";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GraphForm_Paint);
             this.ResumeLayout(false);
 
         }

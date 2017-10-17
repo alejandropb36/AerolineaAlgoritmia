@@ -17,66 +17,67 @@ namespace Airline
             nodeList = new List<Node>();
         }
 
-        public Graph(FlightsList flights)
-        {
-           // this.flights = flights;
-            nodeList = new List<Node>();
-            bool excistence = false;
+        // este constructor de momento no me sirve
+        //public Graph(FlightsList flights)
+        //{
+        //   // this.flights = flights;
+        //    nodeList = new List<Node>();
+        //    bool excistence = false;
 
-            // Creando nodos
-            foreach (Flight flight in flights)
-            {
-                foreach (Node n in nodeList)
-                {
-                    if (n.getCity().getName() == flight.getOriginCity())
-                    {
-                        excistence = true;
-                        break;
-                    }
-                }
-                if (!excistence)
-                {
-                    City city = new City(flight.getOriginCity());
-                    Node node = new Node(city);
-                    nodeList.Add(node);
-                }
+        //    // Creando nodos
+        //    foreach (Flight flight in flights)
+        //    {
+        //        foreach (Node n in nodeList)
+        //        {
+        //            if (n.getCity().getName() == flight.getOriginCity())
+        //            {
+        //                excistence = true;
+        //                break;
+        //            }
+        //        }
+        //        if (!excistence)
+        //        {
+        //            City city = new City(flight.getOriginCity());
+        //            Node node = new Node(city);
+        //            nodeList.Add(node);
+        //        }
 
-                excistence = false;
-                foreach (Node n in nodeList)
-                {
-                    if (n.getCity().getName() == flight.getDestinationCity())
-                    {
-                        excistence = true;
-                        break;
-                    }
-                }
-                if (!excistence)
-                {
-                    City city = new City(flight.getOriginCity());
-                    Node node2 = new Node(city);
-                    nodeList.Add(node2);
-                }
-            }
+        //        excistence = false;
+        //        foreach (Node n in nodeList)
+        //        {
+        //            if (n.getCity().getName() == flight.getDestinationCity())
+        //            {
+        //                excistence = true;
+        //                break;
+        //            }
+        //        }
+        //        if (!excistence)
+        //        {
+        //            City city = new City(flight.getOriginCity());
+        //            Node node2 = new Node(city);
+        //            nodeList.Add(node2);
+        //        }
+        //    }
 
-            // Crea Adjacent
-            foreach (Node n in nodeList)
-            {
-                foreach(Flight flight in flights)
-                {
-                    if (flight.getOriginCity() == n.getCity().getName())
-                    {
-                        foreach(Node nAux in nodeList)
-                        {
-                            if(nAux.getCity().getName() == flight.getDestinationCity())
-                            {
-                                Adjacent adjacent = new Adjacent(nAux,flight.getCost(),flight.getFlightTime());
-                                n.insertAdjacent(adjacent);
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        //    // Crea Adjacent
+        //    foreach (Node n in nodeList)
+        //    {
+        //        foreach(Flight flight in flights)
+        //        {
+        //            if (flight.getOriginCity() == n.getCity().getName())
+        //            {
+        //                foreach(Node nAux in nodeList)
+        //                {
+        //                    if(nAux.getCity().getName() == flight.getDestinationCity())
+        //                    {
+        //                        Adjacent adjacent = new Adjacent(nAux,flight.getCost(),flight.getFlightTime());
+        //                        n.insertAdjacent(adjacent);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         public void addRoute(Flight flight, int x1, int y1, int x2, int y2)
         {
@@ -112,18 +113,26 @@ namespace Airline
                 nodeList.Add(node2);
             }
 
-            foreach (Node n in nodeList)
+            foreach (Node node in nodeList)
             {
-                if (flight.getOriginCity() == n.getCity().getName())
+                if (node.getCity().getName() == flight.getOriginCity())
                 {
-                    foreach (Node nAux in nodeList)
+                    for (int i = 0; i < nodeList.Count; i++)
                     {
-                        if (nAux.getCity().getName() == flight.getDestinationCity())
+                        if(nodeList[i].getCity().getName() == flight.getDestinationCity())
                         {
-                            Adjacent adjacent = new Adjacent(nAux, flight.getCost(), flight.getFlightTime());
-                            n.insertAdjacent(adjacent);
+                            Adjacent adjacent = new Adjacent(nodeList[i], flight.getCost(), flight.getFlightTime());
+                            node.insertAdjacent(adjacent);
                         }
                     }
+                    //foreach (Node nodeAux in nodeList)
+                    //{
+                    //    if (nodeAux.getCity().getName() == flight.getDestinationCity())
+                    //    {
+                    //        Adjacent adjacent = new Adjacent(nodeAux, flight.getCost(), flight.getFlightTime());
+                    //        node.insertAdjacent(adjacent);
+                    //    }
+                    //}
                 }
             }
         }
