@@ -10,10 +10,11 @@ namespace Airline
     public class Graph
     {
         List<Node> nodeList;
-        //FlightsList flights;
+        FlightsList flights;
 
-        public Graph()
+        public Graph(FlightsList flights)
         {
+            this.flights = flights;
             nodeList = new List<Node>();
         }
 
@@ -140,9 +141,72 @@ namespace Airline
             return false;
         }
 
-        public void removeRoute(Flight flight)
+        public void removeRoute(string routeFlight)
         {
-
+            bool del = false;
+            Node nodeDel = new Node();
+            //Remove adjacent
+            foreach (Node node in nodeList)
+            {
+                if (node.getCity().getName() == routeFlight[3].ToString())
+                {
+                    foreach (Adjacent adj in node.getAdjacentList())
+                    {
+                        if (adj.getNode().getCity().getName() == routeFlight[4].ToString())
+                        {
+                            node.getAdjacentList().Remove(adj);
+                            break;
+                        }
+                    }
+                }
+            }
+            // Origin
+            foreach (Node node in nodeList)
+            {
+                if (node.getCity().getName() == routeFlight[3].ToString())
+                {
+                    if (node.getAdjacentList().Count == 0)
+                    {
+                        nodeDel = node;
+                        del = true;
+                    }
+                }
+                foreach(Adjacent adj in node.getAdjacentList())
+                {
+                    if(adj.getNode().getCity().getName() == routeFlight[3].ToString())
+                    {
+                        del = false;
+                    }
+                }
+            }
+            if (del)
+            {
+                nodeList.Remove(nodeDel);
+            }
+            // Destination
+            del = false;
+            foreach (Node node in nodeList)
+            {
+                if (node.getCity().getName() == routeFlight[4].ToString())
+                {
+                    if (node.getAdjacentList().Count == 0)
+                    {
+                        nodeDel = node;
+                        del = true;
+                    }
+                }
+                foreach (Adjacent adj in node.getAdjacentList())
+                {
+                    if (adj.getNode().getCity().getName() == routeFlight[4].ToString())
+                    {
+                        del = false;
+                    }
+                }
+            }
+            if (del)
+            {
+                nodeList.Remove(nodeDel);
+            }
         }
 
         public List<Node> getNodeList()
@@ -169,6 +233,11 @@ namespace Airline
             this.city = city;
             adjacenceList = new List<Adjacent>();
 
+        }
+
+        public Node()
+        {
+            adjacenceList = new List<Adjacent>();
         }
 
         public City getCity()

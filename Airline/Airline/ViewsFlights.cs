@@ -172,6 +172,7 @@ namespace Airline
                     route = item.Text;
                     if (flights.flightDelete(route))
                     {
+                        graph.removeRoute(route);
                         MessageBox.Show("El vuelo se elimino correctamente", "Informacion",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         viewsFlghtsUpdate(flights);

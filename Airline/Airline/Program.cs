@@ -17,7 +17,7 @@ namespace Airline
         {
             List<City> cities = new List<City>();
             FlightsList flights = new FlightsList();
-            Graph graph = new Graph();
+            Graph graph = new Graph(flights);
 
             if (File.Exists("Flights.bin"))
             {
@@ -100,9 +100,7 @@ namespace Airline
             //    flights.Add(flight33);
             //    flights.Add(flight34);
             //}
-
             
-
             if (File.Exists("Graph.bin"))
             {
                 using (Stream s = File.Open("Graph.bin", FileMode.Open))
