@@ -15,7 +15,7 @@ namespace Airline
         [STAThread]
         static void Main()
         {
-            List<City> cities = new List<City>();
+            
             FlightsList flights = new FlightsList();
             Graph graph = new Graph();
 
