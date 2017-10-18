@@ -171,11 +171,15 @@ namespace Airline
                         del = true;
                     }
                 }
-                foreach(Adjacent adj in node.getAdjacentList())
+            }
+            foreach (Node node in nodeList)
+            {
+                foreach (Adjacent adj in node.getAdjacentList())
                 {
-                    if(adj.getNode().getCity().getName() == routeFlight[3].ToString())
+                    if (adj.getNode().getCity().getName() == routeFlight[3].ToString())
                     {
                         del = false;
+
                     }
                 }
             }
@@ -195,11 +199,15 @@ namespace Airline
                         del = true;
                     }
                 }
+            }
+            foreach (Node node in nodeList)
+            {
                 foreach (Adjacent adj in node.getAdjacentList())
                 {
                     if (adj.getNode().getCity().getName() == routeFlight[4].ToString())
                     {
                         del = false;
+
                     }
                 }
             }

@@ -31,15 +31,15 @@ namespace Airline
 
         public void initializeGraph()
         {
-            Pen pen1 = new Pen(Color.Purple, 3);
-            Font drawFont = new Font("arial", 12);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
+            Pen pen1 = new Pen(Color.Black, 3);
+            Font drawFont = new Font("arial", 11);
+            SolidBrush drawBrush = new SolidBrush(Color.Red);
             foreach (Node n in graph.getNodeList())
             {
-                panelMap.CreateGraphics().DrawEllipse(pen1, n.getCity().getX(), n.getCity().getY(), 20, 20);
+                panelMap.CreateGraphics().DrawEllipse(pen1, n.getCity().getX(), n.getCity().getY(), 15, 15);
                 panelMap.CreateGraphics().DrawString(n.getCity().getName(),drawFont,drawBrush, n.getCity().getX(), n.getCity().getY());
             }
-            AdjustableArrowCap bigArrow = new AdjustableArrowCap(4, 8);
+            AdjustableArrowCap bigArrow = new AdjustableArrowCap(3, 5);
             pen1.Color = Color.Black;
             pen1.CustomEndCap = bigArrow;
 
