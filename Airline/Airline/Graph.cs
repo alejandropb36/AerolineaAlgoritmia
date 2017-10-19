@@ -283,6 +283,16 @@ namespace Airline
         {
             return node;
         }
+
+        public int getCost()
+        {
+            return cost;
+        }
+
+        public int getTime()
+        {
+            return time;
+        }
     }
 
     
