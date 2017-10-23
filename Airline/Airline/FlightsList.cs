@@ -176,5 +176,63 @@ namespace Airline
 
             return index;
         }
+
+        public void quickSort(int begin, int end, int option)
+        {
+            int i = begin;
+            int j = end;
+            int half = (i + j) / 2;
+            Flight pivote = this[half];
+
+            do
+            {
+                switch(option)
+                {
+                    case 1: // Origin
+                        while (this[i].compareOrigin(pivote) == -1)
+                            i++;
+                        while (this[j].compareOrigin(pivote) == 1)
+                            j--;
+                        break;
+                    case 2: // Destination
+                        while (this[i].compareDestination(pivote) == -1)
+                            i++;
+                        while (this[j].compareDestination(pivote) == 1)
+                            j--;
+                        break;
+                    case 3: // Cost
+                        while (this[i].compareCost(pivote) == -1)
+                            i++;
+                        while (this[j].compareCost(pivote) == 1)
+                            j--;
+                        break;
+                    case 4: // Time
+                        while (this[i].compareTime(pivote) == -1)
+                            i++;
+                        while (this[j].compareTime(pivote) == 1)
+                            j--;
+                        break;
+                }
+                if (i <= j)
+                {
+                    swap(i, j);
+                    i++;
+                    j--;
+                }
+            } while (i <= j);
+
+            if (begin < j)
+                quickSort(begin, j, option);
+            if (i < end)
+                quickSort(i, end, option);
+        }
+
+        private void swap(int i, int j)
+        {
+            Flight aux = new Flight();
+            aux = this[i];
+            this[i] = this[j];
+            this[j] = aux;
+        }
     }
 }

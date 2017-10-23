@@ -111,5 +111,41 @@ namespace Airline
         {
             return seating;
         }
+
+        public int compareOrigin(Flight compare)
+        {
+            if (this.originCity > compare.originCity)
+                return 1;
+            if (this.originCity == compare.originCity)
+                return 0;
+            return -1;
+        }
+
+        public int compareDestination(Flight compare)
+        {
+            if (this.destinationCity > compare.destinationCity)
+                return 1;
+            if (this.destinationCity == compare.destinationCity)
+                return 0;
+            return -1;
+        }
+
+        public int compareCost(Flight compare)
+        {
+            if (this.cost > compare.cost)
+                return 1;
+            if (this.cost == compare.cost)
+                return 0;
+            return -1;
+        }
+
+        public int compareTime(Flight compare)
+        {
+            if (this.flightTime > compare.flightTime)
+                return 1;
+            if (this.flightTime == compare.flightTime)
+                return 0;
+            return -1;
+        }
     }
 }
