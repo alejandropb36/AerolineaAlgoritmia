@@ -112,40 +112,17 @@ namespace Airline
             return seating;
         }
 
-        public int compareOrigin(Flight compare)
+        public int compareTo(Flight value, int option)
         {
-            if (this.originCity.CompareTo(compare.originCity) > 0 )
-                return 1;
-            if (this.originCity.CompareTo(compare.originCity) == 0)
-                return 0;
-            return -1;
-        }
-
-        public int compareDestination(Flight compare)
-        {
-            if (this.destinationCity.CompareTo(compare.destinationCity) > 0)
-                return 1;
-            if (this.destinationCity.CompareTo(compare.destinationCity) == 0)
-                return 0;
-            return -1;
-        }
-
-        public int compareCost(Flight compare)
-        {
-            if (this.cost > compare.cost)
-                return 1;
-            if (this.cost == compare.cost)
-                return 0;
-            return -1;
-        }
-
-        public int compareTime(Flight compare)
-        {
-            if (this.flightTime > compare.flightTime)
-                return 1;
-            if (this.flightTime == compare.flightTime)
-                return 0;
-            return -1;
+            if(option == 1)
+                return this.originCity.CompareTo(value.originCity);
+            if (option == 2)
+                return this.destinationCity.CompareTo(value.destinationCity);
+            if (option == 3)
+                return this.cost.CompareTo(value.cost);
+            if (option == 4)
+                return this.flightTime.CompareTo(value.flightTime);
+            return 0;
         }
     }
 }
