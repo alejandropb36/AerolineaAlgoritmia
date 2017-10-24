@@ -190,6 +190,7 @@ namespace Airline
                     i++;
                 while (this[j].compareTo(pivote, option) == 1)
                     j--;
+
                 if (i <= j)
                 {
                     swap(i, j);
