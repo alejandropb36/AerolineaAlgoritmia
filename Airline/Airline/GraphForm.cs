@@ -31,9 +31,9 @@ namespace Airline
 
         public void initializeGraph()
         {
-            Pen pen1 = new Pen(Color.Black, 2);
-            Font drawFont = new Font("Impact", 12);
-            SolidBrush drawBrush = new SolidBrush(Color.Purple);
+            Pen pen1 = new Pen(Color.Red, 2);
+            Font drawFont = new Font("Arial Rounded MT", 12);
+            SolidBrush drawBrush = new SolidBrush(Color.Black);
             foreach (Node n in graph.getNodeList())
             {
                
@@ -41,23 +41,36 @@ namespace Airline
                 //panelMap.CreateGraphics().DrawEllipse(pen1, X, Y, 20, 20);
                 //panelMap.CreateGraphics().DrawString(n.getCity().getName(),drawFont,drawBrush, n.getCity().getX() + 10, n.getCity().getY() + 10);
             }
-            AdjustableArrowCap bigArrow = new AdjustableArrowCap(6, 8);
+            pen1.Color = Color.DarkSlateBlue;
+            AdjustableArrowCap bigArrow = new AdjustableArrowCap(3, 4);
             pen1.CustomEndCap = bigArrow;
 
+            
             foreach (Node n in graph.getNodeList())
             {
+                int i = 0;
                 foreach (Adjacent adj in n.getAdjacentList())
                 {
-                    
                     int X = n.getCity().getX() + 10;
                     int Y = n.getCity().getY() + 10;
                     int J = adj.getNode().getCity().getX() + 10;
                     int K = adj.getNode().getCity().getY() + 10;
                     panelMap.CreateGraphics().DrawLine(pen1, X, Y, J, K);
-                    int halfX = (X + J) / 2;
-                    int halfY = (Y + K) / 2;
-                    panelMap.CreateGraphics().DrawString(adj.getTime().ToString(), drawFont, drawBrush, halfX, halfY);
+                    int halfX, halfY;
+                    if (i % 2 == 0)
+                    {
+                        halfX = ((X + J) / 2) + 6;
+                        halfY = ((Y + K) / 2) + 6;
+                    }
+                    else
+                    {
+                        halfX = ((X + J) / 2) - 6;
+                        halfY = ((Y + K) / 2) - 6;
+                    }
+                    panelMap.CreateGraphics().DrawString(adj.getTime().ToString(), drawFont, drawBrush, halfX, halfY );
+                    i++;
                 }
+
             }
 
             foreach (Node n in graph.getNodeList())

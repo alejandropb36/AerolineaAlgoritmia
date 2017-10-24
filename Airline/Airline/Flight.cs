@@ -114,18 +114,18 @@ namespace Airline
 
         public int compareOrigin(Flight compare)
         {
-            if (this.originCity > compare.originCity)
+            if (this.originCity.CompareTo(compare.originCity) > 0 )
                 return 1;
-            if (this.originCity == compare.originCity)
+            if (this.originCity.CompareTo(compare.originCity) == 0)
                 return 0;
             return -1;
         }
 
         public int compareDestination(Flight compare)
         {
-            if (this.destinationCity > compare.destinationCity)
+            if (this.destinationCity.CompareTo(compare.destinationCity) > 0)
                 return 1;
-            if (this.destinationCity == compare.destinationCity)
+            if (this.destinationCity.CompareTo(compare.destinationCity) == 0)
                 return 0;
             return -1;
         }
