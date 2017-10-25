@@ -221,14 +221,16 @@ namespace Airline
         {
             return nodeList;
         }
+        
+        public void removeCity(string cityName)
+        {
 
+        }
 
     }
 
 
-    //inserat Arista
-    //inserta nodo
-    // contraparte
+    
     [Serializable]
     public class Node
     {
