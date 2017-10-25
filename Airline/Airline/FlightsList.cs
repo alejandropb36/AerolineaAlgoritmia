@@ -80,9 +80,9 @@ namespace Airline
             return delete;
         }
 
-        public List<Passenger> searchMatchesPassenger(string data, int option)
+        public PassengersList searchMatchesPassenger(string data, int option)
         {
-            List<Passenger> filterPassengersList = new List<Passenger>();
+            PassengersList filterPassengersList = new PassengersList();
             switch (option)
             {
                 case 1:

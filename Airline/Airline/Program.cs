@@ -18,6 +18,7 @@ namespace Airline
             
             FlightsList flights = new FlightsList();
             Graph graph = new Graph(flights);
+            PassengersList passengers = new PassengersList();
 
             if (File.Exists("Flights.bin"))
             {
@@ -114,12 +115,21 @@ namespace Airline
             //{
             //    graph = new Graph(flights);
             //}
-           
+
+            if (File.Exists("Passengers.bin"))
+            {
+                using (Stream s = File.Open("Passengers.bin", FileMode.Open))
+                {
+                    var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    passengers = (PassengersList)formatter.Deserialize(s);
+                    s.Close();
+                }
+            }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainMenu());
-            MainMenu mainMenu = new MainMenu(flights, graph);
+            MainMenu mainMenu = new MainMenu(flights, graph, passengers);
             mainMenu.ShowDialog();
 
             File.Delete("Flights.bin");
@@ -135,6 +145,14 @@ namespace Airline
             {
                 var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 formatter.Serialize(s, graph);
+                s.Close();
+            }
+
+            File.Delete("Passengers.bin");
+            using (Stream s = File.Create("Passengers.bin"))
+            {
+                var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                formatter.Serialize(s, passengers);
                 s.Close();
             }
         }

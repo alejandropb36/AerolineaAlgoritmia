@@ -88,5 +88,16 @@ namespace Airline
         {
             return flightRoute;
         }
+
+        public int compareTo(Passenger value, int option)
+        {
+            if (option == 1)
+                return this.name.CompareTo(value.name);
+            if (option == 2)
+                return this.flightRoute.CompareTo(value.flightRoute);
+            if (option == 3)
+                return this.seatNumber.CompareTo(value.seatNumber);
+            return 0;
+        }
     }
 }

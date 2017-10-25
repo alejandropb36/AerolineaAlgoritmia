@@ -55,6 +55,12 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.labelSelectFlgiht = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.radioButtonOri = new System.Windows.Forms.RadioButton();
+            this.radioButtonDest = new System.Windows.Forms.RadioButton();
+            this.radioButtonCost = new System.Windows.Forms.RadioButton();
+            this.radioButtonTime = new System.Windows.Forms.RadioButton();
+            this.labelSorts = new System.Windows.Forms.Label();
+            this.buttonSort = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewFlights
@@ -107,15 +113,16 @@
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
+            this.labelSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSearch.Location = new System.Drawing.Point(446, 50);
             this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(55, 13);
+            this.labelSearch.Size = new System.Drawing.Size(74, 18);
             this.labelSearch.TabIndex = 2;
             this.labelSearch.Text = "Busqueda";
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(383, 387);
+            this.buttonDelete.Location = new System.Drawing.Point(619, 297);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 6;
@@ -186,9 +193,10 @@
             // labelAdd
             // 
             this.labelAdd.AutoSize = true;
+            this.labelAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAdd.Location = new System.Drawing.Point(457, 185);
             this.labelAdd.Name = "labelAdd";
-            this.labelAdd.Size = new System.Drawing.Size(44, 13);
+            this.labelAdd.Size = new System.Drawing.Size(59, 18);
             this.labelAdd.TabIndex = 13;
             this.labelAdd.Text = "Agregar";
             // 
@@ -269,15 +277,16 @@
             // labelSelectFlgiht
             // 
             this.labelSelectFlgiht.AutoSize = true;
-            this.labelSelectFlgiht.Location = new System.Drawing.Point(433, 361);
+            this.labelSelectFlgiht.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSelectFlgiht.Location = new System.Drawing.Point(651, 257);
             this.labelSelectFlgiht.Name = "labelSelectFlgiht";
-            this.labelSelectFlgiht.Size = new System.Drawing.Size(104, 13);
+            this.labelSelectFlgiht.Size = new System.Drawing.Size(140, 18);
             this.labelSelectFlgiht.TabIndex = 23;
             this.labelSelectFlgiht.Text = "Selecciona un vuelo";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(476, 387);
+            this.button1.Location = new System.Drawing.Point(712, 297);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 33);
             this.button1.TabIndex = 24;
@@ -285,11 +294,81 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // radioButtonOri
+            // 
+            this.radioButtonOri.AutoSize = true;
+            this.radioButtonOri.Location = new System.Drawing.Point(701, 79);
+            this.radioButtonOri.Name = "radioButtonOri";
+            this.radioButtonOri.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonOri.TabIndex = 25;
+            this.radioButtonOri.TabStop = true;
+            this.radioButtonOri.Text = "Origen";
+            this.radioButtonOri.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDest
+            // 
+            this.radioButtonDest.AutoSize = true;
+            this.radioButtonDest.Location = new System.Drawing.Point(701, 102);
+            this.radioButtonDest.Name = "radioButtonDest";
+            this.radioButtonDest.Size = new System.Drawing.Size(61, 17);
+            this.radioButtonDest.TabIndex = 26;
+            this.radioButtonDest.TabStop = true;
+            this.radioButtonDest.Text = "Destino";
+            this.radioButtonDest.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCost
+            // 
+            this.radioButtonCost.AutoSize = true;
+            this.radioButtonCost.Location = new System.Drawing.Point(701, 125);
+            this.radioButtonCost.Name = "radioButtonCost";
+            this.radioButtonCost.Size = new System.Drawing.Size(52, 17);
+            this.radioButtonCost.TabIndex = 27;
+            this.radioButtonCost.TabStop = true;
+            this.radioButtonCost.Text = "Costo";
+            this.radioButtonCost.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonTime
+            // 
+            this.radioButtonTime.AutoSize = true;
+            this.radioButtonTime.Location = new System.Drawing.Point(701, 147);
+            this.radioButtonTime.Name = "radioButtonTime";
+            this.radioButtonTime.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonTime.TabIndex = 28;
+            this.radioButtonTime.TabStop = true;
+            this.radioButtonTime.Text = "Tiempo";
+            this.radioButtonTime.UseVisualStyleBackColor = true;
+            // 
+            // labelSorts
+            // 
+            this.labelSorts.AutoSize = true;
+            this.labelSorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSorts.Location = new System.Drawing.Point(663, 50);
+            this.labelSorts.Name = "labelSorts";
+            this.labelSorts.Size = new System.Drawing.Size(110, 18);
+            this.labelSorts.TabIndex = 29;
+            this.labelSorts.Text = "Ordenamientos";
+            // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(687, 180);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(75, 23);
+            this.buttonSort.TabIndex = 30;
+            this.buttonSort.Text = "Ordenar";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
             // ViewsFlights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 485);
+            this.ClientSize = new System.Drawing.Size(856, 485);
+            this.Controls.Add(this.buttonSort);
+            this.Controls.Add(this.labelSorts);
+            this.Controls.Add(this.radioButtonTime);
+            this.Controls.Add(this.radioButtonCost);
+            this.Controls.Add(this.radioButtonDest);
+            this.Controls.Add(this.radioButtonOri);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelSelectFlgiht);
             this.Controls.Add(this.buttonAdd);
@@ -348,5 +427,11 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label labelSelectFlgiht;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButtonOri;
+        private System.Windows.Forms.RadioButton radioButtonDest;
+        private System.Windows.Forms.RadioButton radioButtonCost;
+        private System.Windows.Forms.RadioButton radioButtonTime;
+        private System.Windows.Forms.Label labelSorts;
+        private System.Windows.Forms.Button buttonSort;
     }
 }

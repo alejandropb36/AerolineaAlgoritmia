@@ -13,10 +13,13 @@ namespace Airline
     public partial class ViewsPassengers : Form
     {
         FlightsList flights;
-        public ViewsPassengers(FlightsList flights)
+        PassengersList passengers;
+
+        public ViewsPassengers(FlightsList flights, PassengersList passengers)
         {
             InitializeComponent();
             this.flights = flights;
+            this.passengers = passengers;
             viewsPassengersUpdate(flights);
         }
         
@@ -43,7 +46,7 @@ namespace Airline
 
         }
 
-        public void viewsPassengersUpdate2(List<Passenger> filterPassengers)
+        public void viewsPassengersUpdate2(PassengersList filterPassengers)
         {
             listViewPassengers.Items.Clear();
             string[] arrString = new string[6];
@@ -63,7 +66,7 @@ namespace Airline
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            List<Passenger> filterPassengers = new List<Passenger>();
+            PassengersList filterPassengers = new PassengersList();
             if (textBoxSearch.Text == "")
                 viewsPassengersUpdate(flights);
             else
@@ -73,7 +76,7 @@ namespace Airline
                     option = 1;
                 else if (radioButtonRoute.Checked)
                     option = 2;
-                else
+                else if (radioButtonName.Checked)
                     option = 3;
                 filterPassengers = flights.searchMatchesPassenger(textBoxSearch.Text, option);
                 viewsPassengersUpdate2(filterPassengers);
@@ -88,7 +91,7 @@ namespace Airline
                 foreach (ListViewItem item in listViewPassengers.SelectedItems)
                 {
                     id = item.Text;
-                    if (flights.passengerDelete(id))
+                    if (flights.passengerDelete(id) && passengers.passengerDelete(id))
                     {
                         MessageBox.Show("El pasajero se elimino correctamente", "Informacion",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -105,6 +108,28 @@ namespace Airline
                 MessageBox.Show("Seleccione un pasajero", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            int option = 0;
+            if (radioButtonNamS.Checked)
+                option = 1;
+            else if (radioButtonFlight.Checked)
+                option = 2;
+            else if (radioButtonSeat.Checked)
+                option = 3;
+            if (option > 0)
+            {
+                passengers.quickSort(0, passengers.Count - 1, option);
+                viewsPassengersUpdate2(passengers);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un ordenamiento", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
     }
 }

@@ -15,12 +15,14 @@ namespace Airline
         FlightsList flights;
         FlightsList filterFlightsList;
         Graph graph;
+        PassengersList passengers;
 
-        public ViewsFlights(FlightsList flights, Graph graph)
+        public ViewsFlights(FlightsList flights, Graph graph, PassengersList passengers)
         {
             InitializeComponent();
             this.flights = flights;
             this.graph = graph;
+            this.passengers = passengers;
             viewsFlghtsUpdate(flights);
         }
 
@@ -53,7 +55,7 @@ namespace Airline
                     option = 1;
                 else if (radioButtonOrigin.Checked)
                     option = 2;
-                else
+                else if (radioButtonDestination.Checked)
                     option = 3;
                 filterFlightsList = flights.searchMatches(textBoxSearch.Text, option);
                 viewsFlghtsUpdate(filterFlightsList);
@@ -170,8 +172,10 @@ namespace Airline
                 foreach (ListViewItem item in listViewFlights.SelectedItems)
                 {
                     route = item.Text;
+                    
                     if (flights.flightDelete(route))
                     {
+                        passengers.removePassengers(route);
                         graph.removeRoute(route);
                         MessageBox.Show("El vuelo se elimino correctamente", "Informacion",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -199,7 +203,7 @@ namespace Airline
                 foreach (ListViewItem item in listViewFlights.SelectedItems)
                 {
                     route = item.Text;
-                    FlightReservation flightReservation = new FlightReservation(flights,route);
+                    FlightReservation flightReservation = new FlightReservation(flights,route,passengers);
                     flightReservation.ShowDialog();
                     if (flightReservation.getSell())
                         this.Close();
@@ -209,6 +213,29 @@ namespace Airline
             {
                 //Console.WriteLine(listViewFlights.SelectedItems.ToString());
                 MessageBox.Show("Seleccione un vuelo", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            int option = 0;
+            if (radioButtonOri.Checked)
+                option = 1;
+            else if (radioButtonDest.Checked)
+                option = 2;
+            else if (radioButtonCost.Checked)
+                option = 3;
+            else if (radioButtonTime.Checked)
+                option = 4;
+            if (option > 0)
+            {
+                flights.quickSort(0, flights.Count - 1, option);
+                viewsFlghtsUpdate(flights);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un tipo de ordenamiento", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
