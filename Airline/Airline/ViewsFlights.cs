@@ -96,7 +96,7 @@ namespace Airline
                                                 {
                                                     newflight = new Flight(textBoxOrigin.Text, textBoxDestination.Text, time, cost);
                                                     flights.Add(newflight);
-                                                    GraphForm graphForm = new GraphForm(true, graph);
+                                                    GraphForm graphForm = new GraphForm(1, graph);
                                                     if (!graph.excistenceCity(textBoxOrigin.Text))
                                                     {
                                                         MessageBox.Show("Ciudad Origen", "Informacion",

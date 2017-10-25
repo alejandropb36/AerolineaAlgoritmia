@@ -14,19 +14,21 @@ namespace Airline
     public partial class GraphForm : Form
     {
         Graph graph;
-        bool create;
+        int create;
         int positionX, positionY;
+        string citySelect;
 
-        public GraphForm(bool create, Graph graph)
+        public GraphForm(int create, Graph graph)
         {
             this.create = create;
             this.graph = graph;
             positionX = positionY = 0;
             InitializeComponent();
             initializeGraph();
-            if (create)
-                MessageBox.Show("Da click en la posicion de la nueva ciudad", "Informacion",
+            if (create == 1)
+                MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         public void initializeGraph()
@@ -42,7 +44,7 @@ namespace Airline
                 //panelMap.CreateGraphics().DrawString(n.getCity().getName(),drawFont,drawBrush, n.getCity().getX() + 10, n.getCity().getY() + 10);
             }
             pen1.Color = Color.DarkSlateBlue;
-            AdjustableArrowCap bigArrow = new AdjustableArrowCap(3, 4);
+            AdjustableArrowCap bigArrow = new AdjustableArrowCap(5, 5);
             pen1.CustomEndCap = bigArrow;
 
             
@@ -81,13 +83,28 @@ namespace Airline
 
         private void panelMap_MouseClick(object sender, MouseEventArgs e)
         {
-            if (create)
+            initializeGraph();
+            if (create == 1)
             {
                 positionX = e.X - 10;
                 positionY = e.Y - 10;
                 MessageBox.Show("Punto almacenado", "Informacion ",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+            }
+            if (create == 2)
+            {
+                positionX = e.X - 10;
+                positionY = e.Y - 10;
+                foreach(Node n in graph.getNodeList())
+                {
+                    if(n.getCity().getX() > positionX - 13 && n.getCity().getX() < positionX + 13)
+                    {
+                        if (n.getCity().getY() > positionY - 13 && n.getCity().getY() < positionY + 13)
+                            citySelect = n.getCity().getName();
+                    }
+                }
+                labelCity.Text = citySelect;
             }
         }
 
@@ -99,6 +116,11 @@ namespace Airline
         private void GraphForm_Paint(object sender, PaintEventArgs e)
         {
             initializeGraph();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+
         }
 
         public int getY()

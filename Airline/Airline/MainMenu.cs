@@ -15,6 +15,7 @@ namespace Airline
         FlightsList flights;
         Graph graph;
         PassengersList passengers;
+
         public MainMenu(FlightsList flights, Graph graph, PassengersList passengers)
         {
             this.graph = graph;
@@ -22,8 +23,6 @@ namespace Airline
             this.passengers = passengers;
             InitializeComponent();
         }
-
-        
 
         private void passengersButton_Click(object sender, EventArgs e)
         {
@@ -39,7 +38,7 @@ namespace Airline
 
         private void buttonGraph_Click(object sender, EventArgs e)
         {
-            GraphForm graphForm = new GraphForm(false,graph);
+            GraphForm graphForm = new GraphForm(2,graph);
             graphForm.ShowDialog();
         }
     }
