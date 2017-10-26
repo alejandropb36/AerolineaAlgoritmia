@@ -215,16 +215,13 @@ namespace Airline
 
         public void removeFlights(string cityName)
         {
-            FlightsList flightsDel = new FlightsList();
-            foreach (Flight flight in this)
+            for (int i = 0; i < this.Count; i++ )
             {
-                if (flight.getOriginCity() == cityName || flight.getDestinationCity() == cityName)
-                    flightsDel.Add(flight);
-            }
-
-            foreach (Flight flightDel in flightsDel)
-            {
-                this.Remove(flightDel);
+                if (this[i].getOriginCity() == cityName || this[i].getDestinationCity() == cityName)
+                {
+                    this.RemoveAt(i);
+                    i--;
+                } 
             }
         }
     }

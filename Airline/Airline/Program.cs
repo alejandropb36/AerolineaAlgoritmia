@@ -17,7 +17,7 @@ namespace Airline
         {
             
             FlightsList flights = new FlightsList();
-            Graph graph = new Graph(flights);
+            Graph graph = new Graph(ref flights);
 
             if (File.Exists("Flights.bin"))
             {

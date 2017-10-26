@@ -12,7 +12,7 @@ namespace Airline
         List<Node> nodeList;
         FlightsList flights;
 
-        public Graph(FlightsList flights)
+        public Graph(ref FlightsList flights)
         {
             this.flights = flights;
             nodeList = new List<Node>();
@@ -224,7 +224,7 @@ namespace Airline
         
         public void removeCity(string cityName)
         {
-            flights.removeFlights(cityName);
+            this.flights.removeFlights(cityName);
             List<Node> nodeListDel = new List<Node>();
             //Remove adjacent
             foreach (Node node in nodeList)
