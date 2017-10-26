@@ -224,7 +224,37 @@ namespace Airline
         
         public void removeCity(string cityName)
         {
-
+            flights.removeFlights(cityName);
+            List<Node> nodeListDel = new List<Node>();
+            //Remove adjacent
+            foreach (Node node in nodeList)
+            {
+                foreach (Adjacent adj in node.getAdjacentList())
+                {
+                    if (adj.getNode().getCity().getName() == cityName)
+                    {
+                        node.getAdjacentList().Remove(adj);
+                        break;
+                    }
+                }
+                if(node.getAdjacentList().Count == 0)
+                {
+                    nodeListDel.Add(node);
+                }
+            }
+            foreach (Node node in nodeList)
+            {
+                if (node.getCity().getName() == cityName)
+                {
+                    nodeListDel.Add(node);
+                    break;
+                }
+            }
+            foreach (Node nodeDel  in nodeListDel)
+            {
+                nodeList.Remove(nodeDel);
+            }
+            
         }
 
     }

@@ -83,7 +83,6 @@ namespace Airline
 
         private void panelMap_MouseClick(object sender, MouseEventArgs e)
         {
-            initializeGraph();
             if (create == 1)
             {
                 positionX = e.X - 10;
@@ -96,6 +95,7 @@ namespace Airline
             {
                 positionX = e.X - 10;
                 positionY = e.Y - 10;
+                labelCity.Text = citySelect = "";
                 foreach(Node n in graph.getNodeList())
                 {
                     if(n.getCity().getX() > positionX - 13 && n.getCity().getX() < positionX + 13)
@@ -105,6 +105,7 @@ namespace Airline
                     }
                 }
                 labelCity.Text = citySelect;
+                
             }
         }
 
@@ -120,6 +121,15 @@ namespace Airline
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (citySelect != "")
+            {
+                graph.removeCity(citySelect);
+                this.Refresh();
+                labelCity.Text = "";
+            }
+            else
+                MessageBox.Show("Selecciona una ciudad", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         }
 

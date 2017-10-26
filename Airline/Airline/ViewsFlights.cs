@@ -15,14 +15,12 @@ namespace Airline
         FlightsList flights;
         FlightsList filterFlightsList;
         Graph graph;
-        PassengersList passengers;
 
-        public ViewsFlights(FlightsList flights, Graph graph, PassengersList passengers)
+        public ViewsFlights(FlightsList flights, Graph graph)
         {
             InitializeComponent();
             this.flights = flights;
             this.graph = graph;
-            this.passengers = passengers;
             viewsFlghtsUpdate(flights);
         }
 
@@ -175,7 +173,6 @@ namespace Airline
                     
                     if (flights.flightDelete(route))
                     {
-                        passengers.removePassengers(route);
                         graph.removeRoute(route);
                         MessageBox.Show("El vuelo se elimino correctamente", "Informacion",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -203,7 +200,7 @@ namespace Airline
                 foreach (ListViewItem item in listViewFlights.SelectedItems)
                 {
                     route = item.Text;
-                    FlightReservation flightReservation = new FlightReservation(flights,route,passengers);
+                    FlightReservation flightReservation = new FlightReservation(flights,route);
                     flightReservation.ShowDialog();
                     if (flightReservation.getSell())
                         this.Close();

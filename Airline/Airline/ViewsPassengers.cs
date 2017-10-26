@@ -13,13 +13,11 @@ namespace Airline
     public partial class ViewsPassengers : Form
     {
         FlightsList flights;
-        PassengersList passengers;
 
-        public ViewsPassengers(FlightsList flights, PassengersList passengers)
+        public ViewsPassengers(FlightsList flights)
         {
             InitializeComponent();
             this.flights = flights;
-            this.passengers = passengers;
             viewsPassengersUpdate(flights);
         }
         
@@ -46,7 +44,7 @@ namespace Airline
 
         }
 
-        public void viewsPassengersUpdate2(PassengersList filterPassengers)
+        public void viewsPassengersUpdate2(List<Passenger> filterPassengers)
         {
             listViewPassengers.Items.Clear();
             string[] arrString = new string[6];
@@ -64,9 +62,27 @@ namespace Airline
 
         }
 
+        public void viewsPassengersUpdate3(PassengersList filterPassengers)
+        {
+            listViewPassengers.Items.Clear();
+            string[] arrString = new string[6];
+            foreach (Passenger passenger in filterPassengers)
+            {
+                arrString[0] = passenger.getId();
+                arrString[1] = passenger.getFlightRoute();
+                arrString[2] = passenger.getName();
+                arrString[3] = passenger.getLastname();
+                arrString[4] = Convert.ToString(passenger.getAge());
+                arrString[5] = Convert.ToString(passenger.getSeatNumber() + 1);
+                ListViewItem item = new ListViewItem(arrString);
+                listViewPassengers.Items.Add(item);
+            }
+
+        }
+
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            PassengersList filterPassengers = new PassengersList();
+            List<Passenger> filterPassengers = new List<Passenger>();
             if (textBoxSearch.Text == "")
                 viewsPassengersUpdate(flights);
             else
@@ -91,7 +107,7 @@ namespace Airline
                 foreach (ListViewItem item in listViewPassengers.SelectedItems)
                 {
                     id = item.Text;
-                    if (flights.passengerDelete(id) && passengers.passengerDelete(id))
+                    if (flights.passengerDelete(id))
                     {
                         MessageBox.Show("El pasajero se elimino correctamente", "Informacion",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -112,6 +128,7 @@ namespace Airline
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
+            PassengersList passengers = new PassengersList();
             int option = 0;
             if (radioButtonNamS.Checked)
                 option = 1;
@@ -121,8 +138,15 @@ namespace Airline
                 option = 3;
             if (option > 0)
             {
+                foreach (Flight flight in flights)
+                {
+                    foreach (Passenger passenger in flight.getPassengers())
+                    {
+                        passengers.Add(passenger);
+                    }
+                }
                 passengers.quickSort(0, passengers.Count - 1, option);
-                viewsPassengersUpdate2(passengers);
+                viewsPassengersUpdate3(passengers);
             }
             else
             {

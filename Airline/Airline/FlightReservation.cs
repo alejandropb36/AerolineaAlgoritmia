@@ -13,17 +13,15 @@ namespace Airline
     public partial class FlightReservation : Form
     {
         FlightsList flights;
-        PassengersList passengers;
         int seatNumber;
         bool sell;
         string route;
 
 
-        public FlightReservation(FlightsList flights,string route, PassengersList passengers)
+        public FlightReservation(FlightsList flights,string route)
         {
             InitializeComponent();
             this.flights = flights;
-            this.passengers = passengers;
             seatNumber = -1;
             sell = false;
             this.route = route;
@@ -214,7 +212,6 @@ namespace Airline
                                 flights[flights.getFlightIndex(route)].setSeating(seatNumber, false);
                                 passenger = new Passenger(name, lastname, age, seatNumber, route1);
                                 flights[flights.getFlightIndex(route)].getPassengers().Add(passenger);
-                                passengers.Add(passenger);
                                 sell = true;
                                 MessageBox.Show("El ID de pasajero es: " + passenger.getId(), "ID", 
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);

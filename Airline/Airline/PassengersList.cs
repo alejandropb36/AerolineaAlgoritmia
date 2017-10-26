@@ -9,36 +9,6 @@ namespace Airline
     [Serializable]
     public class PassengersList : List<Passenger>
     {
-        public bool passengerDelete(string id)
-        {
-            bool delete = false;
-            int i = 0;
-
-            foreach (Passenger passenger in this)
-            {
-                if (id == passenger.getId())
-                {
-                    this.RemoveAt(i);
-                    delete = true;
-                    break;
-                }
-                i++;
-            }
-            return delete;
-        }
-
-        public void removePassengers(string route)
-        {
-            for (int i = 0; i < this.Count; i++)
-            {
-                if (this[i].getFlightRoute() == route)
-                {
-                    this.RemoveAt(i);
-                    i--;
-                }
-            }
-        }
-
         public void quickSort(int begin, int end, int option)
         {
             int i = begin;

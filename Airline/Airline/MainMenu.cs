@@ -14,25 +14,23 @@ namespace Airline
     {
         FlightsList flights;
         Graph graph;
-        PassengersList passengers;
 
-        public MainMenu(FlightsList flights, Graph graph, PassengersList passengers)
+        public MainMenu(FlightsList flights, Graph graph)
         {
             this.graph = graph;
             this.flights = flights;
-            this.passengers = passengers;
             InitializeComponent();
         }
 
         private void passengersButton_Click(object sender, EventArgs e)
         {
-            ViewsPassengers viewsPassengers = new ViewsPassengers(flights, passengers);
+            ViewsPassengers viewsPassengers = new ViewsPassengers(flights);
             viewsPassengers.ShowDialog();
         }
 
         private void flightsButton_Click(object sender, EventArgs e)
         {
-            ViewsFlights viewsFlights = new ViewsFlights(flights, graph, passengers);
+            ViewsFlights viewsFlights = new ViewsFlights(flights, graph);
             viewsFlights.ShowDialog();
         }
 

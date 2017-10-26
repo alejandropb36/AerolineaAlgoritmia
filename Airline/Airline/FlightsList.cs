@@ -80,9 +80,9 @@ namespace Airline
             return delete;
         }
 
-        public PassengersList searchMatchesPassenger(string data, int option)
+        public List<Passenger> searchMatchesPassenger(string data, int option)
         {
-            PassengersList filterPassengersList = new PassengersList();
+            List<Passenger> filterPassengersList = new List<Passenger>();
             switch (option)
             {
                 case 1:
@@ -211,6 +211,21 @@ namespace Airline
             aux = this[i];
             this[i] = this[j];
             this[j] = aux;
+        }
+
+        public void removeFlights(string cityName)
+        {
+            FlightsList flightsDel = new FlightsList();
+            foreach (Flight flight in this)
+            {
+                if (flight.getOriginCity() == cityName || flight.getDestinationCity() == cityName)
+                    flightsDel.Add(flight);
+            }
+
+            foreach (Flight flightDel in flightsDel)
+            {
+                this.Remove(flightDel);
+            }
         }
     }
 }
