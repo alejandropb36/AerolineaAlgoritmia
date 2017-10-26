@@ -94,7 +94,7 @@ namespace Airline
                                                 {
                                                     newflight = new Flight(textBoxOrigin.Text, textBoxDestination.Text, time, cost);
                                                     flights.Add(newflight);
-                                                    GraphForm graphForm = new GraphForm(1, graph);
+                                                    GraphForm graphForm = new GraphForm(1, graph, flights);
                                                     if (!graph.excistenceCity(textBoxOrigin.Text))
                                                     {
                                                         MessageBox.Show("Ciudad Origen", "Informacion",
@@ -237,10 +237,6 @@ namespace Airline
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            flights.removeFlights(textBox1.Text);
-            viewsFlghtsUpdate(flights);
-        }
+       
     }
 }

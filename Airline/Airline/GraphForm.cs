@@ -14,14 +14,16 @@ namespace Airline
     public partial class GraphForm : Form
     {
         Graph graph;
+        FlightsList flights;
         int create;
         int positionX, positionY;
         string citySelect;
 
-        public GraphForm(int create, Graph graph)
+        public GraphForm(int create, Graph graph, FlightsList flights)
         {
             this.create = create;
             this.graph = graph;
+            this.flights = flights;
             positionX = positionY = 0;
             InitializeComponent();
             initializeGraph();
@@ -124,6 +126,7 @@ namespace Airline
             if (citySelect != "")
             {
                 graph.removeCity(citySelect);
+                flights.removeFlights(citySelect);
                 this.Refresh();
                 labelCity.Text = "";
             }

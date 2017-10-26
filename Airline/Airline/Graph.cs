@@ -10,109 +10,19 @@ namespace Airline
     public class Graph
     {
         List<Node> nodeList;
-        FlightsList flights;
 
-        public Graph(ref FlightsList flights)
+        public Graph()
         {
-            this.flights = flights;
             nodeList = new List<Node>();
         }
 
-        // este constructor de momento no me sirve
-        //public Graph(FlightsList flights)
-        //{
-        //   // this.flights = flights;
-        //    nodeList = new List<Node>();
-        //    bool excistence = false;
-
-        //    // Creando nodos
-        //    foreach (Flight flight in flights)
-        //    {
-        //        foreach (Node n in nodeList)
-        //        {
-        //            if (n.getCity().getName() == flight.getOriginCity())
-        //            {
-        //                excistence = true;
-        //                break;
-        //            }
-        //        }
-        //        if (!excistence)
-        //        {
-        //            City city = new City(flight.getOriginCity());
-        //            Node node = new Node(city);
-        //            nodeList.Add(node);
-        //        }
-
-        //        excistence = false;
-        //        foreach (Node n in nodeList)
-        //        {
-        //            if (n.getCity().getName() == flight.getDestinationCity())
-        //            {
-        //                excistence = true;
-        //                break;
-        //            }
-        //        }
-        //        if (!excistence)
-        //        {
-        //            City city = new City(flight.getOriginCity());
-        //            Node node2 = new Node(city);
-        //            nodeList.Add(node2);
-        //        }
-        //    }
-
-        //    // Crea Adjacent
-        //    foreach (Node n in nodeList)
-        //    {
-        //        foreach(Flight flight in flights)
-        //        {
-        //            if (flight.getOriginCity() == n.getCity().getName())
-        //            {
-        //                foreach(Node nAux in nodeList)
-        //                {
-        //                    if(nAux.getCity().getName() == flight.getDestinationCity())
-        //                    {
-        //                        Adjacent adjacent = new Adjacent(nAux,flight.getCost(),flight.getFlightTime());
-        //                        n.insertAdjacent(adjacent);
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
         public void addRoute(Flight flight, int x1, int y1, int x2, int y2)
         {
-            bool excistence = false;
-            foreach (Node n in nodeList)
-            {
-                if (n.getCity().getName() == flight.getOriginCity())
-                {
-                    excistence = true;
-                    break;
-                }
-            }
-            if (!excistence)
-            {
-                City city = new City(flight.getOriginCity(), x1, y1);
-                Node node = new Node(city); 
-                nodeList.Add(node);
-            }
+            City city1 = new City(flight.getOriginCity(), x1, y1);
+            City city2 = new City(flight.getDestinationCity(), x2, y2);
 
-            excistence = false;
-            foreach (Node n in nodeList)
-            {
-                if (n.getCity().getName() == flight.getDestinationCity())
-                {
-                    excistence = true;
-                    break;
-                }
-            }
-            if (!excistence)
-            {
-                City city = new City(flight.getDestinationCity(), x2, y2);
-                Node node2 = new Node(city);
-                nodeList.Add(node2);
-            }
+            addNode(city1);
+            addNode(city2);
 
             foreach (Node node in nodeList)
             {
@@ -127,6 +37,25 @@ namespace Airline
                         }
                     }
                 }
+            }
+        }
+
+        private void addNode(City newCity)
+        {
+            bool excistence = false;
+
+            foreach (Node n in nodeList)
+            {
+                if (n.getCity().getName() == newCity.getName())
+                {
+                    excistence = true;
+                    break;
+                }
+            }
+            if (!excistence)
+            {
+                Node node = new Node(newCity);
+                nodeList.Add(node);
             }
         }
 
@@ -224,7 +153,6 @@ namespace Airline
         
         public void removeCity(string cityName)
         {
-            this.flights.removeFlights(cityName);
             List<Node> nodeListDel = new List<Node>();
             //Remove adjacent
             foreach (Node node in nodeList)
@@ -264,7 +192,6 @@ namespace Airline
     [Serializable]
     public class Node
     {
-        // class City Recomenadion del profe para posicion x y a la hora dibujar
         City city;
         List<Adjacent> adjacenceList;
 
@@ -299,7 +226,6 @@ namespace Airline
     [Serializable]
     public class Adjacent
     {
-        // Podriamos hacer un tipo de dato para las ponderaciones
         int cost;
         int time;
         Node node;

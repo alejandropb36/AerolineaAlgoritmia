@@ -36,7 +36,7 @@ namespace Airline
 
         private void buttonGraph_Click(object sender, EventArgs e)
         {
-            GraphForm graphForm = new GraphForm(2,graph);
+            GraphForm graphForm = new GraphForm(2,graph,flights);
             graphForm.ShowDialog();
         }
     }
