@@ -236,5 +236,11 @@ namespace Airline
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            flights.removeFlights(textBox1.Text);
+            viewsFlghtsUpdate(flights);
+        }
     }
 }
