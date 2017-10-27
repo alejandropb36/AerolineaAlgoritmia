@@ -27,10 +27,8 @@ namespace Airline
                     flights = (FlightsList)formatter.Deserialize(s);
                     s.Close();
                 }
-            } 
-            // 1
-            
-            
+            }
+
             if (File.Exists("Graph.bin"))
             {
                 using (Stream s = File.Open("Graph.bin", FileMode.Open))
@@ -40,7 +38,6 @@ namespace Airline
                     s.Close();
                 }
             }
-            // 2
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

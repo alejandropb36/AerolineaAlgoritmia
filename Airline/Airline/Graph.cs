@@ -23,21 +23,7 @@ namespace Airline
 
             addNode(city1);
             addNode(city2);
-
-            foreach (Node node in nodeList)
-            {
-                if (node.getCity().getName() == flight.getOriginCity())
-                {
-                    foreach (Node nodeAux in nodeList)
-                    {
-                        if (nodeAux.getCity().getName() == flight.getDestinationCity())
-                        {
-                            Adjacent adjacent = new Adjacent(nodeAux, flight.getCost(), flight.getFlightTime());
-                            node.insertAdjacent(adjacent);
-                        }
-                    }
-                }
-            }
+            addAdjacent(flight);
         }
 
         private void addNode(City newCity)
@@ -59,6 +45,24 @@ namespace Airline
             }
         }
 
+        private void addAdjacent(Flight flight)
+        {
+            foreach (Node node in nodeList)
+            {
+                if (node.getCity().getName() == flight.getOriginCity())
+                {
+                    foreach (Node nodeAux in nodeList)
+                    {
+                        if (nodeAux.getCity().getName() == flight.getDestinationCity())
+                        {
+                            Adjacent adjacent = new Adjacent(nodeAux, flight.getCost(), flight.getFlightTime());
+                            node.insertAdjacent(adjacent);
+                        }
+                    }
+                }
+            }
+        }
+
         public bool excistenceCity(string name)
         {
             foreach(Node n in nodeList)
@@ -72,9 +76,14 @@ namespace Airline
 
         public void removeRoute(string routeFlight)
         {
-            bool del = false;
-            Node nodeDel = new Node();
-            //Remove adjacent
+            removeAdjacent(routeFlight);
+            removeNode(routeFlight[3].ToString());
+            removeNode(routeFlight[4].ToString());
+        }
+
+
+        private void removeAdjacent(string routeFlight)
+        {
             foreach (Node node in nodeList)
             {
                 if (node.getCity().getName() == routeFlight[3].ToString())
@@ -89,10 +98,16 @@ namespace Airline
                     }
                 }
             }
-            // Origin
+        }
+
+        private void removeNode(string nodeName)
+        {
+            bool del = false;
+            Node nodeDel = new Node();
+
             foreach (Node node in nodeList)
             {
-                if (node.getCity().getName() == routeFlight[3].ToString())
+                if (node.getCity().getName() == nodeName)
                 {
                     if (node.getAdjacentList().Count == 0)
                     {
@@ -101,49 +116,18 @@ namespace Airline
                     }
                 }
             }
+
             foreach (Node node in nodeList)
             {
                 foreach (Adjacent adj in node.getAdjacentList())
                 {
-                    if (adj.getNode().getCity().getName() == routeFlight[3].ToString())
-                    {
+                    if (adj.getNode().getCity().getName() == nodeName)
                         del = false;
+                }
+            }
 
-                    }
-                }
-            }
             if (del)
-            {
                 nodeList.Remove(nodeDel);
-            }
-            // Destination
-            del = false;
-            foreach (Node node in nodeList)
-            {
-                if (node.getCity().getName() == routeFlight[4].ToString())
-                {
-                    if (node.getAdjacentList().Count == 0)
-                    {
-                        nodeDel = node;
-                        del = true;
-                    }
-                }
-            }
-            foreach (Node node in nodeList)
-            {
-                foreach (Adjacent adj in node.getAdjacentList())
-                {
-                    if (adj.getNode().getCity().getName() == routeFlight[4].ToString())
-                    {
-                        del = false;
-
-                    }
-                }
-            }
-            if (del)
-            {
-                nodeList.Remove(nodeDel);
-            }
         }
 
         public List<Node> getNodeList()
@@ -153,8 +137,8 @@ namespace Airline
         
         public void removeCity(string cityName)
         {
-            List<Node> nodeListDel = new List<Node>();
-            //Remove adjacent
+            int max = nodeList.Count;
+
             foreach (Node node in nodeList)
             {
                 foreach (Adjacent adj in node.getAdjacentList())
@@ -165,30 +149,21 @@ namespace Airline
                         break;
                     }
                 }
-                if(node.getAdjacentList().Count == 0)
+            }
+
+            for (int i = 0; i < max; i++)
+            {
+                removeNode(nodeList[i].getCity().getName());
+                if(nodeList.Count < max)
                 {
-                    nodeListDel.Add(node);
+                    max = nodeList.Count;
+                    i--;
                 }
             }
-            foreach (Node node in nodeList)
-            {
-                if (node.getCity().getName() == cityName)
-                {
-                    nodeListDel.Add(node);
-                    break;
-                }
-            }
-            foreach (Node nodeDel  in nodeListDel)
-            {
-                nodeList.Remove(nodeDel);
-            }
-            
         }
 
     }
 
-
-    
     [Serializable]
     public class Node
     {
@@ -252,7 +227,4 @@ namespace Airline
             return time;
         }
     }
-
-    
-    
 }

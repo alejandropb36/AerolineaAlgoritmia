@@ -39,7 +39,6 @@ namespace Airline
                 ListViewItem item = new ListViewItem(arrString);
                 listViewFlights.Items.Add(item);
             }
-
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
@@ -58,7 +57,6 @@ namespace Airline
                 filterFlightsList = flights.searchMatches(textBoxSearch.Text, option);
                 viewsFlghtsUpdate(filterFlightsList);
             }
-            
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -143,7 +141,6 @@ namespace Airline
                             else
                                 MessageBox.Show("No se puede mismo origen y destino", "Advertencia",
                                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            // termina
                         }
                         else
                             MessageBox.Show("Destino no valido", "Advertencia",
@@ -181,12 +178,10 @@ namespace Airline
                     else
                         MessageBox.Show("El vuelo no existe", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //Console.WriteLine(deleteRoute);
                 }
             }
             else
             {
-                //Console.WriteLine(listViewFlights.SelectedItems.ToString());
                 MessageBox.Show("Seleccione un vuelo", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -208,7 +203,6 @@ namespace Airline
             }
             else
             {
-                //Console.WriteLine(listViewFlights.SelectedItems.ToString());
                 MessageBox.Show("Seleccione un vuelo", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
