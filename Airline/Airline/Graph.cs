@@ -151,6 +151,15 @@ namespace Airline
                 }
             }
 
+            foreach (Node node in nodeList)
+            {
+                if(node.getCity().getName() == cityName)
+                {
+                    nodeList.Remove(node);
+                    break;
+                }
+            }
+
             for (int i = 0; i < max; i++)
             {
                 removeNode(nodeList[i].getCity().getName());
