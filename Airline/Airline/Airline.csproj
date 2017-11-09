@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arista.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="FlightReservation.cs">
@@ -61,6 +62,7 @@
     <Compile Include="GraphForm.Designer.cs">
       <DependentUpon>GraphForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaArista.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -140,5 +140,34 @@ namespace Airline
         {
             return positionY;
         }
+
+        public void kruskal()
+        {
+            List<Arista> candidatos = new List<Arista>();
+
+
+        }
+
+        public void inicializaCandidatos(List<Arista> candidatos, int option)
+        {
+            Arista arista = new Arista();
+            foreach(Node node in graph.getNodeList())
+            {
+                arista.setOrigin(node.getCity().getName());
+                foreach(Adjacent ady in node.getAdjacentList())
+                {
+                    arista.setDestination(ady.getNode().getCity().getName());
+                    if(option == 1)
+                    {
+                        arista.setCost(ady.getTime());
+                    }
+                    else if(option == 2)
+                    {
+                        arista.setCost(ady.getCost());
+                    }
+                    
+                }
+            }
+        }
     }
 }
