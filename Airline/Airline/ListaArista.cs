@@ -8,18 +8,18 @@ namespace Airline
 {
     public class ListaArista: List<Arista>
     {
-        public void quickSort(int begin, int end, int option)
+        public void quickSort(int begin, int end)
         {
             int i = begin;
             int j = end;
             int half = (i + j) / 2;
-            Flight pivote = this[half];
+            Arista pivote = this[half];
 
             do
             {
-                while (this[i].compareTo(pivote, option) == -1)
+                while (this[i].compareTo(pivote) == -1)
                     i++;
-                while (this[j].compareTo(pivote, option) == 1)
+                while (this[j].compareTo(pivote) == 1)
                     j--;
 
                 if (i <= j)
@@ -31,14 +31,14 @@ namespace Airline
             } while (i <= j);
 
             if (begin < j)
-                quickSort(begin, j, option);
+                quickSort(begin, j);
             if (i < end)
-                quickSort(i, end, option);
+                quickSort(i, end);
         }
 
         private void swap(int i, int j)
         {
-            Flight aux = new Flight();
+            Arista aux = new Arista();
             aux = this[i];
             this[i] = this[j];
             this[j] = aux;

@@ -143,12 +143,14 @@ namespace Airline
 
         public void kruskal()
         {
-            List<Arista> candidatos = new List<Arista>();
+            ListaArista candidatos = new ListaArista();
+            inicializaCandidatos(candidatos, 1);
+
 
 
         }
 
-        public void inicializaCandidatos(List<Arista> candidatos, int option)
+        public void inicializaCandidatos(ListaArista candidatos, int option)
         {
             Arista arista = new Arista();
             foreach(Node node in graph.getNodeList())
@@ -165,7 +167,7 @@ namespace Airline
                     {
                         arista.setCost(ady.getCost());
                     }
-                    
+                    candidatos.Add(arista);
                 }
             }
         }
