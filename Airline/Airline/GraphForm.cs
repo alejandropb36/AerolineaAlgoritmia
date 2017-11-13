@@ -147,7 +147,6 @@ namespace Airline
             inicializaCandidatos(candidatos, 1);
 
 
-
         }
 
         public void inicializaCandidatos(ListaArista candidatos, int option)
@@ -171,5 +170,7 @@ namespace Airline
                 }
             }
         }
+
+       
     }
 }
