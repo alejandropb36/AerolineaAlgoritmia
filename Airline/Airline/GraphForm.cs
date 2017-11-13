@@ -145,7 +145,6 @@ namespace Airline
         {
             List<Arista> candidatos = new List<Arista>();
 
-
         }
 
         public void inicializaCandidatos(List<Arista> candidatos, int option)
@@ -169,5 +168,7 @@ namespace Airline
                 }
             }
         }
+
+       
     }
 }

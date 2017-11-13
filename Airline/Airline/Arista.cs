@@ -53,5 +53,10 @@ namespace Airline
         {
             return cost;
         }
+
+        public int compareTo(Arista compare)
+        {
+            return cost.CompareTo(compare.cost);
+        }
     }
 }
