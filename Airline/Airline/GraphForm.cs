@@ -147,7 +147,7 @@ namespace Airline
             ListaArista candidatos = new ListaArista();
             ListaArista arbolRM = new ListaArista();
 
-            inicializaCandidatos(ref candidatos,1);
+            inicializaCandidatos(candidatos,1);
             candidatos.quickSort(0, candidatos.Count - 1);
 
             foreach(Arista candidato in candidatos)
@@ -172,11 +172,11 @@ namespace Airline
 
         }
 
-        private void inicializaCandidatos(ref ListaArista candidatos, int option)
+        private void inicializaCandidatos(ListaArista candidatos, int option)
         {
-            Arista arista = new Arista();
             foreach (Node node in graph.getNodeList())
             {
+                Arista arista = new Arista();
                 arista.setOrigin(node);
                 foreach (Adjacent ady in node.getAdjacentList())
                 {
