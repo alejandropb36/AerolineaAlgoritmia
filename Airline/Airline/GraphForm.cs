@@ -144,16 +144,15 @@ namespace Airline
 
         public void kruskal()
         {
-            List<string> componentes = new List<string>();
             ListaArista candidatos = new ListaArista();
             ListaArista arbolRM = new ListaArista();
 
-            inicializaComponentes(componentes);
-            inicializaCandidatos(candidatos,1);
+            inicializaCandidatos(ref candidatos,1);
+            candidatos.quickSort(0, candidatos.Count - 1);
 
             foreach(Arista candidato in candidatos)
             {
-                if(seleccionKruskal(candidato,componentes))
+                if(seleccionKruskal(candidato,arbolRM))
                 {
                     Console.WriteLine(candidato.getOrigin().getCity().getName() +
                         "->" + candidato.getDestinatin().getCity().getName() + " "
@@ -173,15 +172,7 @@ namespace Airline
 
         }
 
-        public void inicializaComponentes(List<string> componentes)
-        {
-            foreach(Node node in graph.getNodeList())
-            {
-                componentes.Add(node.getCity().getName());
-            }
-        }
-
-        public void inicializaCandidatos(ListaArista candidatos, int option)
+        private void inicializaCandidatos(ref ListaArista candidatos, int option)
         {
             Arista arista = new Arista();
             foreach (Node node in graph.getNodeList())
@@ -203,19 +194,38 @@ namespace Airline
             }
         }
 
-        public bool seleccionKruskal(Arista candidato, List<string> componentes)
+        private bool seleccionKruskal(Arista candidato, ListaArista arbolRM)
         {
             bool seleccion = false;
-            
+            foreach(Arista arist in arbolRM)
+            {
+                if(arist.getOrigin() == candidato.getOrigin())
+                {
+                    if(arist.getDestinatin() != candidato.getDestinatin())
+                        seleccion = true;
+                }
+                else
+                {
+                    if (arist.getDestinatin() != candidato.getDestinatin())
+                        seleccion = true;
+                }
+            }
+
+            if(seleccion)
+            {
+                arbolRM.Add(candidato);
+            }
             
             return seleccion;
         }
+
+
 
         public void prim()
         {
             ListaArista candidatos = new ListaArista();
             ListaArista ARM = new ListaArista();
-            inicializaCandidatos(candidatos, 1);
+            inicializaCandidatos(ref candidatos, 1);
             candidatos.quickSort(0, candidatos.Count - 1);
 
             //for (int i = 0; i < candidatos.Count; i++) ;
