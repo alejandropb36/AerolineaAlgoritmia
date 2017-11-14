@@ -44,13 +44,13 @@ namespace Airline
             this[j] = aux;
         }
 
-        public bool seleccion(Arista candidato)
-        {
-            bool seleccion = false;
-            foreach(Arista ar in this)
-            {
-                if(ar.ca)
-            }
-        }
+        //public bool seleccion(Arista candidato)
+        //{
+        //    bool seleccion = false;
+        //    foreach(Arista ar in this)
+        //    {
+        //        if(ar.ca)
+        //    }
+        //}
     }
 }

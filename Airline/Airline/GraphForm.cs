@@ -30,6 +30,7 @@ namespace Airline
             if (create == 1)
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            kruskal();
             
         }
 
@@ -143,33 +144,57 @@ namespace Airline
 
         public void kruskal()
         {
+            List<string> componentes = new List<string>();
             ListaArista candidatos = new ListaArista();
-            ListaArista ARM = new ListaArista();
-            inicializaCandidatos(candidatos, 1);
-            candidatos.quickSort(0, candidatos.Count - 1);
+            ListaArista arbolRM = new ListaArista();
 
-            for (int i = 0; i < candidatos.Count; i++) ;
+            inicializaComponentes(componentes);
+            inicializaCandidatos(candidatos,1);
+
+            foreach(Arista candidato in candidatos)
             {
-                if()
+                if(seleccionKruskal(candidato,componentes))
+                {
+                    Console.WriteLine(candidato.getOrigin().getCity().getName() +
+                        "->" + candidato.getDestinatin().getCity().getName() + " "
+                        + candidato.getCost().ToString() + " SI");
+                    arbolRM.Add(candidato);
+                }
+                else
+                {
+                    Console.WriteLine(candidato.getOrigin().getCity().getName() +
+                        "->" + candidato.getDestinatin().getCity().getName() + " "
+                        + candidato.getCost().ToString() + " NO");
+                }
             }
 
 
+
+
+        }
+
+        public void inicializaComponentes(List<string> componentes)
+        {
+            foreach(Node node in graph.getNodeList())
+            {
+                componentes.Add(node.getCity().getName());
+            }
         }
 
         public void inicializaCandidatos(ListaArista candidatos, int option)
         {
             Arista arista = new Arista();
-            foreach(Node node in graph.getNodeList())
+            foreach (Node node in graph.getNodeList())
             {
                 arista.setOrigin(node);
-                foreach(Adjacent ady in node.getAdjacentList())
+                foreach (Adjacent ady in node.getAdjacentList())
                 {
                     arista.setDestination(ady.getNode());
-                    if(option == 1)
+                    if (option == 1)
                     {
                         arista.setCost(ady.getTime());
                     }
-                    else if(option == 2)
+                    else if (option == 2)
                     {
                         arista.setCost(ady.getCost());
                     }
@@ -177,6 +202,31 @@ namespace Airline
                 }
             }
         }
+
+        public bool seleccionKruskal(Arista candidato, List<string> componentes)
+        {
+            bool seleccion = false;
+            
+            
+            return seleccion;
+        }
+
+        public void prim()
+        {
+            ListaArista candidatos = new ListaArista();
+            ListaArista ARM = new ListaArista();
+            inicializaCandidatos(candidatos, 1);
+            candidatos.quickSort(0, candidatos.Count - 1);
+
+            //for (int i = 0; i < candidatos.Count; i++) ;
+            //{
+            //    if()
+            //}
+
+
+        }
+
+        
 
        
     }
