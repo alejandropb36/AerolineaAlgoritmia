@@ -8,8 +8,8 @@ namespace Airline
 {
     public class Arista
     {
-        string origin;
-        string destination;
+        Node origin;
+        Node destination;
         int cost;
 
         public Arista ()
@@ -17,19 +17,19 @@ namespace Airline
             cost = -1;
         }
 
-        public Arista(string origin, string destination, int cost)
+        public Arista(Node origin, Node destination, int cost)
         {
             this.origin = origin;
             this.destination = destination;
             this.cost = cost;
         }
 
-        public void setOrigin(string origin)
+        public void setOrigin(Node origin)
         {
             this.origin = origin;
         }
 
-        public void setDestination(string destination)
+        public void setDestination(Node destination)
         {
             this.destination = destination;
         }
@@ -39,12 +39,12 @@ namespace Airline
             this.cost = cost;
         }
 
-        public string getOrigin()
+        public Node getOrigin()
         {
             return origin;
         }
 
-        public string getDestinatin()
+        public Node getDestinatin()
         {
             return destination;
         }

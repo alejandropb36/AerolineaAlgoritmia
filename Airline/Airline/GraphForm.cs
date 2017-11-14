@@ -144,7 +144,14 @@ namespace Airline
         public void kruskal()
         {
             ListaArista candidatos = new ListaArista();
+            ListaArista ARM = new ListaArista();
             inicializaCandidatos(candidatos, 1);
+            candidatos.quickSort(0, candidatos.Count - 1);
+
+            for (int i = 0; i < candidatos.Count; i++) ;
+            {
+                if()
+            }
 
 
         }
@@ -154,10 +161,10 @@ namespace Airline
             Arista arista = new Arista();
             foreach(Node node in graph.getNodeList())
             {
-                arista.setOrigin(node.getCity().getName());
+                arista.setOrigin(node);
                 foreach(Adjacent ady in node.getAdjacentList())
                 {
-                    arista.setDestination(ady.getNode().getCity().getName());
+                    arista.setDestination(ady.getNode());
                     if(option == 1)
                     {
                         arista.setCost(ady.getTime());

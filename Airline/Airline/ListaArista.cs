@@ -43,5 +43,14 @@ namespace Airline
             this[i] = this[j];
             this[j] = aux;
         }
+
+        public bool seleccion(Arista candidato)
+        {
+            bool seleccion = false;
+            foreach(Arista ar in this)
+            {
+                if(ar.ca)
+            }
+        }
     }
 }
