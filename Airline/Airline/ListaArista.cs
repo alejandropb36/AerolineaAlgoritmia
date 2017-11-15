@@ -43,6 +43,16 @@ namespace Airline
             this[i] = this[j];
             this[j] = aux;
         }
+
+        public bool existence (Arista element)
+        {
+            foreach (Arista arist in this)
+            {
+                if (arist == element)
+                    return  true;
+            }
+            return false;
+        }
         
     }
 }

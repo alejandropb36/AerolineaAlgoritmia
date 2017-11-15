@@ -30,7 +30,8 @@ namespace Airline
             if (create == 1)
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-            kruskal();
+            else
+                kruskal();
             
         }
 
@@ -152,19 +153,16 @@ namespace Airline
 
             foreach(Arista candidato in candidatos)
             {
-                if(seleccionKruskal(candidato,arbolRM))
-                {
+                seleccionKruskal(candidato, arbolRM);
+                if(arbolRM.existence(candidato))
+
                     Console.WriteLine(candidato.getOrigin().getCity().getName() +
                         "->" + candidato.getDestinatin().getCity().getName() + " "
                         + candidato.getCost().ToString() + " SI");
-                    arbolRM.Add(candidato);
-                }
                 else
-                {
                     Console.WriteLine(candidato.getOrigin().getCity().getName() +
                         "->" + candidato.getDestinatin().getCity().getName() + " "
                         + candidato.getCost().ToString() + " NO");
-                }
             }
 
 
@@ -176,10 +174,10 @@ namespace Airline
         {
             foreach (Node node in graph.getNodeList())
             {
-                Arista arista = new Arista();
-                arista.setOrigin(node);
                 foreach (Adjacent ady in node.getAdjacentList())
                 {
+                    Arista arista = new Arista();
+                    arista.setOrigin(node);
                     arista.setDestination(ady.getNode());
                     if (option == 1)
                     {
@@ -194,29 +192,63 @@ namespace Airline
             }
         }
 
-        private bool seleccionKruskal(Arista candidato, ListaArista arbolRM)
+        private void seleccionKruskal(Arista candidato, ListaArista arbolRM)
         {
-            bool seleccion = false;
-            foreach(Arista arist in arbolRM)
-            {
-                if(arist.getOrigin() == candidato.getOrigin())
-                {
-                    if(arist.getDestinatin() != candidato.getDestinatin())
-                        seleccion = true;
-                }
-                else
-                {
-                    if (arist.getDestinatin() != candidato.getDestinatin())
-                        seleccion = true;
-                }
-            }
-
-            if(seleccion)
+            bool agregar = false;
+            if(arbolRM.Count == 0)
             {
                 arbolRM.Add(candidato);
             }
+            else
+            {
+
+                foreach (Arista arist in arbolRM)
+                {
+
+                    if (arist.getOrigin() == candidato.getOrigin())
+                    {
+                        if (arist.getDestinatin() != candidato.getDestinatin())
+                            agregar = true;
+                        else
+                            agregar = false;
+                    }
+                    if (arist.getOrigin() == candidato.getDestinatin())
+                    {
+                        if (arist.getDestinatin() != candidato.getOrigin())
+                            agregar = true;
+                        else
+                            agregar = false;
+                    }
+                    if (arist.getDestinatin() == candidato.getOrigin())
+                    {
+                        if (arist.getOrigin() != candidato.getDestinatin())
+                            agregar = true;
+                        else
+                            agregar = false;
+                    }
+                    if (arist.getDestinatin() == candidato.getOrigin())
+                    {
+                        if (arist.getDestinatin() != candidato.getDestinatin())
+                            agregar = true;
+                        else
+                            agregar = false;
+                    }
+                    if (arist.getOrigin() != candidato.getOrigin())
+                    {
+                        if (arist.getDestinatin() != candidato.getDestinatin())
+                            agregar = true;
+                    }
+                    if (arist.getDestinatin() != candidato.getDestinatin())
+                    {
+                        if (arist.getOrigin() != candidato.getOrigin())
+                            agregar = true;
+                    }
+                }
+
+                if (agregar)
+                    arbolRM.Add(candidato);
+            }
             
-            return seleccion;
         }
 
 
@@ -225,7 +257,7 @@ namespace Airline
         {
             ListaArista candidatos = new ListaArista();
             ListaArista ARM = new ListaArista();
-            inicializaCandidatos(ref candidatos, 1);
+            inicializaCandidatos(candidatos, 1);
             candidatos.quickSort(0, candidatos.Count - 1);
 
             //for (int i = 0; i < candidatos.Count; i++) ;
