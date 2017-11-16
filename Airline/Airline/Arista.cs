@@ -44,7 +44,7 @@ namespace Airline
             return origin;
         }
 
-        public Node getDestinatin()
+        public Node getDestination()
         {
             return destination;
         }

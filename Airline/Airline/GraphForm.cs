@@ -157,17 +157,15 @@ namespace Airline
                 if(arbolRM.existence(candidato))
 
                     Console.WriteLine(candidato.getOrigin().getCity().getName() +
-                        "->" + candidato.getDestinatin().getCity().getName() + " "
+                        "->" + candidato.getDestination().getCity().getName() + " "
                         + candidato.getCost().ToString() + " SI");
                 else
                     Console.WriteLine(candidato.getOrigin().getCity().getName() +
-                        "->" + candidato.getDestinatin().getCity().getName() + " "
+                        "->" + candidato.getDestination().getCity().getName() + " "
                         + candidato.getCost().ToString() + " NO");
             }
 
-
-
-
+            dibujaARM(arbolRM);
         }
 
         private void inicializaCandidatos(ListaArista candidatos, int option)
@@ -194,63 +192,52 @@ namespace Airline
 
         private void seleccionKruskal(Arista candidato, ListaArista arbolRM)
         {
-            bool agregar = false;
+            bool agregar = true;
             if(arbolRM.Count == 0)
             {
                 arbolRM.Add(candidato);
             }
             else
             {
-
                 foreach (Arista arist in arbolRM)
                 {
-
-                    if (arist.getOrigin() == candidato.getOrigin())
+                    //if (candidato.getOrigin() == arist.getOrigin())
+                    //{
+                    //    if (candidato.getDestination() == arist.getDestination())
+                    //        agregar = false;
+                    //}
+                    if (candidato == arist)
+                        agregar = false;
+                    if (candidato.getDestination() == arist.getDestination())
+                        agregar = false;
+                    if (candidato.getDestination() == arist.getOrigin())
                     {
-                        if (arist.getDestinatin() != candidato.getDestinatin())
-                            agregar = true;
-                        else
+                        if (candidato.getOrigin() == arist.getDestination())
                             agregar = false;
-                    }
-                    if (arist.getOrigin() == candidato.getDestinatin())
-                    {
-                        if (arist.getDestinatin() != candidato.getOrigin())
-                            agregar = true;
-                        else
-                            agregar = false;
-                    }
-                    if (arist.getDestinatin() == candidato.getOrigin())
-                    {
-                        if (arist.getOrigin() != candidato.getDestinatin())
-                            agregar = true;
-                        else
-                            agregar = false;
-                    }
-                    if (arist.getDestinatin() == candidato.getOrigin())
-                    {
-                        if (arist.getDestinatin() != candidato.getDestinatin())
-                            agregar = true;
-                        else
-                            agregar = false;
-                    }
-                    if (arist.getOrigin() != candidato.getOrigin())
-                    {
-                        if (arist.getDestinatin() != candidato.getDestinatin())
-                            agregar = true;
-                    }
-                    if (arist.getDestinatin() != candidato.getDestinatin())
-                    {
-                        if (arist.getOrigin() != candidato.getOrigin())
-                            agregar = true;
                     }
                 }
 
                 if (agregar)
                     arbolRM.Add(candidato);
             }
-            
         }
 
+        private void dibujaARM(ListaArista arbolRM)
+        {
+            Pen pen2 = new Pen(Color.Green, 3);
+            AdjustableArrowCap bigArrow = new AdjustableArrowCap(5, 5);
+            pen2.CustomEndCap = bigArrow;
+            int X, Y, J, K;
+
+            foreach (Arista arista in arbolRM)
+            {
+                X = arista.getOrigin().getCity().getX();
+                Y = arista.getOrigin().getCity().getY();
+                J = arista.getDestination().getCity().getX();
+                K = arista.getDestination().getCity().getY();
+                panelMap.CreateGraphics().DrawLine(pen2, X, Y, J, K);
+            }
+        }
 
 
         public void prim()
