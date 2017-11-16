@@ -165,7 +165,7 @@ namespace Airline
                         "->" + candidato.getDestination().getCity().getName() + " "
                         + candidato.getCost().ToString() + " NO");
             }
-
+            Console.WriteLine("");
             dibujaARM(arbolRM);
         }
 
@@ -383,8 +383,8 @@ namespace Airline
                     
                 
             }
-            
 
+            Console.WriteLine("");
             
         }
 
