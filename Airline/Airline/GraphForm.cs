@@ -256,18 +256,29 @@ namespace Airline
             inicializaCandidatos(candidatos, 1);
             candidatos.quickSort(0, candidatos.Count - 1);
 
-            foreach (Arista candidato in candidatos)
+            
+            for (int i = 0; i < candidatos.Count; i++)
             {
-                seleccionPrim(candidato, componentes, arbolRM);
-                if (arbolRM.existence(candidato))
-
-                    Console.WriteLine(candidato.getOrigin().getCity().getName() +
-                        "->" + candidato.getDestination().getCity().getName() + " "
-                        + candidato.getCost().ToString() + " SI");
+                if (arbolRM.Count == 0)
+                    // primero agregar el que tiene relacion con el seleccionado
+                    //despues tengo que checar que pedo con los demas pero de manera ordenada
+                {
+                    if(candidatos[i].getOrigin().getCity().getName() == )
+                }
                 else
-                    Console.WriteLine(candidato.getOrigin().getCity().getName() +
-                        "->" + candidato.getDestination().getCity().getName() + " "
-                        + candidato.getCost().ToString() + " NO");
+                {
+                    seleccionPrim(candidatos[i], componentes, arbolRM);
+                    if (arbolRM.existence(candidatos[i]))
+
+                        Console.WriteLine(candidatos[i].getOrigin().getCity().getName() +
+                            "->" + candidatos[i].getDestination().getCity().getName() + " "
+                            + candidatos[i].getCost().ToString() + " SI");
+                    else
+                        Console.WriteLine(candidatos[i].getOrigin().getCity().getName() +
+                            "->" + candidatos[i].getDestination().getCity().getName() + " "
+                            + candidatos[i].getCost().ToString() + " NO");
+                }
+                
             }
 
             dibujaARM(arbolRM);
