@@ -257,11 +257,7 @@ namespace Airline
             inicializaCandidatos(candidatos, 2);
             candidatos.quickSort(0, candidatos.Count - 1);
 
-            
             seleccionPrim(candidatos, origen, arbolRM);
-
-            
-
             dibujaARM(arbolRM);
         }
 
@@ -304,7 +300,7 @@ namespace Airline
                             break;
                         }
                     }
-                    else if (origenPrim.Contains(origen))
+                    if (origenPrim.Contains(origen))
                     {
                         if (origenPrim.Contains(destino))
                         {
@@ -329,7 +325,23 @@ namespace Airline
                     {
                         origen = candidatos[i].getOrigin().getCity().getName();
                         destino = candidatos[i].getDestination().getCity().getName();
-
+                        
+                        if (origenPrim.Contains(destino))
+                        {
+                            if (origenPrim.Contains(origen))
+                            {
+                                candidatos.RemoveAt(i);
+                                break;
+                            }
+                        }
+                        else if (origenPrim.Contains(origen))
+                        {
+                            if (origenPrim.Contains(destino))
+                            {
+                                candidatos.RemoveAt(i);
+                                break;
+                            }
+                        }
                         if (!origenPrim.Contains(origen))
                         {
                             if (!origenPrim.Contains(destino))
@@ -385,7 +397,6 @@ namespace Airline
             }
 
             Console.WriteLine("");
-            
         }
 
         private void buttonKruskal_Click(object sender, EventArgs e)
