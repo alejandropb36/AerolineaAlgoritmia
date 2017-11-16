@@ -251,37 +251,57 @@ namespace Airline
             ListaArista candidatos = new ListaArista();
             ListaArista arbolRM = new ListaArista();
             List<string> componentes = new List<string>();
+            string origen = labelCity.Text;
 
             inicializaComponentes(componentes);
-            inicializaCandidatos(candidatos, 1);
+            inicializaCandidatos(candidatos, 2);
             candidatos.quickSort(0, candidatos.Count - 1);
 
-            
-            for (int i = 0; i < candidatos.Count; i++)
-            {
-                if (arbolRM.Count == 0)
-                    // primero agregar el que tiene relacion con el seleccionado
-                    //despues tengo que checar que pedo con los demas pero de manera ordenada
-                {
-                    if(candidatos[i].getOrigin().getCity().getName() == )
-                }
-                else
-                {
-                    seleccionPrim(candidatos[i], componentes, arbolRM);
-                    if (arbolRM.existence(candidatos[i]))
+            seleccionPrim(candidatos, origen, arbolRM);
 
-                        Console.WriteLine(candidatos[i].getOrigin().getCity().getName() +
-                            "->" + candidatos[i].getDestination().getCity().getName() + " "
-                            + candidatos[i].getCost().ToString() + " SI");
-                    else
-                        Console.WriteLine(candidatos[i].getOrigin().getCity().getName() +
-                            "->" + candidatos[i].getDestination().getCity().getName() + " "
-                            + candidatos[i].getCost().ToString() + " NO");
-                }
-                
-            }
+            
 
             dibujaARM(arbolRM);
+        }
+
+        private void seleccionPrim(ListaArista candidatos, string origenPrim, ListaArista arbolRM)
+        {
+            string origen, destino;
+
+            //while (origenPrim.Length == graph.getNodeList().Count)
+            //{
+
+            //}
+            for(int i = 0; i < candidatos.Count; i++)
+            {
+                origen = candidatos[i].getOrigin().getCity().getName();
+                destino = candidatos[i].getDestination().getCity().getName();
+
+                if (origenPrim.Contains(origen))
+                {
+                    if(!origenPrim.Contains(destino))
+                    {
+                        arbolRM.Add(candidatos[i]);
+                        int cost = candidatos[i].getCost();
+                        Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
+                        origenPrim += destino;
+                        i = 0;
+                    }
+                }
+                else if (origenPrim.Contains(destino))
+                {
+                    if (!origenPrim.Contains(origen))
+                    {
+                        arbolRM.Add(candidatos[i]);
+                        int cost = candidatos[i].getCost();
+                        Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
+                        origenPrim += origen;
+                        i = 0;
+                    }
+                }
+            }
+
+            
         }
 
         private void buttonKruskal_Click(object sender, EventArgs e)
@@ -295,46 +315,11 @@ namespace Airline
             if (citySelect != "")
             {
                 prim();
+                labelCostResult.Text = cost.ToString();
             }
             else
                 MessageBox.Show("Selecciona una ciudad", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-
-        private void seleccionPrim(Arista candidato, List<string> componentes, ListaArista arbolRM)
-        {
-            bool agregar = true;
-            if (arbolRM.Count == 0)
-            {
-                arbolRM.Add(candidato);
-            }
-            else
-            {
-                foreach (Arista arist in arbolRM)
-                {
-                    if (candidato.getOrigin() == arist.getOrigin())
-                    {
-                        if (candidato.getDestination() == arist.getDestination())
-                            agregar = false;
-                    }
-                    if (candidato == arist)
-                        agregar = false;
-                    if (candidato.getDestination() == arist.getDestination())
-                        agregar = false;
-                    if (candidato.getDestination() == arist.getOrigin())
-                    {
-                        if (candidato.getOrigin() == arist.getDestination())
-                            agregar = false;
-                    }
-                }
-
-                if (agregar)
-                    arbolRM.Add(candidato);
-            }
-        }
-
-        
-
-       
     }
 }
