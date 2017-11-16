@@ -33,6 +33,10 @@
             this.labelCitySelect = new System.Windows.Forms.Label();
             this.labelCity = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonKruskal = new System.Windows.Forms.Button();
+            this.labelCost = new System.Windows.Forms.Label();
+            this.labelCostResult = new System.Windows.Forms.Label();
+            this.buttonPrim = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelMap
@@ -75,11 +79,53 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonKruskal
+            // 
+            this.buttonKruskal.Location = new System.Drawing.Point(1294, 276);
+            this.buttonKruskal.Name = "buttonKruskal";
+            this.buttonKruskal.Size = new System.Drawing.Size(75, 23);
+            this.buttonKruskal.TabIndex = 4;
+            this.buttonKruskal.Text = "Kruskal";
+            this.buttonKruskal.UseVisualStyleBackColor = true;
+            this.buttonKruskal.Click += new System.EventHandler(this.buttonKruskal_Click);
+            // 
+            // labelCost
+            // 
+            this.labelCost.AutoSize = true;
+            this.labelCost.Location = new System.Drawing.Point(1251, 253);
+            this.labelCost.Name = "labelCost";
+            this.labelCost.Size = new System.Drawing.Size(37, 13);
+            this.labelCost.TabIndex = 6;
+            this.labelCost.Text = "Costo:";
+            // 
+            // labelCostResult
+            // 
+            this.labelCostResult.AutoSize = true;
+            this.labelCostResult.Location = new System.Drawing.Point(1309, 253);
+            this.labelCostResult.Name = "labelCostResult";
+            this.labelCostResult.Size = new System.Drawing.Size(13, 13);
+            this.labelCostResult.TabIndex = 7;
+            this.labelCostResult.Text = "0";
+            // 
+            // buttonPrim
+            // 
+            this.buttonPrim.Location = new System.Drawing.Point(1294, 314);
+            this.buttonPrim.Name = "buttonPrim";
+            this.buttonPrim.Size = new System.Drawing.Size(75, 23);
+            this.buttonPrim.TabIndex = 8;
+            this.buttonPrim.Text = "Prim";
+            this.buttonPrim.UseVisualStyleBackColor = true;
+            this.buttonPrim.Click += new System.EventHandler(this.buttonPrim_Click);
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1411, 790);
+            this.Controls.Add(this.buttonPrim);
+            this.Controls.Add(this.labelCostResult);
+            this.Controls.Add(this.labelCost);
+            this.Controls.Add(this.buttonKruskal);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.labelCity);
             this.Controls.Add(this.labelCitySelect);
@@ -98,5 +144,9 @@
         private System.Windows.Forms.Label labelCitySelect;
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonKruskal;
+        private System.Windows.Forms.Label labelCost;
+        private System.Windows.Forms.Label labelCostResult;
+        private System.Windows.Forms.Button buttonPrim;
     }
 }

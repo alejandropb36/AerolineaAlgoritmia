@@ -18,6 +18,7 @@ namespace Airline
         int create;
         int positionX, positionY;
         string citySelect;
+        int cost;
 
         public GraphForm(int create, Graph graph, FlightsList flights)
         {
@@ -30,8 +31,6 @@ namespace Airline
             if (create == 1)
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                kruskal();
             
         }
 
@@ -147,13 +146,15 @@ namespace Airline
         {
             ListaArista candidatos = new ListaArista();
             ListaArista arbolRM = new ListaArista();
+            List<string> componentes = new List<string>();
 
+            inicializaComponentes(componentes);
             inicializaCandidatos(candidatos,1);
             candidatos.quickSort(0, candidatos.Count - 1);
 
             foreach(Arista candidato in candidatos)
             {
-                seleccionKruskal(candidato, arbolRM);
+                seleccionKruskal(candidato, componentes, arbolRM);
                 if(arbolRM.existence(candidato))
 
                     Console.WriteLine(candidato.getOrigin().getCity().getName() +
@@ -166,6 +167,12 @@ namespace Airline
             }
 
             dibujaARM(arbolRM);
+        }
+
+        private void inicializaComponentes(List<string> componentes)
+        {
+            foreach(Node node in graph.getNodeList())
+                componentes.Add(node.getCity().getName());
         }
 
         private void inicializaCandidatos(ListaArista candidatos, int option)
@@ -190,10 +197,103 @@ namespace Airline
             }
         }
 
-        private void seleccionKruskal(Arista candidato, ListaArista arbolRM)
+        private void seleccionKruskal(Arista candidato, List<string> componentes, ListaArista arbolRM)
+        {
+            int borrar = -1;
+            string origen, destino;
+
+            origen = candidato.getOrigin().getCity().getName();
+            destino = candidato.getDestination().getCity().getName();
+            for(int i = 0; i < componentes.Count; i++)
+            {
+                if (componentes[i].Contains(origen))
+                {
+                    for(int j = 0; j < componentes.Count; j++)
+                    {
+                        if (componentes[j].Contains(destino))
+                        {
+                            if(i != j)
+                            {
+                                borrar = j;
+                                componentes[i] += componentes[j];
+                                arbolRM.Add(candidato);
+                            }
+                        }
+                    }
+                }
+            }
+            if(borrar > -1)
+                componentes.RemoveAt(borrar);
+        }
+
+        private void dibujaARM(ListaArista arbolRM)
+        {
+            Pen pen2 = new Pen(Color.Green, 3);
+            AdjustableArrowCap bigArrow = new AdjustableArrowCap(5, 5);
+            pen2.CustomEndCap = bigArrow;
+            int X, Y, J, K;
+
+            cost = 0;
+            foreach (Arista arista in arbolRM)
+            {
+                cost += arista.getCost();
+                X = arista.getOrigin().getCity().getX() + 10;
+                Y = arista.getOrigin().getCity().getY() + 10;
+                J = arista.getDestination().getCity().getX() + 10;
+                K = arista.getDestination().getCity().getY() + 10;
+                panelMap.CreateGraphics().DrawLine(pen2, X, Y, J, K);
+            }
+        }
+
+
+        public void prim()
+        {
+            ListaArista candidatos = new ListaArista();
+            ListaArista arbolRM = new ListaArista();
+            List<string> componentes = new List<string>();
+
+            inicializaComponentes(componentes);
+            inicializaCandidatos(candidatos, 1);
+            candidatos.quickSort(0, candidatos.Count - 1);
+
+            foreach (Arista candidato in candidatos)
+            {
+                seleccionPrim(candidato, componentes, arbolRM);
+                if (arbolRM.existence(candidato))
+
+                    Console.WriteLine(candidato.getOrigin().getCity().getName() +
+                        "->" + candidato.getDestination().getCity().getName() + " "
+                        + candidato.getCost().ToString() + " SI");
+                else
+                    Console.WriteLine(candidato.getOrigin().getCity().getName() +
+                        "->" + candidato.getDestination().getCity().getName() + " "
+                        + candidato.getCost().ToString() + " NO");
+            }
+
+            dibujaARM(arbolRM);
+        }
+
+        private void buttonKruskal_Click(object sender, EventArgs e)
+        {
+            kruskal();
+            labelCostResult.Text = cost.ToString();
+        }
+
+        private void buttonPrim_Click(object sender, EventArgs e)
+        {
+            if (citySelect != "")
+            {
+                prim();
+            }
+            else
+                MessageBox.Show("Selecciona una ciudad", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void seleccionPrim(Arista candidato, List<string> componentes, ListaArista arbolRM)
         {
             bool agregar = true;
-            if(arbolRM.Count == 0)
+            if (arbolRM.Count == 0)
             {
                 arbolRM.Add(candidato);
             }
@@ -201,11 +301,11 @@ namespace Airline
             {
                 foreach (Arista arist in arbolRM)
                 {
-                    //if (candidato.getOrigin() == arist.getOrigin())
-                    //{
-                    //    if (candidato.getDestination() == arist.getDestination())
-                    //        agregar = false;
-                    //}
+                    if (candidato.getOrigin() == arist.getOrigin())
+                    {
+                        if (candidato.getDestination() == arist.getDestination())
+                            agregar = false;
+                    }
                     if (candidato == arist)
                         agregar = false;
                     if (candidato.getDestination() == arist.getDestination())
@@ -220,39 +320,6 @@ namespace Airline
                 if (agregar)
                     arbolRM.Add(candidato);
             }
-        }
-
-        private void dibujaARM(ListaArista arbolRM)
-        {
-            Pen pen2 = new Pen(Color.Green, 3);
-            AdjustableArrowCap bigArrow = new AdjustableArrowCap(5, 5);
-            pen2.CustomEndCap = bigArrow;
-            int X, Y, J, K;
-
-            foreach (Arista arista in arbolRM)
-            {
-                X = arista.getOrigin().getCity().getX();
-                Y = arista.getOrigin().getCity().getY();
-                J = arista.getDestination().getCity().getX();
-                K = arista.getDestination().getCity().getY();
-                panelMap.CreateGraphics().DrawLine(pen2, X, Y, J, K);
-            }
-        }
-
-
-        public void prim()
-        {
-            ListaArista candidatos = new ListaArista();
-            ListaArista ARM = new ListaArista();
-            inicializaCandidatos(candidatos, 1);
-            candidatos.quickSort(0, candidatos.Count - 1);
-
-            //for (int i = 0; i < candidatos.Count; i++) ;
-            //{
-            //    if()
-            //}
-
-
         }
 
         
