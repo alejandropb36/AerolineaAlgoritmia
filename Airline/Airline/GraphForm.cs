@@ -266,7 +266,7 @@ namespace Airline
             bool repetir;
             string origen, destino;
 
-            while (origenPrim.Length < graph.getNodeList().Count - 1)
+            while (origenPrim.Length < graph.getNodeList().Count )
             {
                 repetir = false;
                 for (int i = 0; i < candidatos.Count; i++)
@@ -287,7 +287,7 @@ namespace Airline
                             break;
                         }
                     }
-                    else if (origenPrim.Contains(destino))
+                    if (origenPrim.Contains(destino))
                     {
                         if (!origenPrim.Contains(origen))
                         {
@@ -309,7 +309,7 @@ namespace Airline
                             break;
                         }
                     }
-                    else if (origenPrim.Contains(destino))
+                    if (origenPrim.Contains(destino))
                     {
                         if (origenPrim.Contains(origen))
                         {
@@ -326,22 +326,6 @@ namespace Airline
                         origen = candidatos[i].getOrigin().getCity().getName();
                         destino = candidatos[i].getDestination().getCity().getName();
                         
-                        if (origenPrim.Contains(destino))
-                        {
-                            if (origenPrim.Contains(origen))
-                            {
-                                candidatos.RemoveAt(i);
-                                break;
-                            }
-                        }
-                        else if (origenPrim.Contains(origen))
-                        {
-                            if (origenPrim.Contains(destino))
-                            {
-                                candidatos.RemoveAt(i);
-                                break;
-                            }
-                        }
                         if (!origenPrim.Contains(origen))
                         {
                             if (!origenPrim.Contains(destino))
@@ -349,44 +333,24 @@ namespace Airline
                                 arbolRM.Add(candidatos[i]);
                                 int cost = candidatos[i].getCost();
                                 Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
+                                origenPrim += origen;
                                 origenPrim += destino;
                                 candidatos.RemoveAt(i);
+                                repetir = true;
                                 break;
                             }
                         }
-                        else if (!origenPrim.Contains(destino))
+                        if (!origenPrim.Contains(destino))
                         {
                             if (!origenPrim.Contains(origen))
                             {
                                 arbolRM.Add(candidatos[i]);
                                 int cost = candidatos[i].getCost();
                                 Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
-                                origenPrim += origen;
-                                candidatos.RemoveAt(i);
-                                break;
-                            }
-                        }
-                        else if (origenPrim.Contains(origen))
-                        {
-                            if (!origenPrim.Contains(destino))
-                            {
-                                arbolRM.Add(candidatos[i]);
-                                int cost = candidatos[i].getCost();
-                                Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
                                 origenPrim += destino;
-                                candidatos.RemoveAt(i);
-                                break;
-                            }
-                        }
-                        else if (origenPrim.Contains(destino))
-                        {
-                            if (!origenPrim.Contains(origen))
-                            {
-                                arbolRM.Add(candidatos[i]);
-                                int cost = candidatos[i].getCost();
-                                Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
                                 origenPrim += origen;
                                 candidatos.RemoveAt(i);
+                                repetir = true;
                                 break;
                             }
                         }
