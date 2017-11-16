@@ -257,6 +257,7 @@ namespace Airline
             inicializaCandidatos(candidatos, 2);
             candidatos.quickSort(0, candidatos.Count - 1);
 
+            
             seleccionPrim(candidatos, origen, arbolRM);
 
             
@@ -268,38 +269,39 @@ namespace Airline
         {
             string origen, destino;
 
-            //while (origenPrim.Length == graph.getNodeList().Count)
-            //{
-
-            //}
-            for(int i = 0; i < candidatos.Count; i++)
+            while (origenPrim.Length < graph.getNodeList().Count - 3)
             {
-                origen = candidatos[i].getOrigin().getCity().getName();
-                destino = candidatos[i].getDestination().getCity().getName();
+                for (int i = 0; i < candidatos.Count; i++)
+                {
+                    origen = candidatos[i].getOrigin().getCity().getName();
+                    destino = candidatos[i].getDestination().getCity().getName();
 
-                if (origenPrim.Contains(origen))
-                {
-                    if(!origenPrim.Contains(destino))
+                    if (origenPrim.Contains(origen))
                     {
-                        arbolRM.Add(candidatos[i]);
-                        int cost = candidatos[i].getCost();
-                        Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
-                        origenPrim += destino;
-                        i = 0;
+                        if (!origenPrim.Contains(destino))
+                        {
+                            arbolRM.Add(candidatos[i]);
+                            int cost = candidatos[i].getCost();
+                            Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
+                            origenPrim += destino;
+                            break;
+                        }
                     }
-                }
-                else if (origenPrim.Contains(destino))
-                {
-                    if (!origenPrim.Contains(origen))
+                    else if (origenPrim.Contains(destino))
                     {
-                        arbolRM.Add(candidatos[i]);
-                        int cost = candidatos[i].getCost();
-                        Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
-                        origenPrim += origen;
-                        i = 0;
+                        if (!origenPrim.Contains(origen))
+                        {
+                            arbolRM.Add(candidatos[i]);
+                            int cost = candidatos[i].getCost();
+                            Console.WriteLine(origen + "->" + destino + " " + cost.ToString() + " SI");
+                            origenPrim += origen;
+                            break;
+                        }
                     }
+
                 }
             }
+            
 
             
         }
