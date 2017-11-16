@@ -356,8 +356,6 @@ namespace Airline
                         }
                     }
                 }
-                    
-                
             }
 
             Console.WriteLine("");
