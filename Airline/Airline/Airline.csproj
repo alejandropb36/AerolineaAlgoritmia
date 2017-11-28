@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Arista.cs" />
     <Compile Include="City.cs" />
+    <Compile Include="DijkstraObject.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="FlightReservation.cs">
       <SubType>Form</SubType>
