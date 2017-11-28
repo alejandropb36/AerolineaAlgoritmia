@@ -8,6 +8,7 @@ namespace Airline
 {
     public class DijkstraObject
     {
+        Arista objeto;
 
 
 
