@@ -8,7 +8,9 @@ namespace Airline
 {
     public class DijkstraObject
     {
-        Arista objeto;
+        int costo;
+        int proveniente;
+        
 
 
 
