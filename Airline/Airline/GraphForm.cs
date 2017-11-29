@@ -361,6 +361,26 @@ namespace Airline
             Console.WriteLine("");
         }
 
+        public void Dijkstra(Node incial, Node final, int option)
+        {
+            List<DijkstraObject> listaDijkstra = new List<DijkstraObject>();
+            int pesoTotal = 0;
+            
+
+
+
+        }
+
+        private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra)
+        {
+            foreach(Node node in graph.getNodeList())
+            {
+                DijkstraObject dijkstraObject = new DijkstraObject();
+                dijkstraObject.setNodo(node);
+                listaDijkstra.Add(dijkstraObject);
+            }
+        }
+
         private void buttonKruskal_Click(object sender, EventArgs e)
         {
             kruskal();

@@ -37,6 +37,13 @@
             this.labelCost = new System.Windows.Forms.Label();
             this.labelCostResult = new System.Windows.Forms.Label();
             this.buttonPrim = new System.Windows.Forms.Button();
+            this.labelDijkstra = new System.Windows.Forms.Label();
+            this.radioButtonTime = new System.Windows.Forms.RadioButton();
+            this.radioButtonCost = new System.Windows.Forms.RadioButton();
+            this.comboBoxOrigin = new System.Windows.Forms.ComboBox();
+            this.comboBoxDestination = new System.Windows.Forms.ComboBox();
+            this.labelOrigin = new System.Windows.Forms.Label();
+            this.labelDestination = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panelMap
@@ -117,11 +124,84 @@
             this.buttonPrim.UseVisualStyleBackColor = true;
             this.buttonPrim.Click += new System.EventHandler(this.buttonPrim_Click);
             // 
+            // labelDijkstra
+            // 
+            this.labelDijkstra.AutoSize = true;
+            this.labelDijkstra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDijkstra.Location = new System.Drawing.Point(1291, 372);
+            this.labelDijkstra.Name = "labelDijkstra";
+            this.labelDijkstra.Size = new System.Drawing.Size(58, 18);
+            this.labelDijkstra.TabIndex = 9;
+            this.labelDijkstra.Text = "Dijkstra";
+            // 
+            // radioButtonTime
+            // 
+            this.radioButtonTime.AutoSize = true;
+            this.radioButtonTime.Checked = true;
+            this.radioButtonTime.Location = new System.Drawing.Point(1294, 404);
+            this.radioButtonTime.Name = "radioButtonTime";
+            this.radioButtonTime.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonTime.TabIndex = 10;
+            this.radioButtonTime.TabStop = true;
+            this.radioButtonTime.Text = "Tiempo";
+            this.radioButtonTime.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCost
+            // 
+            this.radioButtonCost.AutoSize = true;
+            this.radioButtonCost.Location = new System.Drawing.Point(1294, 427);
+            this.radioButtonCost.Name = "radioButtonCost";
+            this.radioButtonCost.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonCost.TabIndex = 11;
+            this.radioButtonCost.Text = "Precio";
+            this.radioButtonCost.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxOrigin
+            // 
+            this.comboBoxOrigin.FormattingEnabled = true;
+            this.comboBoxOrigin.Location = new System.Drawing.Point(1269, 482);
+            this.comboBoxOrigin.Name = "comboBoxOrigin";
+            this.comboBoxOrigin.Size = new System.Drawing.Size(40, 21);
+            this.comboBoxOrigin.TabIndex = 12;
+            // 
+            // comboBoxDestination
+            // 
+            this.comboBoxDestination.FormattingEnabled = true;
+            this.comboBoxDestination.Location = new System.Drawing.Point(1348, 482);
+            this.comboBoxDestination.Name = "comboBoxDestination";
+            this.comboBoxDestination.Size = new System.Drawing.Size(40, 21);
+            this.comboBoxDestination.TabIndex = 13;
+            // 
+            // labelOrigin
+            // 
+            this.labelOrigin.AutoSize = true;
+            this.labelOrigin.Location = new System.Drawing.Point(1266, 466);
+            this.labelOrigin.Name = "labelOrigin";
+            this.labelOrigin.Size = new System.Drawing.Size(38, 13);
+            this.labelOrigin.TabIndex = 14;
+            this.labelOrigin.Text = "Origen";
+            // 
+            // labelDestination
+            // 
+            this.labelDestination.AutoSize = true;
+            this.labelDestination.Location = new System.Drawing.Point(1345, 466);
+            this.labelDestination.Name = "labelDestination";
+            this.labelDestination.Size = new System.Drawing.Size(43, 13);
+            this.labelDestination.TabIndex = 15;
+            this.labelDestination.Text = "Destino";
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1411, 790);
+            this.Controls.Add(this.labelDestination);
+            this.Controls.Add(this.labelOrigin);
+            this.Controls.Add(this.comboBoxDestination);
+            this.Controls.Add(this.comboBoxOrigin);
+            this.Controls.Add(this.radioButtonCost);
+            this.Controls.Add(this.radioButtonTime);
+            this.Controls.Add(this.labelDijkstra);
             this.Controls.Add(this.buttonPrim);
             this.Controls.Add(this.labelCostResult);
             this.Controls.Add(this.labelCost);
@@ -148,5 +228,12 @@
         private System.Windows.Forms.Label labelCost;
         private System.Windows.Forms.Label labelCostResult;
         private System.Windows.Forms.Button buttonPrim;
+        private System.Windows.Forms.Label labelDijkstra;
+        private System.Windows.Forms.RadioButton radioButtonTime;
+        private System.Windows.Forms.RadioButton radioButtonCost;
+        private System.Windows.Forms.ComboBox comboBoxOrigin;
+        private System.Windows.Forms.ComboBox comboBoxDestination;
+        private System.Windows.Forms.Label labelOrigin;
+        private System.Windows.Forms.Label labelDestination;
     }
 }
