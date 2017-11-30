@@ -45,6 +45,11 @@
             this.labelOrigin = new System.Windows.Forms.Label();
             this.labelDestination = new System.Windows.Forms.Label();
             this.buttonDijkstra = new System.Windows.Forms.Button();
+            this.listViewDijkstra = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // panelMap
@@ -201,11 +206,45 @@
             this.buttonDijkstra.UseVisualStyleBackColor = true;
             this.buttonDijkstra.Click += new System.EventHandler(this.buttonDijkstra_Click);
             // 
+            // listViewDijkstra
+            // 
+            this.listViewDijkstra.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listViewDijkstra.Location = new System.Drawing.Point(1216, 559);
+            this.listViewDijkstra.Name = "listViewDijkstra";
+            this.listViewDijkstra.Size = new System.Drawing.Size(185, 170);
+            this.listViewDijkstra.TabIndex = 16;
+            this.listViewDijkstra.UseCompatibleStateImageBehavior = false;
+            this.listViewDijkstra.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Origen";
+            this.columnHeader1.Width = 20;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Destino";
+            this.columnHeader2.Width = 20;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Peso";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Recorrido";
+            this.columnHeader4.Width = 80;
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1409, 741);
+            this.Controls.Add(this.listViewDijkstra);
             this.Controls.Add(this.buttonDijkstra);
             this.Controls.Add(this.labelDestination);
             this.Controls.Add(this.labelOrigin);
@@ -248,5 +287,10 @@
         private System.Windows.Forms.Label labelOrigin;
         private System.Windows.Forms.Label labelDestination;
         private System.Windows.Forms.Button buttonDijkstra;
+        private System.Windows.Forms.ListView listViewDijkstra;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

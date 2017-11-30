@@ -31,7 +31,13 @@ namespace Airline
             if (create == 1)
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+            foreach (Node node in graph.getNodeList())
+            {
+                comboBoxOrigin.Items.Add(node.getCity().getName());
+                comboBoxDestination.Items.Add(node.getCity().getName());
+
+            }
+
         }
 
         public void initializeGraph()
@@ -373,6 +379,39 @@ namespace Airline
                 actualizaPeso(listaDijkstra, seleccionado, graph, pesoActual, option);
                 sigDefinitivo(listaDijkstra, ref seleccionado, ref pesoActual);
             }
+
+            
+            foreach (DijkstraObject dijkstraObj in listaDijkstra)
+            {
+
+                if (dijkstraObj.getPeso() != 1000000000 && dijkstraObj.getPeso() != 0)
+                {
+                    //origen, destino, peso, recorrido
+                    string recorrido = "";
+                    string agregar = "";
+                    DijkstraObject proveniente = dijkstraObj;
+                    string[] arrString = new string[4];
+                    arrString[0] = inicial.getCity().getName();
+                    arrString[1] = dijkstraObj.getNodo().getCity().getName();
+                    arrString[2] = dijkstraObj.getPeso().ToString();
+                    
+                    while(proveniente.getNodo() != inicial)
+                    {
+                        agregar = proveniente.getNodo().getCity().getName();
+                        recorrido += agregar;
+                        recorrido += "<-";
+                        //recorrido.Insert(0, agregar);
+                        //recorrido.Insert(0, "->");
+                        proveniente = proveniente.getProveniente();
+                    }
+                    recorrido += inicial.getCity().getName();
+                    arrString[3] = recorrido;
+                    ListViewItem items = new ListViewItem(arrString);
+                    listViewDijkstra.Items.Add(items);
+                }
+            }
+
+
         }
 
         private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra, Node inicial)
@@ -463,7 +502,37 @@ namespace Airline
 
         private void buttonDijkstra_Click(object sender, EventArgs e)
         {
-            Dijkstra(graph.getNodeList()[0], 1);
+            int option;
+            string inicio, fin;
+            Node inicial, final;
+            listViewDijkstra.Items.Clear();
+            if(radioButtonTime.Enabled)
+            {
+                option = 1;
+            }
+            else
+            {
+                option = 2;
+            }
+
+            if(comboBoxOrigin.SelectedIndex >= 0)
+            {
+                if(comboBoxDestination.SelectedIndex < 0)
+                {
+                    inicio = comboBoxOrigin.SelectedItem.ToString();
+                    foreach(Node node in graph.getNodeList())
+                    {
+                        if(node.getCity().getName() == inicio)
+                        {
+                            inicial = node;
+                            Dijkstra(inicial, option);
+                            break;
+                        }
+                    }
+                    
+                }
+            }
+            
         }
 
         private void buttonPrim_Click(object sender, EventArgs e)
