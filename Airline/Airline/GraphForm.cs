@@ -502,7 +502,7 @@ namespace Airline
 
         private void buttonDijkstra_Click(object sender, EventArgs e)
         {
-            int option;
+            int option = 0;
             string inicio, fin;
             Node inicial, final;
             listViewDijkstra.Items.Clear();
@@ -510,7 +510,7 @@ namespace Airline
             {
                 option = 1;
             }
-            else
+            else if(radioButtonCost.Enabled)
             {
                 option = 2;
             }
