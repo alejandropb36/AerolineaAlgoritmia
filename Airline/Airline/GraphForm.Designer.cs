@@ -44,6 +44,7 @@
             this.comboBoxDestination = new System.Windows.Forms.ComboBox();
             this.labelOrigin = new System.Windows.Forms.Label();
             this.labelDestination = new System.Windows.Forms.Label();
+            this.buttonDijkstra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelMap
@@ -190,11 +191,22 @@
             this.labelDestination.TabIndex = 15;
             this.labelDestination.Text = "Destino";
             // 
+            // buttonDijkstra
+            // 
+            this.buttonDijkstra.Location = new System.Drawing.Point(1294, 530);
+            this.buttonDijkstra.Name = "buttonDijkstra";
+            this.buttonDijkstra.Size = new System.Drawing.Size(75, 23);
+            this.buttonDijkstra.TabIndex = 0;
+            this.buttonDijkstra.Text = "Dijkstra";
+            this.buttonDijkstra.UseVisualStyleBackColor = true;
+            this.buttonDijkstra.Click += new System.EventHandler(this.buttonDijkstra_Click);
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1411, 790);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.buttonDijkstra);
             this.Controls.Add(this.labelDestination);
             this.Controls.Add(this.labelOrigin);
             this.Controls.Add(this.comboBoxDestination);
@@ -235,5 +247,6 @@
         private System.Windows.Forms.ComboBox comboBoxDestination;
         private System.Windows.Forms.Label labelOrigin;
         private System.Windows.Forms.Label labelDestination;
+        private System.Windows.Forms.Button buttonDijkstra;
     }
 }
