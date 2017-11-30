@@ -59,7 +59,7 @@
             this.panelMap.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelMap.Location = new System.Drawing.Point(12, 23);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(1238, 738);
+            this.panelMap.Size = new System.Drawing.Size(1205, 738);
             this.panelMap.TabIndex = 0;
             this.panelMap.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelMap_MouseClick);
             // 
@@ -165,7 +165,7 @@
             // comboBoxOrigin
             // 
             this.comboBoxOrigin.FormattingEnabled = true;
-            this.comboBoxOrigin.Location = new System.Drawing.Point(1269, 482);
+            this.comboBoxOrigin.Location = new System.Drawing.Point(1232, 482);
             this.comboBoxOrigin.Name = "comboBoxOrigin";
             this.comboBoxOrigin.Size = new System.Drawing.Size(40, 21);
             this.comboBoxOrigin.TabIndex = 12;
@@ -173,7 +173,7 @@
             // comboBoxDestination
             // 
             this.comboBoxDestination.FormattingEnabled = true;
-            this.comboBoxDestination.Location = new System.Drawing.Point(1348, 482);
+            this.comboBoxDestination.Location = new System.Drawing.Point(1314, 482);
             this.comboBoxDestination.Name = "comboBoxDestination";
             this.comboBoxDestination.Size = new System.Drawing.Size(40, 21);
             this.comboBoxDestination.TabIndex = 13;
@@ -181,7 +181,7 @@
             // labelOrigin
             // 
             this.labelOrigin.AutoSize = true;
-            this.labelOrigin.Location = new System.Drawing.Point(1266, 466);
+            this.labelOrigin.Location = new System.Drawing.Point(1234, 466);
             this.labelOrigin.Name = "labelOrigin";
             this.labelOrigin.Size = new System.Drawing.Size(38, 13);
             this.labelOrigin.TabIndex = 14;
@@ -190,7 +190,7 @@
             // labelDestination
             // 
             this.labelDestination.AutoSize = true;
-            this.labelDestination.Location = new System.Drawing.Point(1345, 466);
+            this.labelDestination.Location = new System.Drawing.Point(1311, 466);
             this.labelDestination.Name = "labelDestination";
             this.labelDestination.Size = new System.Drawing.Size(43, 13);
             this.labelDestination.TabIndex = 15;
@@ -198,7 +198,7 @@
             // 
             // buttonDijkstra
             // 
-            this.buttonDijkstra.Location = new System.Drawing.Point(1294, 530);
+            this.buttonDijkstra.Location = new System.Drawing.Point(1259, 520);
             this.buttonDijkstra.Name = "buttonDijkstra";
             this.buttonDijkstra.Size = new System.Drawing.Size(75, 23);
             this.buttonDijkstra.TabIndex = 0;
@@ -213,7 +213,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listViewDijkstra.Location = new System.Drawing.Point(1216, 559);
+            this.listViewDijkstra.Location = new System.Drawing.Point(1169, 559);
             this.listViewDijkstra.Name = "listViewDijkstra";
             this.listViewDijkstra.Size = new System.Drawing.Size(185, 170);
             this.listViewDijkstra.TabIndex = 16;
@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1409, 741);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.listViewDijkstra);
             this.Controls.Add(this.buttonDijkstra);
             this.Controls.Add(this.labelDestination);

@@ -400,7 +400,7 @@ namespace Airline
 
         private void actualizaPeso(List<DijkstraObject> listaDijkstra, Node selec, Graph grafo, int pesoAct, int op)
         {
-            DijkstraObject proveniente = listaDijkstra[0];
+            DijkstraObject proveniente = getProveniente(listaDijkstra,selec);
             foreach(Node node in grafo.getNodeList())
             {
                 if(node == selec)
@@ -437,6 +437,18 @@ namespace Airline
                     }
                 }
             }
+        }
+
+        private DijkstraObject getProveniente(List<DijkstraObject> listaDijkstra, Node seleccionado)
+        {
+            DijkstraObject nulo = new DijkstraObject();
+            foreach(DijkstraObject dijkstraObj in listaDijkstra)
+            {
+                if (dijkstraObj.getNodo() == seleccionado)
+                    return dijkstraObj;
+            }
+
+            return nulo;
         }
 
         private void sigDefinitivo(List<DijkstraObject> listaDijkstra, ref Node selec,ref int pesoAct)
