@@ -361,24 +361,68 @@ namespace Airline
             Console.WriteLine("");
         }
 
-        public void Dijkstra(Node incial, Node final, int option)
+        public void Dijkstra(Node inicial, Node final, int option)
         {
             List<DijkstraObject> listaDijkstra = new List<DijkstraObject>();
             int pesoTotal = 0;
-            
+            Node seleccionado = inicial;
 
+            iniciaListaDijkstra(listaDijkstra,inicial);
 
 
         }
 
-        private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra)
+        private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra, Node inicial)
         {
             foreach(Node node in graph.getNodeList())
             {
                 DijkstraObject dijkstraObject = new DijkstraObject();
                 dijkstraObject.setNodo(node);
+                if(node == inicial)
+                {
+                    dijkstraObject.setPeso(0);
+                    dijkstraObject.setDefinitivo(true);
+                }
                 listaDijkstra.Add(dijkstraObject);
             }
+        }
+
+        private void actualizaPeso(List<DijkstraObject> listaDijkstra, Node selec, Graph grafo, int pTot, int op)
+        {
+            foreach(Node node in grafo.getNodeList())
+            {
+                if(node == selec)
+                {
+                    foreach(Adjacent adj in node.getAdjacentList())
+                    {
+                        foreach(DijkstraObject dobj in listaDijkstra)
+                        {
+                            if(dobj.getNodo() == adj.getNode())
+                            {
+                                if(op == 1)
+                                {
+                                    if((pTot + adj.getTime()) < dobj.getPeso())
+                                    {
+                                        dobj.setPeso((pTot + adj.getTime()));
+                                    }
+                                }
+                                else if (op == 2)
+                                {
+                                    if ((pTot + adj.getCost()) < dobj.getPeso())
+                                    {
+                                        dobj.setPeso((pTot + adj.getCost()));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void sigDefinitivo(List<DijkstraObject> listaDijkstra, Node selec, int pTot)
+        {
+
         }
 
         private void buttonKruskal_Click(object sender, EventArgs e)
