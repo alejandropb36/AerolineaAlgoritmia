@@ -397,20 +397,23 @@ namespace Airline
                     {
                         foreach(DijkstraObject dobj in listaDijkstra)
                         {
-                            if(dobj.getNodo() == adj.getNode())
+                            if(!dobj.getDefinitivo())
                             {
-                                if(op == 1)
+                                if (dobj.getNodo() == adj.getNode())
                                 {
-                                    if((pTot + adj.getTime()) < dobj.getPeso())
+                                    if (op == 1)
                                     {
-                                        dobj.setPeso((pTot + adj.getTime()));
+                                        if ((pTot + adj.getTime()) < dobj.getPeso())
+                                        {
+                                            dobj.setPeso((pTot + adj.getTime()));
+                                        }
                                     }
-                                }
-                                else if (op == 2)
-                                {
-                                    if ((pTot + adj.getCost()) < dobj.getPeso())
+                                    else if (op == 2)
                                     {
-                                        dobj.setPeso((pTot + adj.getCost()));
+                                        if ((pTot + adj.getCost()) < dobj.getPeso())
+                                        {
+                                            dobj.setPeso((pTot + adj.getCost()));
+                                        }
                                     }
                                 }
                             }
@@ -422,7 +425,34 @@ namespace Airline
 
         private void sigDefinitivo(List<DijkstraObject> listaDijkstra, Node selec, int pTot)
         {
+            int min = 1000000000;
+            DijkstraObject proveniente, definitivo;
 
+            for (int i = 0; i < listaDijkstra.Count; i++)
+            {
+                if (listaDijkstra[i].getNodo() == selec)
+                    proveniente = listaDijkstra[i];
+            }
+
+            for (int i = 0; i < listaDijkstra.Count; i++)
+            {
+                if(!listaDijkstra[i].getDefinitivo())
+                {
+                    if(listaDijkstra[i].getPeso() < min)
+                    {
+                        min = listaDijkstra[i].getPeso();
+                        pTot = min;
+                        definitivo = listaDijkstra[i];
+                    }
+                }
+            }
+
+            definitivo.setDefinitivo(true);
+
+
+
+            
+            
         }
 
         private void buttonKruskal_Click(object sender, EventArgs e)
