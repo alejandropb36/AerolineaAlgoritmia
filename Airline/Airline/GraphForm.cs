@@ -361,7 +361,7 @@ namespace Airline
             Console.WriteLine("");
         }
 
-        public void Dijkstra(Node inicial, Node final, int option)
+        public void Dijkstra(Node inicial, int option)
         {
             List<DijkstraObject> listaDijkstra = new List<DijkstraObject>();
             int pesoActual = 0;
@@ -371,11 +371,8 @@ namespace Airline
             foreach(DijkstraObject dobj in listaDijkstra)
             {
                 actualizaPeso(listaDijkstra, seleccionado, graph, pesoActual, option);
-                sigDefinitivo(listaDijkstra, seleccionado, ref pesoActual);
+                sigDefinitivo(listaDijkstra, ref seleccionado, ref pesoActual);
             }
-            
-
-
         }
 
         private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra, Node inicial)
@@ -395,30 +392,35 @@ namespace Airline
 
         private void actualizaPeso(List<DijkstraObject> listaDijkstra, Node selec, Graph grafo, int pesoAct, int op)
         {
+            DijkstraObject proveniente = listaDijkstra[0];
             foreach(Node node in grafo.getNodeList())
             {
                 if(node == selec)
                 {
                     foreach(Adjacent adj in node.getAdjacentList())
                     {
-                        foreach(DijkstraObject dobj in listaDijkstra)
+                        foreach(DijkstraObject dijkstraObj in listaDijkstra)
                         {
-                            if(!dobj.getDefinitivo())
+                            if (dijkstraObj.getNodo() == selec)
+                                proveniente = dijkstraObj;
+                            if(!dijkstraObj.getDefinitivo())
                             {
-                                if (dobj.getNodo() == adj.getNode())
+                                if (dijkstraObj.getNodo() == adj.getNode())
                                 {
                                     if (op == 1)
                                     {
-                                        if ((pesoAct + adj.getTime()) < dobj.getPeso())
+                                        if ((pesoAct + adj.getTime()) < dijkstraObj.getPeso())
                                         {
-                                            dobj.setPeso((pesoAct + adj.getTime()));
+                                            dijkstraObj.setPeso((pesoAct + adj.getTime()));
+                                            dijkstraObj.setProveniente(proveniente);
                                         }
                                     }
                                     else if (op == 2)
                                     {
-                                        if ((pesoAct + adj.getCost()) < dobj.getPeso())
+                                        if ((pesoAct + adj.getCost()) < dijkstraObj.getPeso())
                                         {
-                                            dobj.setPeso((pesoAct + adj.getCost()));
+                                            dijkstraObj.setPeso((pesoAct + adj.getCost()));
+                                            dijkstraObj.setProveniente(proveniente);
                                         }
                                     }
                                 }
@@ -429,36 +431,28 @@ namespace Airline
             }
         }
 
-        private void sigDefinitivo(List<DijkstraObject> listaDijkstra, Node selec,ref int pesoAct)
+        private void sigDefinitivo(List<DijkstraObject> listaDijkstra, ref Node selec,ref int pesoAct)
         {
             int min = 1000000000;
-            int prov = 0, def = 0;
-            DijkstraObject proveniente, definitivo;
+            int def = -1;
 
             for (int i = 0; i < listaDijkstra.Count; i++)
             {
-                if (listaDijkstra[i].getNodo() == selec)
-                    prov = i;
-            }
-
-            for (int i = 0; i < listaDijkstra.Count; i++)
-            {
-                if(!listaDijkstra[i].getDefinitivo())
+                if (!listaDijkstra[i].getDefinitivo())
                 {
-                    if(listaDijkstra[i].getPeso() < min)
+                    if (listaDijkstra[i].getPeso() < min)
                     {
                         min = listaDijkstra[i].getPeso();
                         def = i;
                     }
                 }
             }
-
-            definitivo = listaDijkstra[def];
-            proveniente = listaDijkstra[prov];
-            definitivo.setProveniente(proveniente);
-            definitivo.setDefinitivo(true);
-            selec = definitivo.getNodo();
-            pesoAct = definitivo.getPeso();
+            if(def > -1)
+            {
+                listaDijkstra[def].setDefinitivo(true);
+                selec = listaDijkstra[def].getNodo();
+                pesoAct = listaDijkstra[def].getPeso();
+            }
         }
 
         private void buttonKruskal_Click(object sender, EventArgs e)
@@ -469,7 +463,7 @@ namespace Airline
 
         private void buttonDijkstra_Click(object sender, EventArgs e)
         {
-            Dijkstra(graph.getNodeList()[0], graph.getNodeList()[1], 1);
+            Dijkstra(graph.getNodeList()[0], 1);
         }
 
         private void buttonPrim_Click(object sender, EventArgs e)
