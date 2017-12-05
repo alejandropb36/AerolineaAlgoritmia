@@ -31,13 +31,20 @@ namespace Airline
             if (create == 1)
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            updateOriDesti();
+
+        }
+
+        public void updateOriDesti()
+        {
+            comboBoxOrigin.Items.Clear();
+            comboBoxDestination.Items.Clear();
             foreach (Node node in graph.getNodeList())
             {
                 comboBoxOrigin.Items.Add(node.getCity().getName());
                 comboBoxDestination.Items.Add(node.getCity().getName());
 
             }
-
         }
 
         public void initializeGraph()
@@ -136,6 +143,7 @@ namespace Airline
                 flights.removeFlights(citySelect);
                 this.Refresh();
                 labelCity.Text = "";
+                updateOriDesti();
             }
             else
                 MessageBox.Show("Selecciona una ciudad", "Advertencia",
