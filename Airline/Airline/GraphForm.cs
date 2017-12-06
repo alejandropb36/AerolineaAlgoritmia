@@ -465,13 +465,12 @@ namespace Airline
 
         private DijkstraObject getProveniente(List<DijkstraObject> listaDijkstra, Node seleccionado)
         {
-            DijkstraObject nulo = new DijkstraObject();
             foreach(DijkstraObject dijkstraObj in listaDijkstra)
             {
                 if (dijkstraObj.getNodo() == seleccionado)
                     return dijkstraObj;
             }
-
+            DijkstraObject nulo = new DijkstraObject();
             return nulo;
         }
 
@@ -601,16 +600,8 @@ namespace Airline
                 if(comboBoxDestination.SelectedIndex < 0)
                 {
                     inicio = comboBoxOrigin.SelectedItem.ToString();
-                    foreach(Node node in graph.getNodeList())
-                    {
-                        if(node.getCity().getName() == inicio)
-                        {
-                            inicial = node;
-                            Dijkstra(inicial, option);
-                            break;
-                        }
-                    }
-                    
+                    inicial = obtenerNodo(inicio);
+                    Dijkstra(inicial, option);
                 }
                 else
                 {
@@ -618,15 +609,8 @@ namespace Airline
                     fin = comboBoxDestination.SelectedItem.ToString();
                     if(inicio != fin)
                     {
-                        foreach (Node node in graph.getNodeList())
-                        {
-                            if (node.getCity().getName() == inicio)
-                            {
-                                inicial = node;
-                                Dijkstra(inicial, option, fin);
-                                break;
-                            }
-                        }
+                        inicial = obtenerNodo(inicio);
+                        Dijkstra(inicial, option, fin);
                     }
                     else
                     {
@@ -636,6 +620,20 @@ namespace Airline
                 }
             }
             
+        }
+
+        private Node obtenerNodo(string name)
+        {
+            
+            foreach (Node node in graph.getNodeList())
+            {
+                if (node.getCity().getName() == name)
+                {
+                    return node;
+                }
+            }
+            Node nulo = new Node();
+            return nulo;
         }
 
         private void buttonPrim_Click(object sender, EventArgs e)
