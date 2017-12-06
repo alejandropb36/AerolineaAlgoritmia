@@ -391,6 +391,22 @@ namespace Airline
             resultados(listaDijkstra, inicial);
         }
 
+        public void Dijkstra(Node inicial, int option,string final)
+        {
+            List<DijkstraObject> listaDijkstra = new List<DijkstraObject>();
+            int pesoActual = 0;
+            Node seleccionado = inicial;
+
+            iniciaListaDijkstra(listaDijkstra, inicial);
+            foreach (DijkstraObject dobj in listaDijkstra)
+            {
+                actualizaPeso(listaDijkstra, seleccionado, graph, pesoActual, option);
+                sigDefinitivo(listaDijkstra, ref seleccionado, ref pesoActual);
+            }
+
+            resultados(listaDijkstra, inicial,final);
+        }
+
         private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra, Node inicial)
         {
             foreach(Node node in graph.getNodeList())
@@ -515,6 +531,50 @@ namespace Airline
             }
         }
 
+        private void resultados(List<DijkstraObject> listaDijkstra, Node inicial, string final)
+        {
+            bool existe = false;
+            foreach (DijkstraObject dijkstraObj in listaDijkstra)
+            {
+                if (dijkstraObj.getPeso() != 1000000000 && dijkstraObj.getPeso() != 0)
+                {
+                    //origen, destino, peso, recorrido
+                    string recorrido = "";
+                    string agregar = "";
+                    DijkstraObject proveniente = dijkstraObj;
+                    string[] arrString = new string[4];
+                    arrString[0] = inicial.getCity().getName();
+                    arrString[1] = dijkstraObj.getNodo().getCity().getName();
+                    arrString[2] = dijkstraObj.getPeso().ToString();
+
+                    while (proveniente.getNodo() != inicial)
+                    {
+                        agregar = proveniente.getNodo().getCity().getName();
+                        recorrido += agregar;
+                        recorrido += "<-";
+                        //recorrido.Insert(0, agregar);
+                        //recorrido.Insert(0, "->");
+                        proveniente = proveniente.getProveniente();
+                    }
+                    recorrido += inicial.getCity().getName();
+                    arrString[3] = recorrido;
+                    ListViewItem items = new ListViewItem(arrString);
+                    if(recorrido.Contains(final))
+                    {
+                        existe = true;
+                        listViewDijkstra.Items.Add(items);
+                        break;
+                    }
+                        
+                }
+            }
+            if(!existe)
+            {
+                MessageBox.Show("No existe ruta", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
         private void buttonKruskal_Click(object sender, EventArgs e)
         {
             kruskal();
@@ -525,7 +585,7 @@ namespace Airline
         {
             int option = 0;
             string inicio, fin;
-            Node inicial, final;
+            Node inicial;
             listViewDijkstra.Items.Clear();
             if(radioButtonTime.Enabled)
             {
@@ -551,6 +611,28 @@ namespace Airline
                         }
                     }
                     
+                }
+                else
+                {
+                    inicio = comboBoxOrigin.SelectedItem.ToString();
+                    fin = comboBoxDestination.SelectedItem.ToString();
+                    if(inicio != fin)
+                    {
+                        foreach (Node node in graph.getNodeList())
+                        {
+                            if (node.getCity().getName() == inicio)
+                            {
+                                inicial = node;
+                                Dijkstra(inicial, option, fin);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede seleccionar el origen", "Advertencia",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             
