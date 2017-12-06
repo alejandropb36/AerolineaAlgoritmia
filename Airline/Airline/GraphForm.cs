@@ -624,7 +624,6 @@ namespace Airline
 
         private Node obtenerNodo(string name)
         {
-            
             foreach (Node node in graph.getNodeList())
             {
                 if (node.getCity().getName() == name)
