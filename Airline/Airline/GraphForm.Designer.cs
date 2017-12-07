@@ -213,9 +213,9 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listViewDijkstra.Location = new System.Drawing.Point(1169, 559);
+            this.listViewDijkstra.Location = new System.Drawing.Point(1142, 549);
             this.listViewDijkstra.Name = "listViewDijkstra";
-            this.listViewDijkstra.Size = new System.Drawing.Size(185, 170);
+            this.listViewDijkstra.Size = new System.Drawing.Size(212, 170);
             this.listViewDijkstra.TabIndex = 16;
             this.listViewDijkstra.UseCompatibleStateImageBehavior = false;
             this.listViewDijkstra.View = System.Windows.Forms.View.Details;
@@ -237,7 +237,7 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Recorrido";
-            this.columnHeader4.Width = 80;
+            this.columnHeader4.Width = 100;
             // 
             // GraphForm
             // 
