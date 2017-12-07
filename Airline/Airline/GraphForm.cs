@@ -19,6 +19,7 @@ namespace Airline
         int positionX, positionY;
         string citySelect;
         int cost;
+        string recorridoOD;
 
         public GraphForm(int create, Graph graph, FlightsList flights)
         {
@@ -32,7 +33,7 @@ namespace Airline
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             updateOriDesti();
-
+            recorridoOD = "";
         }
 
         public void updateOriDesti()
@@ -532,7 +533,6 @@ namespace Airline
 
         private void resultados(List<DijkstraObject> listaDijkstra, Node inicial, string final)
         {
-            bool existe = false;
             foreach (DijkstraObject dijkstraObj in listaDijkstra)
             {
                 if (dijkstraObj.getPeso() != 1000000000 && dijkstraObj.getPeso() != 0)
@@ -551,8 +551,6 @@ namespace Airline
                         agregar = proveniente.getNodo().getCity().getName();
                         recorrido += agregar;
                         recorrido += "<-";
-                        //recorrido.Insert(0, agregar);
-                        //recorrido.Insert(0, "->");
                         proveniente = proveniente.getProveniente();
                     }
                     recorrido += inicial.getCity().getName();
@@ -560,14 +558,14 @@ namespace Airline
                     ListViewItem items = new ListViewItem(arrString);
                     if(recorrido.Contains(final))
                     {
-                        existe = true;
                         listViewDijkstra.Items.Add(items);
+                        recorridoOD = recorrido;
                         break;
-                    }
-                        
+                    }    
                 }
             }
-            if(!existe)
+            
+            if(listViewDijkstra.Items.Count == 0)
             {
                 MessageBox.Show("No existe ruta", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -633,6 +631,45 @@ namespace Airline
             }
             Node nulo = new Node();
             return nulo;
+        }
+
+        private void buttonBuy_Click(object sender, EventArgs e)
+        {
+            Passenger passenger = new Passenger();
+            if (listViewDijkstra.Items.Count > 0)
+            {
+                obtenerRecorrido(ref recorridoOD);
+                Console.WriteLine(recorridoOD);
+                for(int i = 0; i < recorridoOD.Length - 1; i++)
+                {
+                    string ruta = "SK1";
+                    ruta += recorridoOD[i];
+                    ruta += recorridoOD[i + 1];
+                    
+                    FlightReservation fg = new FlightReservation(flights, ruta, passenger, i);
+                    fg.ShowDialog();
+                    passenger = fg.getPassengerD();
+
+                }
+                
+            }
+            else
+            {
+                // no hay vuelo 
+            }
+        }
+
+        private void obtenerRecorrido(ref string recorrido)
+        {
+            string recorridoNuevo = "";
+            for (int i = recorrido.Length - 1; i >= 0; i--)
+            {
+                if(recorrido[i] != '-' && recorrido[i] != '<')
+                {
+                    recorridoNuevo += recorrido[i];
+                }
+            }
+            recorrido = recorridoNuevo;
         }
 
         private void buttonPrim_Click(object sender, EventArgs e)

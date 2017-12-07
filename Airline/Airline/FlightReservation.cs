@@ -16,6 +16,7 @@ namespace Airline
         int seatNumber;
         bool sell;
         string route;
+        Passenger passengerD;
 
 
         public FlightReservation(FlightsList flights,string route)
@@ -29,9 +30,35 @@ namespace Airline
             seatsUpdate();
         }
 
+        public FlightReservation(FlightsList flights, string route, Passenger passenge, int ingreso)
+        {
+            InitializeComponent();
+            this.flights = flights;
+            seatNumber = -1;
+            sell = false;
+            this.route = route;
+            labelRoute.Text = route;
+            seatsUpdate();
+            if(ingreso > 0)
+            {
+                textBoxPassengerName.Text = passenge.getName();
+                textBoxPassengerName.Enabled = false;
+                textBoxPassengerLastName.Text = passenge.getLastname();
+                textBoxPassengerLastName.Enabled = false;
+                textBoxPassengerAge.Text = passenge.getAge().ToString();
+                textBoxPassengerAge.Enabled = false;
+            }
+            
+        }
+
         public bool getSell()
         {
             return sell;
+        }
+
+        public Passenger getPassengerD()
+        {
+            return passengerD;
         }
 
         public void seatsUpdate()
@@ -213,6 +240,7 @@ namespace Airline
                                 passenger = new Passenger(name, lastname, age, seatNumber, route1);
                                 flights[flights.getFlightIndex(route)].getPassengers().Add(passenger);
                                 sell = true;
+                                passengerD = passenger;
                                 MessageBox.Show("El ID de pasajero es: " + passenger.getId(), "ID", 
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
