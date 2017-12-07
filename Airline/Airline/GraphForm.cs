@@ -19,6 +19,7 @@ namespace Airline
         int positionX, positionY;
         string citySelect;
         int cost;
+        string recorridoOD;
 
         public GraphForm(int create, Graph graph, FlightsList flights)
         {
@@ -31,13 +32,20 @@ namespace Airline
             if (create == 1)
                 MessageBox.Show("Selecciona posicion de las nuevas ciudades", "Informacion",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            updateOriDesti();
+            recorridoOD = "";
+        }
+
+        public void updateOriDesti()
+        {
+            comboBoxOrigin.Items.Clear();
+            comboBoxDestination.Items.Clear();
             foreach (Node node in graph.getNodeList())
             {
                 comboBoxOrigin.Items.Add(node.getCity().getName());
                 comboBoxDestination.Items.Add(node.getCity().getName());
 
             }
-
         }
 
         public void initializeGraph()
@@ -136,6 +144,7 @@ namespace Airline
                 flights.removeFlights(citySelect);
                 this.Refresh();
                 labelCity.Text = "";
+                updateOriDesti();
             }
             else
                 MessageBox.Show("Selecciona una ciudad", "Advertencia",
@@ -383,6 +392,22 @@ namespace Airline
             resultados(listaDijkstra, inicial);
         }
 
+        public void Dijkstra(Node inicial, int option,string final)
+        {
+            List<DijkstraObject> listaDijkstra = new List<DijkstraObject>();
+            int pesoActual = 0;
+            Node seleccionado = inicial;
+
+            iniciaListaDijkstra(listaDijkstra, inicial);
+            foreach (DijkstraObject dobj in listaDijkstra)
+            {
+                actualizaPeso(listaDijkstra, seleccionado, graph, pesoActual, option);
+                sigDefinitivo(listaDijkstra, ref seleccionado, ref pesoActual);
+            }
+
+            resultados(listaDijkstra, inicial,final);
+        }
+
         private void iniciaListaDijkstra(List<DijkstraObject> listaDijkstra, Node inicial)
         {
             foreach(Node node in graph.getNodeList())
@@ -441,13 +466,12 @@ namespace Airline
 
         private DijkstraObject getProveniente(List<DijkstraObject> listaDijkstra, Node seleccionado)
         {
-            DijkstraObject nulo = new DijkstraObject();
             foreach(DijkstraObject dijkstraObj in listaDijkstra)
             {
                 if (dijkstraObj.getNodo() == seleccionado)
                     return dijkstraObj;
             }
-
+            DijkstraObject nulo = new DijkstraObject();
             return nulo;
         }
 
@@ -507,6 +531,47 @@ namespace Airline
             }
         }
 
+        private void resultados(List<DijkstraObject> listaDijkstra, Node inicial, string final)
+        {
+            foreach (DijkstraObject dijkstraObj in listaDijkstra)
+            {
+                if (dijkstraObj.getPeso() != 1000000000 && dijkstraObj.getPeso() != 0)
+                {
+                    //origen, destino, peso, recorrido
+                    string recorrido = "";
+                    string agregar = "";
+                    DijkstraObject proveniente = dijkstraObj;
+                    string[] arrString = new string[4];
+                    arrString[0] = inicial.getCity().getName();
+                    arrString[1] = dijkstraObj.getNodo().getCity().getName();
+                    arrString[2] = dijkstraObj.getPeso().ToString();
+
+                    while (proveniente.getNodo() != inicial)
+                    {
+                        agregar = proveniente.getNodo().getCity().getName();
+                        recorrido += agregar;
+                        recorrido += "<-";
+                        proveniente = proveniente.getProveniente();
+                    }
+                    recorrido += inicial.getCity().getName();
+                    arrString[3] = recorrido;
+                    ListViewItem items = new ListViewItem(arrString);
+                    if(recorrido.Contains(final))
+                    {
+                        listViewDijkstra.Items.Add(items);
+                        recorridoOD = recorrido;
+                        break;
+                    }    
+                }
+            }
+            
+            if(listViewDijkstra.Items.Count == 0)
+            {
+                MessageBox.Show("No existe ruta", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
         private void buttonKruskal_Click(object sender, EventArgs e)
         {
             kruskal();
@@ -517,7 +582,7 @@ namespace Airline
         {
             int option = 0;
             string inicio, fin;
-            Node inicial, final;
+            Node inicial;
             listViewDijkstra.Items.Clear();
             if(radioButtonTime.Enabled)
             {
@@ -533,19 +598,78 @@ namespace Airline
                 if(comboBoxDestination.SelectedIndex < 0)
                 {
                     inicio = comboBoxOrigin.SelectedItem.ToString();
-                    foreach(Node node in graph.getNodeList())
+                    inicial = obtenerNodo(inicio);
+                    Dijkstra(inicial, option);
+                }
+                else
+                {
+                    inicio = comboBoxOrigin.SelectedItem.ToString();
+                    fin = comboBoxDestination.SelectedItem.ToString();
+                    if(inicio != fin)
                     {
-                        if(node.getCity().getName() == inicio)
-                        {
-                            inicial = node;
-                            Dijkstra(inicial, option);
-                            break;
-                        }
+                        inicial = obtenerNodo(inicio);
+                        Dijkstra(inicial, option, fin);
                     }
-                    
+                    else
+                    {
+                        MessageBox.Show("No se puede seleccionar el origen", "Advertencia",
+                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             
+        }
+
+        private Node obtenerNodo(string name)
+        {
+            foreach (Node node in graph.getNodeList())
+            {
+                if (node.getCity().getName() == name)
+                {
+                    return node;
+                }
+            }
+            Node nulo = new Node();
+            return nulo;
+        }
+
+        private void buttonBuy_Click(object sender, EventArgs e)
+        {
+            Passenger passenger = new Passenger();
+            if (listViewDijkstra.Items.Count > 0)
+            {
+                obtenerRecorrido(ref recorridoOD);
+                Console.WriteLine(recorridoOD);
+                for(int i = 0; i < recorridoOD.Length - 1; i++)
+                {
+                    string ruta = "SK1";
+                    ruta += recorridoOD[i];
+                    ruta += recorridoOD[i + 1];
+                    
+                    FlightReservation fg = new FlightReservation(flights, ruta, passenger, i);
+                    fg.ShowDialog();
+                    passenger = fg.getPassengerD();
+
+                }
+                
+            }
+            else
+            {
+                // no hay vuelo 
+            }
+        }
+
+        private void obtenerRecorrido(ref string recorrido)
+        {
+            string recorridoNuevo = "";
+            for (int i = recorrido.Length - 1; i >= 0; i--)
+            {
+                if(recorrido[i] != '-' && recorrido[i] != '<')
+                {
+                    recorridoNuevo += recorrido[i];
+                }
+            }
+            recorrido = recorridoNuevo;
         }
 
         private void buttonPrim_Click(object sender, EventArgs e)

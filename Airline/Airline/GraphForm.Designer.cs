@@ -50,6 +50,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonBuy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panelMap
@@ -198,7 +199,7 @@
             // 
             // buttonDijkstra
             // 
-            this.buttonDijkstra.Location = new System.Drawing.Point(1259, 520);
+            this.buttonDijkstra.Location = new System.Drawing.Point(1223, 520);
             this.buttonDijkstra.Name = "buttonDijkstra";
             this.buttonDijkstra.Size = new System.Drawing.Size(75, 23);
             this.buttonDijkstra.TabIndex = 0;
@@ -239,11 +240,22 @@
             this.columnHeader4.Text = "Recorrido";
             this.columnHeader4.Width = 100;
             // 
+            // buttonBuy
+            // 
+            this.buttonBuy.Location = new System.Drawing.Point(1312, 520);
+            this.buttonBuy.Name = "buttonBuy";
+            this.buttonBuy.Size = new System.Drawing.Size(75, 23);
+            this.buttonBuy.TabIndex = 17;
+            this.buttonBuy.Text = "Reservar";
+            this.buttonBuy.UseVisualStyleBackColor = true;
+            this.buttonBuy.Click += new System.EventHandler(this.buttonBuy_Click);
+            // 
             // GraphForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1411, 741);
+            this.Controls.Add(this.buttonBuy);
             this.Controls.Add(this.listViewDijkstra);
             this.Controls.Add(this.buttonDijkstra);
             this.Controls.Add(this.labelDestination);
@@ -292,5 +304,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button buttonBuy;
     }
 }
